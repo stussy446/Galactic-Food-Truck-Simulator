@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] float movementSpeed = 11f;
 
-    Vector2 horizontalInput;
+    Vector2 playerMovement;
 
     private void Update()
     {
-        Vector3 horizontalVelocity = CalculateHorizontalVelocity();
-        characterController.Move(horizontalVelocity * Time.deltaTime);
+        Move();
     }
 
     /// <summary>
@@ -22,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="receivedHorizontalInput">Vector2</param>
     public void ReceiveInput(Vector2 receivedHorizontalInput)
     {
-        horizontalInput = receivedHorizontalInput;
+        playerMovement = receivedHorizontalInput;
     }
 
     /// <summary>
@@ -31,10 +28,16 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>Vector3 representing the calculated velocity</returns>
     private Vector3 CalculateHorizontalVelocity()
     {
-        Vector3 xVelocity = transform.right * horizontalInput.x;
-        Vector3 yVelocity = transform.forward * horizontalInput.y;
+        Vector3 xVelocity = transform.right * playerMovement.x;
+        Vector3 yVelocity = transform.forward * playerMovement.y;
 
         return (xVelocity + yVelocity) * movementSpeed;
+    }
+
+    private void Move()
+    {
+        Vector3 horizontalVelocity = CalculateHorizontalVelocity();
+        characterController.Move(horizontalVelocity * Time.deltaTime);
     }
 
 }
