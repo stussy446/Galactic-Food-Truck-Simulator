@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
@@ -33,8 +31,25 @@ public class CameraMover : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
+        RotateHorizontally();
+        RotateVertically();
+    }
 
+    #region Rotation Logic 
+
+    /// <summary>
+    /// Handles rotating the camera around the y axis based on the received mouseX input
+    /// </summary>
+    private void RotateHorizontally()
+    {
+        transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Handles rotating the camera around the x axis based on the received mouseY input
+    /// </summary>
+    private void RotateVertically()
+    {
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
 
@@ -42,6 +57,7 @@ public class CameraMover : MonoBehaviour
         targetRotation.x = xRotation;
         playerCamera.eulerAngles = targetRotation;
     }
+    #endregion
 
     /// <summary>
     /// Receives a Vector2 representing the mouses input and stores values into mouseX and mouseY fields

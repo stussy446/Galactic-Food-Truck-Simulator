@@ -31,7 +31,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        // passes the input value to the PlayerMovement script for each frame
+        // passes the input value to the PlayerMovement script and CameraMover script each frame
         playerMovement.ReceiveInput(horizontalInput); 
         cameraMover.ReceiveInput(mouseInput);
     }
