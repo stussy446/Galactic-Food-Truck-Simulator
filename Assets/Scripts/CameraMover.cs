@@ -8,6 +8,7 @@ public class CameraMover : MonoBehaviour
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
 
+    [Header("Camera and Camera Bounds")]
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
     float xRotation = 0f;
@@ -17,16 +18,22 @@ public class CameraMover : MonoBehaviour
 
     private void Awake()
     {
-        // removes default main camera from scene to ensure the players fps camera is the one used 
+        RemoveExtraCameras();
+    }
+
+    /// <summary>
+    /// Removes default main camera from scene to ensure the players fps camera is the one used
+    /// </summary>
+    private void RemoveExtraCameras()
+    {
         Camera[] cameras = FindObjectsOfType<Camera>();
-        foreach(Camera camera in cameras)
+        foreach (Camera camera in cameras)
         {
             if (!camera.CompareTag(PlayerCameraTag))
             {
                 Destroy(camera.gameObject);
             }
         }
-
     }
 
     private void Update()
@@ -34,8 +41,6 @@ public class CameraMover : MonoBehaviour
         RotateHorizontally();
         RotateVertically();
     }
-
-    #region Rotation Logic 
 
     /// <summary>
     /// Handles rotating the camera around the y axis based on the received mouseX input
@@ -57,7 +62,6 @@ public class CameraMover : MonoBehaviour
         targetRotation.x = xRotation;
         playerCamera.eulerAngles = targetRotation;
     }
-    #endregion
 
     /// <summary>
     /// Receives a Vector2 representing the mouses input and stores values into mouseX and mouseY fields

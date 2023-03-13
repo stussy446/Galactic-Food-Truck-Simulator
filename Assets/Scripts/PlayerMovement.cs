@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         return (xVelocity + yVelocity) * movementSpeed;
     }
 
+    /// <summary>
+    /// Moves the player with the character controller based on the calculated horizontal velocity
+    /// </summary>
     private void Move()
     {
         Vector3 horizontalVelocity = CalculateHorizontalVelocity();
