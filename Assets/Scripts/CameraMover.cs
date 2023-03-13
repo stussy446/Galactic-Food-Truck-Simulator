@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
+    const string PlayerCameraTag = "Player";
+
     [Header("Mouse Sensitivity")]
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
@@ -15,6 +17,19 @@ public class CameraMover : MonoBehaviour
     float mouseX;
     float mouseY;
 
+    private void Awake()
+    {
+        // removes default main camera from scene to ensure the players fps camera is the one used 
+        Camera[] cameras = FindObjectsOfType<Camera>();
+        foreach(Camera camera in cameras)
+        {
+            if (!camera.CompareTag(PlayerCameraTag))
+            {
+                Destroy(camera.gameObject);
+            }
+        }
+
+    }
 
     private void Update()
     {
