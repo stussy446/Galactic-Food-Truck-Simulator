@@ -50,9 +50,12 @@ public class SaveUniverseButton : MonoBehaviour
             return;
         }
 
-        // if the button is being pressed, increase slider value
-        dangerLevel += increaseSliderFactor * Time.deltaTime;
-        SetDangerLevel(dangerLevel);
+        // if the button is being pressed, increase slider value if it hasn't reached max value
+        if (dangerLevel < maxDangerLevel)
+        {
+            dangerLevel += increaseSliderFactor * Time.deltaTime;
+            SetDangerLevel(dangerLevel);
+        }      
     }
 
     /// <summary>
