@@ -7,14 +7,18 @@ using UnityEngine.UI;
 
 public class SaveUniverseButton : MonoBehaviour
 {
+    // Reference to the slider that shows how close player is to losing
     [SerializeField] private Slider slider;
 
+    // Set max possible danger value and current danger value
     private float maxDangerLevel = 100;
     private float dangerLevel = 100;
 
+    // Set how fast slilder lowers and how fast it increases
     private float dropSliderFactor = 0.75f;
     private float increaseSliderFactor = 8f;
 
+    // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
 
     private void OnMouseDrag()
@@ -27,16 +31,18 @@ public class SaveUniverseButton : MonoBehaviour
         buttonBeingClicked = false;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Sets max value of the slider
         slider.maxValue = maxDangerLevel;
+
+        // Sets current danger level to max
         dangerLevel = maxDangerLevel;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // if the button is not being clicked, decrease slider value
         if (!buttonBeingClicked)
         {
             dangerLevel -= dropSliderFactor * Time.deltaTime;
@@ -44,10 +50,15 @@ public class SaveUniverseButton : MonoBehaviour
             return;
         }
 
+        // if the button is being pressed, increase slider value
         dangerLevel += increaseSliderFactor * Time.deltaTime;
         SetDangerLevel(dangerLevel);
     }
 
+    /// <summary>
+    /// Sets the slider value.
+    /// </summary>
+    /// <param name="level">What value to set the slider to.</param>
     private void SetDangerLevel(float level)
     {
         slider.value = level;
