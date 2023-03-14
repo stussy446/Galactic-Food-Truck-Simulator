@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game State for when user is simply walking around the environment.
+/// </summary>
 public class FreeRoamingState : StateAbstract
 {
     private StateAbstract goToState;

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game State for when user can only interact with the "Save the Universe" Button.
+/// </summary>
 public class PressingButtonState : StateAbstract
 {
     private StateAbstract goToState;

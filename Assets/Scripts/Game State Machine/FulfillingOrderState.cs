@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game State for whenever user enters the food replicator UI.
+/// </summary>
 public class FulfillingOrderState : StateAbstract
 {
     public override void EnterState(StateManager manager)

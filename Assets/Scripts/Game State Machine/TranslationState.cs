@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game State for whenever user is exclusively interacting with the translator.
+/// </summary>
 public class TranslationState : StateAbstract
 {
     public override void EnterState(StateManager manager)

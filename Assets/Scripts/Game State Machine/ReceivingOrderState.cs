@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game State for whenever a new customer pops up.
+/// </summary>
 public class ReceivingOrderState : StateAbstract
 {
     public override void EnterState(StateManager manager)
