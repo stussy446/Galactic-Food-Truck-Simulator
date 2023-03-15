@@ -29,7 +29,7 @@ public class CameraMover : MonoBehaviour
         Camera[] cameras = FindObjectsOfType<Camera>();
         foreach (Camera camera in cameras)
         {
-            if (!camera.CompareTag(PlayerCameraTag))
+            if (camera.GetComponentInParent<PlayerMovement>() == null)
             {
                 Destroy(camera.gameObject);
             }
