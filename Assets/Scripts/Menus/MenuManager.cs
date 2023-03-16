@@ -10,6 +10,13 @@ public class MenuManager : MonoBehaviour
 
     public void Awake()
     {
+        SetUpMenus();
+        DeactivateAllMenus();
+        ActivateMenu(MenuType.Start);
+    }
+
+    private void SetUpMenus()
+    {
         Menu[] menusList = GetComponentsInChildren<Menu>();
         foreach (var menu in menusList)
         {
@@ -17,8 +24,16 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ActivateMenu()
+    private void DeactivateAllMenus()
     {
+        foreach (var key in menus.Keys)
+        {
+            menus[key].gameObject.SetActive(false);
+        }
+    }
 
+    public void ActivateMenu(MenuType menuType)
+    {
+        menus[menuType].gameObject.SetActive(true); 
     }
 }
