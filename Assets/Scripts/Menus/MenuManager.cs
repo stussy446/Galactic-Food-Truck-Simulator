@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
 
     public void Awake()
     {
+        Instance = this;
+
         SetUpMenus();
         DeactivateAllMenus();
         ActivateMenu(MenuType.Start);
@@ -34,6 +36,7 @@ public class MenuManager : MonoBehaviour
 
     public void ActivateMenu(MenuType menuType)
     {
+        DeactivateAllMenus();
         menus[menuType].ActivateMenu();
     }
 }

@@ -82,7 +82,8 @@ public class CameraMover : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // TODO: start the game
+                MenuManager.Instance.ActivateMenu(MenuType.EightItem);
+                // enter replication state here 
             }
         }
     }
