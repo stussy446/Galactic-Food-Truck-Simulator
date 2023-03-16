@@ -80,7 +80,10 @@ public class CameraMover : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange, interactableLayer))
         {
-            Debug.Log(hit.transform.name);
+            if (Input.GetMouseButtonDown(0))
+            {
+                // TODO: start the game
+            }
         }
     }
 
