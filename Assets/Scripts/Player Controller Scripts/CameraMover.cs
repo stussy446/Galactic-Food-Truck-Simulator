@@ -19,6 +19,7 @@ public class CameraMover : MonoBehaviour
     private void Awake()
     {
         RemoveExtraCameras();
+        LockCursor();
     }
 
     /// <summary>
@@ -40,6 +41,23 @@ public class CameraMover : MonoBehaviour
     {
         RotateHorizontally();
         RotateVertically();
+        ToggleCursorMode();
+    }
+
+    /// <summary>
+    /// Sets cursor to locked or none state based upon user input 
+    /// </summary>
+    private void ToggleCursorMode()
+    {
+        // TODO: refactor to new input system 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnlockCursor();
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && Cursor.lockState != CursorLockMode.Locked)
+        {
+            LockCursor();
+        }
     }
 
     /// <summary>
@@ -72,5 +90,16 @@ public class CameraMover : MonoBehaviour
         mouseX = mouseInput.x * sensitivityX;
         mouseY = mouseInput.y * sensitivityY;
     }
+
+    private void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 
 }
