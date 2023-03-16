@@ -28,12 +28,12 @@ public class MenuManager : MonoBehaviour
     {
         foreach (var key in menus.Keys)
         {
-            menus[key].gameObject.SetActive(false);
+            menus[key].DeactivateMenu();
         }
     }
 
     public void ActivateMenu(MenuType menuType)
     {
-        menus[menuType].gameObject.SetActive(true); 
+        menus[menuType].ActivateMenu();
     }
 }
