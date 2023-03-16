@@ -8,17 +8,20 @@ public class CameraMover : MonoBehaviour
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
 
-    [Header("Camera and Camera Bounds")]
+    [Header("Camera and Camera Configs")]
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
+    [SerializeField] float detectionRange = 1000f;
     float xRotation = 0f;
 
     float mouseX;
     float mouseY;
+    Camera cam;
 
     private void Awake()
     {
         RemoveExtraCameras();
+        cam = Camera.main;
         LockCursor();
     }
 
@@ -42,22 +45,8 @@ public class CameraMover : MonoBehaviour
         RotateHorizontally();
         RotateVertically();
         ToggleCursorMode();
-    }
 
-    /// <summary>
-    /// Sets cursor to locked or none state based upon user input 
-    /// </summary>
-    private void ToggleCursorMode()
-    {
-        // TODO: refactor to new input system 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            UnlockCursor();
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && Cursor.lockState != CursorLockMode.Locked)
-        {
-            LockCursor();
-        }
+        Aim();
     }
 
     /// <summary>
@@ -82,6 +71,19 @@ public class CameraMover : MonoBehaviour
     }
 
     /// <summary>
+    /// Casts a ray from the center of the screen and detects what the player is currently looking at 
+    /// </summary>
+    private void Aim()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange))
+        {
+            Debug.Log(hit.transform.name);
+        }
+    }
+
+    /// <summary>
     /// Receives a Vector2 representing the mouses input and stores values into mouseX and mouseY fields
     /// </summary>
     /// <param name="mouseInput">Vector2</param>
@@ -91,15 +93,35 @@ public class CameraMover : MonoBehaviour
         mouseY = mouseInput.y * sensitivityY;
     }
 
+    /// <summary>
+    /// locks the cursor to the game screen
+    /// </summary>
     private void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    /// <summary>
+    /// unlocks the cursor from the game screen
+    /// </summary>
     private void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
     }
 
-
+    /// <summary>
+    /// Sets cursor to locked or none state based upon user input 
+    /// </summary>
+    private void ToggleCursorMode()
+    {
+        // TODO: refactor to new input system 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnlockCursor();
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && Cursor.lockState != CursorLockMode.Locked)
+        {
+            LockCursor();
+        }
+    }
 }
