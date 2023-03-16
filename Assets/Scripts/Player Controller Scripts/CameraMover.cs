@@ -12,6 +12,7 @@ public class CameraMover : MonoBehaviour
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
     [SerializeField] float detectionRange = 1000f;
+    [SerializeField] LayerMask interactableLayer;
     float xRotation = 0f;
 
     float mouseX;
@@ -77,7 +78,7 @@ public class CameraMover : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange, interactableLayer))
         {
             Debug.Log(hit.transform.name);
         }
