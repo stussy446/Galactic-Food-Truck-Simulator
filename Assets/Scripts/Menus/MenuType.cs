@@ -3,5 +3,5 @@ public enum MenuType
 {
     Start,
     EightItem,
-    // will add four item, 2 item, etc as needed
+    // TODO: will add four item, 2 item, etc as needed
 }

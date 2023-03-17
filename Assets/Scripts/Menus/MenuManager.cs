@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +22,9 @@ public class MenuManager : MonoBehaviour
         ActivateMenu(MenuType.Start);
     }
 
+    /// <summary>
+    /// Creates dictionary of all available menus and starts the game with the Start menu activated 
+    /// </summary>
     private void SetUpMenus()
     {
         Menu[] menusList = GetComponentsInChildren<Menu>();
@@ -34,6 +36,9 @@ public class MenuManager : MonoBehaviour
         activeMenuType = MenuType.Start;
     }
 
+    /// <summary>
+    /// Deactivates all menus 
+    /// </summary>
     private void DeactivateAllMenus()
     {
         foreach (var key in menus.Keys)
@@ -42,6 +47,10 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deactivates all other menus and then activates a specified menu based on the provided MenuType
+    /// </summary>
+    /// <param name="menuType">MenuType to be activated</param>
     public void ActivateMenu(MenuType menuType)
     {
         DeactivateAllMenus();
