@@ -7,6 +7,12 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;
 
     Dictionary<MenuType, Menu> menus = new Dictionary<MenuType, Menu>();
+    MenuType activeMenuType;
+
+    public MenuType ActiveMenuType
+    {
+        get { return activeMenuType; }
+    }
 
     public void Awake()
     {
@@ -24,6 +30,8 @@ public class MenuManager : MonoBehaviour
         {
             menus.Add(menu.MenuType, menu);
         }
+
+        activeMenuType = MenuType.Start;
     }
 
     private void DeactivateAllMenus()
@@ -38,5 +46,6 @@ public class MenuManager : MonoBehaviour
     {
         DeactivateAllMenus();
         menus[menuType].ActivateMenu();
+        activeMenuType = menuType;
     }
 }

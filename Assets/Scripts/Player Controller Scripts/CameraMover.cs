@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
-    const string PlayerCameraTag = "Player";
-
     [Header("Mouse Sensitivity")]
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
@@ -18,12 +16,15 @@ public class CameraMover : MonoBehaviour
     float mouseX;
     float mouseY;
     Camera cam;
+    InputManager inputManager;
 
     private void Awake()
     {
         RemoveExtraCameras();
         cam = Camera.main;
         LockCursor();
+
+        inputManager = GetComponent<InputManager>();
     }
 
     /// <summary>
@@ -72,7 +73,8 @@ public class CameraMover : MonoBehaviour
     }
 
     /// <summary>
-    /// Casts a ray from the center of the screen and detects what the player is currently looking at 
+    /// Casts a ray from the center of the screen and detects what the player is currently looking at if its on the UI layer, should 
+    /// only be used when start menu is active 
     /// </summary>
     private void Aim()
     {
@@ -82,8 +84,12 @@ public class CameraMover : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
                 MenuManager.Instance.ActivateMenu(MenuType.EightItem);
-                // enter replication state here 
+
+                // TODO: Enter replication state here, code below is to confirm functionality and should likely be refactored to state machine later 
+                inputManager.DisableMovement();
+                UnlockCursor();
             }
         }
     }

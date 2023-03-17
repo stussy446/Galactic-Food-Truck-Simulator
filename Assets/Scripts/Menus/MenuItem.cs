@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuItem : MonoBehaviour
 {
+    [SerializeField] MenuItemConfig config;
+
     // Start is called before the first frame update
     void Start()
     {
