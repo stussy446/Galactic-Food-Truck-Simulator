@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuItemConfig : ScriptableObject
 {
     public string itemName;
-    public Image image;
+    public Sprite image;
     // maybe id as well? will need to get that from a different source later to make sure its always incremented by one.
     // initial thoughts: MenuManager can be static and tell the configs their id based on how many menuitems already exist in its list
     
