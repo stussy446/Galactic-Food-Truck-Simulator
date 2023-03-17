@@ -25,6 +25,7 @@ public class CameraMover : MonoBehaviour
         LockCursor();
 
         inputManager = GetComponent<InputManager>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
@@ -130,7 +131,7 @@ public class CameraMover : MonoBehaviour
         {
             UnlockCursor();
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && Cursor.lockState != CursorLockMode.Locked)
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && Cursor.lockState != CursorLockMode.Locked)
         {
             LockCursor();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MenuItem : MonoBehaviour
 {
@@ -22,6 +23,16 @@ public class MenuItem : MonoBehaviour
         UpdateImage();
     }
 
+    private void OnEnable()
+    {
+        itemButton.onClick.AddListener(PerformButtonAction);
+    }
+
+    private void OnDisable()
+    {
+        itemButton.onClick.RemoveAllListeners();
+    }
+
     private void UpdateText()
     {
         itemText.text = itemName;
@@ -31,4 +42,9 @@ public class MenuItem : MonoBehaviour
     {
         itemButton.image.sprite = itemImage;
     }
+    private void PerformButtonAction()
+    {
+        Debug.Log($"you've chose {itemName}, nice choice");
+    }
+
 }
