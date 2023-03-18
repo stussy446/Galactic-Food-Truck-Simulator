@@ -23,22 +23,17 @@ public class TranslatorFunction : MonoBehaviour
 
     void RunTranslator()
     {
-        if(languageIndex >= LinesDatabase.Instance.GetLanguageSize())
+        
+        languageIndex++;
+
+        if (languageIndex >= LinesDatabase.Instance.GetLanguageSize())
         {
             languageIndex = 0;
         }
-        if(languageIndex == languageID)
-        {
-            outputText.text = LinesDatabase.Instance.GetLine(0, lineID);
-        }
-        else
-        {
-            if (languageIndex == 0)
-                outputText.text = "Gibberish";
-            else
-                outputText.text = LinesDatabase.Instance.GetLine(languageIndex, lineID);
-        }
-        languageIndex++;
+
+        outputText.text = LinesDatabase.Instance.GetLine(languageIndex, lineID);
+        
+        
     }
 
     public void OnRandomLineClicked()
@@ -46,13 +41,22 @@ public class TranslatorFunction : MonoBehaviour
         lineID = Random.Range(0, LinesDatabase.Instance.GetLineSize());
 
         languageID = Random.Range(0, LinesDatabase.Instance.GetLanguageSize());
+        languageIndex = languageID;
 
         inputText.text = LinesDatabase.Instance.GetLine(languageID, lineID);
+        outputText.text = LinesDatabase.Instance.GetLine(languageIndex, lineID);
+
+        TranslateActions.OnNewOrder(this);
     }
 
     private void OnDisable()
     {
         TranslateActions.OnDialClicked -= RunTranslator;
+    }
+
+    public int GetLanguageID()
+    {
+        return languageID;
     }
 
 

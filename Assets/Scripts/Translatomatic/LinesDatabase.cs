@@ -18,11 +18,9 @@ public class LinesDatabase : MonoBehaviour
         }
         else
             Instance = this;
-    }
-    private void Start()
-    {
+
         //Generate list of test languages until database can be implemented
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             languageList.Add(new SpokenLines(i));
             switch (i)
@@ -51,14 +49,35 @@ public class LinesDatabase : MonoBehaviour
 
                         break;
                     }
+                case 3:
+                    {
+                        languageList[i].Addline("Hista sia NglishEa");
+                        languageList[i].Addline("Ia ouldwa ikela aa urgerba");
+                        languageList[i].Addline("Neoa vilea Eola, leasepa");
+                        break;
+                    }
+                case 4:
+                    {
+                        languageList[i].Addline("Questo è inglese");
+                        languageList[i].Addline("Vorrei un hamburger");
+                        languageList[i].Addline("Un Leone malvagio, per favore");
+                        break;
+                    }
+                case 5:
+                    {
+                        languageList[i].Addline("Isso é inglês");
+                        languageList[i].Addline("eu gostaria de um hamburguer");
+                        languageList[i].Addline("Um Leo malvado, por favor");
+                        break;
+                    }
                 default: break;
 
             }
 
         }
         linesSize = 3;
-
     }
+
 
     public string GetLine(int langID, int lineID)
     {

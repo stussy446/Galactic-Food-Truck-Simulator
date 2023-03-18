@@ -6,4 +6,6 @@ using System;
 public static class TranslateActions
 {
     public static Action OnDialClicked;
+
+    public static Action<TranslatorFunction> OnNewOrder;
 }
