@@ -40,4 +40,14 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Disable();
     }
+
+    public void DisableMovement()
+    {
+        this.enabled = false;
+    }
+
+    public void EnableMovement()
+    {
+        this.enabled = true;
+    }
 }
