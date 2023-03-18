@@ -7,14 +7,28 @@ public class OrderingState : MonoBehaviour
     VoiceOverManager voiceOverManager;
 
     [SerializeField]
-    private GameObject customerSpawnLocation;
+    private Transform customerSpawnLocation;
+    [SerializeField]
+    private Transform customerOrderLocation;
 
+    [SerializeField]
+    private GameObject alienCustomer;
+
+    [SerializeField]
+    private float alienSpeed = 10f;
+
+    private Rigidbody alienRigidbody;
+
+    [SerializeField]
+    public bool correctOrderFufilled;
 
    /// <summary>
    /// Populates customer with character model, orderID, and VO
    /// </summary>
     void Start()
     {
+        alienRigidbody = alienCustomer.GetComponent<Rigidbody>();
+
         CustomerEnterAnimation();
         //need time for the customer to arrive before voice
         CustomerVoiceClip();
@@ -22,13 +36,16 @@ public class OrderingState : MonoBehaviour
 
     private void CustomerEnterAnimation()
     {
+        Instantiate(alienCustomer, customerSpawnLocation);
+        alienCustomer.transform.position = Vector3.MoveTowards(transform.position, customerOrderLocation.position, alienSpeed * Time.deltaTime);
         //TODO: Connect visual of customer arrival
         // Spawn customer and move them to window
     }
     private void CustomerVoiceClip()
     {
         //TODO:Trigger voice clip for entrance
-        voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
+        //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
+        Debug.Log("BEEPBOORP please");
     }
 
  
@@ -39,6 +56,21 @@ public class OrderingState : MonoBehaviour
   
     void Update()
     {
-        
+        if (alienCustomer.transform.position != customerOrderLocation.transform.position)
+        {
+            alienCustomer.transform.position = Vector3.Lerp(alienCustomer.transform.position, customerOrderLocation.transform.position, alienSpeed * Time.deltaTime);
+        }
+        if (correctOrderFufilled)
+        {
+            //Change to EndState
+        }
+        else
+        {
+            // voiceOverManager.PlayAudioClip() wrong food choice
+            //send player back to FufillingState
+            correctOrderFufilled = false;
+        }
     }
+
+    //Destroy listeners
 }

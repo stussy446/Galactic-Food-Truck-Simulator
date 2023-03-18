@@ -5,8 +5,8 @@ using TMPro;
 
 public class WaitingInLineState : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI timer;
+   // [SerializeField]
+   // private TextMeshProUGUI timer;
 
     private float currentTime = 0f;
     private float startingTime = 10f;
@@ -25,7 +25,7 @@ public class WaitingInLineState : MonoBehaviour
     void Update()
     {
         currentTime-= 1 * Time.deltaTime;
-        timer.text = currentTime.ToString("0");    
+       // timer.text = currentTime.ToString("0");    
         
         if(currentTime <= 0)
         {
