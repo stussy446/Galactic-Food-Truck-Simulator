@@ -478,7 +478,7 @@ MonoBehaviour:
   sensitivityY: 0.25
   playerCamera: {fileID: 6255896258682953767}
   xClamp: 70
-  detectionRange: 1000
+  detectionRange: 4
   interactableLayer:
     serializedVersion: 2
     m_Bits: 32
