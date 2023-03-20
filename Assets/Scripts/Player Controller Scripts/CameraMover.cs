@@ -20,16 +20,12 @@ public class CameraMover : MonoBehaviour
     float mouseX;
     float mouseY;
     Camera cam;
-    InputManager inputManager;
 
     private void Awake()
     {
         RemoveExtraCameras();
         cam = Camera.main;
         LockCursor();
-
-        inputManager = GetComponent<InputManager>();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
@@ -97,12 +93,12 @@ public class CameraMover : MonoBehaviour
                 // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
                 MenuManager.Instance.ActivateMenu(MenuType.EightItem);
 
-                // TODO: Enter replication state here, code below is to confirm functionality and should likely be refactored to state machine later 
-                inputManager.DisableMovement();
-                UnlockCursor();
+                ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
             }
         }
     }
+
+
 
     /// <summary>
     /// Sphere sweep to identify if there is an interactable item in range
