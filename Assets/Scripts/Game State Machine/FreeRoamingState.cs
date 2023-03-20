@@ -38,8 +38,7 @@ public class FreeRoamingState : StateAbstract
     /// <param name="type"></param>
     private void SwitchStateListener(ActionType type)
     {
-        // Switch case based on type to figure out which state will be the goToState
-
+        //Switch case based on type to figure out which state will be the goToState
         switch (type)
         {
             case ActionType.ButtonPressed:
@@ -56,6 +55,7 @@ public class FreeRoamingState : StateAbstract
                 break;
         }
 
+        // Exit Free romaing state to the state that was passed in by the action
         ExitState(StateManager.instance);
     }
 

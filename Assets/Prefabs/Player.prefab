@@ -482,3 +482,6 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 32
+  itemsLayer:
+    serializedVersion: 2
+    m_Bits: 64

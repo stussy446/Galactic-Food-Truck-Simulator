@@ -1,7 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
+    private const string CAN_INTERACT_LAYER = "CanInteract";
+
     [Header("Mouse Sensitivity")]
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
@@ -11,6 +14,7 @@ public class CameraMover : MonoBehaviour
     [SerializeField] float xClamp = 85f;
     [SerializeField] float detectionRange = 1000f;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask itemsLayer;
     float xRotation = 0f;
 
     float mouseX;
@@ -50,6 +54,11 @@ public class CameraMover : MonoBehaviour
         ToggleCursorMode();
 
         Aim();
+        GameObject interactable = FindInteractableItem();
+        if (interactable != null)
+        {
+            Debug.Log(interactable.name);
+        }
     }
 
     /// <summary>
@@ -93,6 +102,25 @@ public class CameraMover : MonoBehaviour
                 UnlockCursor();
             }
         }
+    }
+
+    /// <summary>
+    /// Sphere sweep to identify if there is an interactable item in range
+    /// </summary>
+    /// <returns></returns>
+    private GameObject FindInteractableItem()
+    {
+        RaycastHit hit;
+        Vector3 origin = cam.transform.position;
+        Vector3 direction = cam.transform.forward;
+        float radius = 1f;
+
+        if (Physics.SphereCast(origin, radius, direction, out hit, detectionRange, itemsLayer))
+        {
+            return hit.collider.gameObject;
+        }
+
+        return null;
     }
 
     /// <summary>
