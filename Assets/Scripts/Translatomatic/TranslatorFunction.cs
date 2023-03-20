@@ -3,61 +3,63 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TranslatorFunction : MonoBehaviour
-{
 
-    [SerializeField] private TMP_Text inputText;
-    [SerializeField] private TMP_Text outputText;
-    private int lineID, languageID;
-
-    
-    private int languageIndex = 0;
-
-
-
-    private void OnEnable()
+    public class TranslatorFunction : MonoBehaviour
     {
-        TranslateActions.OnDialClicked += RunTranslator;
-    }
+
+        [SerializeField] private TMP_Text inputText;
+        [SerializeField] private TMP_Text outputText;
+        private int lineID, languageID;
 
 
-    void RunTranslator()
-    {
-        
-        languageIndex++;
+        private int languageIndex = 1;
 
-        if (languageIndex >= LinesDatabase.Instance.GetLanguageSize())
+
+
+        private void OnEnable()
         {
-            languageIndex = 0;
+            TranslateActions.OnDialClicked += RunTranslator;
         }
 
-        outputText.text = LinesDatabase.Instance.GetLine(languageIndex, lineID);
-        
-        
-    }
 
-    public void OnRandomLineClicked()
-    {
-        lineID = Random.Range(0, LinesDatabase.Instance.GetLineSize());
+        void RunTranslator()
+        {
 
-        languageID = Random.Range(0, LinesDatabase.Instance.GetLanguageSize());
-        languageIndex = languageID;
+            languageIndex++;
 
-        inputText.text = LinesDatabase.Instance.GetLine(languageID, lineID);
-        outputText.text = LinesDatabase.Instance.GetLine(languageIndex, lineID);
+            if (languageIndex > SqliteScript.GetLanguageSize())
+            {
+                languageIndex = 1;
+            }
 
-        TranslateActions.OnNewOrder(this);
-    }
+            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
 
-    private void OnDisable()
-    {
-        TranslateActions.OnDialClicked -= RunTranslator;
-    }
 
-    public int GetLanguageID()
-    {
-        return languageID;
-    }
+        }
+
+        public void OnRandomLineClicked()
+        {
+            lineID = Random.Range(1, SqliteScript.GetLineSize() + 1);
+
+            languageID = Random.Range(1, SqliteScript.GetLanguageSize() + 1);
+            languageIndex = languageID;
+
+            inputText.text = SqliteScript.GetLine(languageID, lineID);
+            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
+
+            TranslateActions.OnNewOrder(this);
+        }
+
+        private void OnDisable()
+        {
+            TranslateActions.OnDialClicked -= RunTranslator;
+        }
+
+        public int GetLanguageID()
+        {
+            return languageID;
+        }
 
 
 }
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TranslateButton : MonoBehaviour
 {
-    [SerializeField] private Vector3 dialAngle = new Vector3(0, 120f, 0);
+    [SerializeField] private Vector3 dialAngle;
 
     private void OnEnable()
     {
@@ -12,7 +12,7 @@ public class TranslateButton : MonoBehaviour
     }
     private void Start()
     {
-        dialAngle.y = 360 / LinesDatabase.Instance.GetLanguageSize();
+        dialAngle.y = 360 / (SqliteScript.GetLanguageSize() - 1);
     }
     void OnMouseDown()
     {
