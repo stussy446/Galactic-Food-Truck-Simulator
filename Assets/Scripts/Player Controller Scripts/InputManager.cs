@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] CameraMover cameraMover;
     [SerializeField] GameObject reticle;
+    [SerializeField] Transform replicatorTransform;
+
 
     PlayerControls playerControls;
     PlayerControls.MovementActions movementActions;
@@ -49,13 +51,19 @@ public class InputManager : MonoBehaviour
 
     public void DisableMovement()
     {
-        this.enabled = false;
+        playerMovement.enabled = false;
+
+        transform.position = replicatorTransform.position;
+        transform.forward = replicatorTransform.forward;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
+
+        this.enabled = false;
     }
 
     public void EnableMovement()
     {
+        playerMovement.enabled = true;
         this.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         reticle.SetActive(true);
