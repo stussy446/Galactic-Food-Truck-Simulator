@@ -12,7 +12,7 @@ public class TranslateButton : MonoBehaviour
     }
     private void Start()
     {
-        dialAngle.y = 360 / (SqliteScript.GetLanguageSize() - 1);
+        dialAngle.y = 360 / (SqliteScript.GetLanguageSize());
     }
     void OnMouseDown()
     {
