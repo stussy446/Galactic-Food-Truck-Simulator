@@ -5,6 +5,13 @@ using Mono.Data.Sqlite;
 using System.Data;
 using static UnityEngine.Rendering.DebugUI;
 
+
+//TODO:
+// - Overload GetLine to take a string directly instead of an int for the table name
+// - Merge GetLanguageSise and get LineSize into 1 function
+// - Rework functions to take table names as input parameters instead of hardcoding
+
+
 public static class SqliteScript 
 {
     private static string dbURI = "URI=file:" + Application.dataPath + "/LinesDB.db";
@@ -24,7 +31,7 @@ public static class SqliteScript
         string language = reader.GetString(0);
         reader.Close();
 
-        query = $"SELECT LineValue FROM {language} WHERE LineID = {lineID};";
+        query = $"SELECT {language} FROM OrderTable WHERE LineID = {lineID};";
         command.CommandText = query;
         reader = command.ExecuteReader();
         reader.Read();
@@ -35,6 +42,7 @@ public static class SqliteScript
 
     }
 
+    //Returns the total number of unique language tables in the database
     public static int GetLanguageSize()
     {
         IDbConnection dbConnection = new SqliteConnection(dbURI);
@@ -52,11 +60,12 @@ public static class SqliteScript
         return returnCount;
     }
 
+    //Returns the total number of lines in a language table
     public static int GetLineSize()
     {
         IDbConnection dbConnection = new SqliteConnection(dbURI);
         dbConnection.Open();
-        string query = "SELECT COUNT(LineID) FROM English;";
+        string query = "SELECT COUNT(LineID) FROM OrderTable;";
         IDbCommand command = dbConnection.CreateCommand();
         int returnCount;
 
