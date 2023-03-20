@@ -10,6 +10,7 @@ public class FulfillingOrderState : StateAbstract
     public override void EnterState(StateManager manager)
     {
         // TODO: Bring order screen to main screen (think Among Us task)
+        Debug.Log("You are in the fulfilling order state!");
     }
 
     public override void ExitState(StateManager manager)
