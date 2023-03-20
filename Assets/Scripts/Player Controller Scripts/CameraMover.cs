@@ -92,6 +92,7 @@ public class CameraMover : MonoBehaviour
             {
                 // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
                 MenuManager.Instance.ActivateMenu(MenuType.EightItem);
+
                 ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
             }
         }
