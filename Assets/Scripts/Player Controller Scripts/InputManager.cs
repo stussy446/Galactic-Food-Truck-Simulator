@@ -52,6 +52,7 @@ public class InputManager : MonoBehaviour
         this.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
+        StateManager.instance.SwitchStates(new FulfillingOrderState());
     }
 
     public void EnableMovement()
@@ -59,5 +60,6 @@ public class InputManager : MonoBehaviour
         this.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         reticle.SetActive(true);
+        StateManager.instance.SwitchStates(new FreeRoamingState());
     }
 }
