@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [Header("Player and Camera Movement")]
+    [Header("Player and Camera Configs")]
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] CameraMover cameraMover;
+    [SerializeField] GameObject reticle;
 
     PlayerControls playerControls;
     PlayerControls.MovementActions movementActions;
 
     Vector2 horizontalInput;
     Vector2 mouseInput;
-
 
     private void Awake()
     {
@@ -27,6 +27,9 @@ public class InputManager : MonoBehaviour
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+
+        ActionList.OnEnteredFoodReplicator += ctx => DisableMovement();
+        ActionList.OnDoneReplicatingFood += ctx => EnableMovement();
     }
 
     private void Update()
@@ -39,15 +42,22 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControls.Disable();
+        
+        ActionList.OnEnteredFoodReplicator -= ctx => DisableMovement();
+        ActionList.OnDoneReplicatingFood -= ctx => EnableMovement();
     }
 
     public void DisableMovement()
     {
         this.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        reticle.SetActive(false);
     }
 
     public void EnableMovement()
     {
         this.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        reticle.SetActive(true);
     }
 }

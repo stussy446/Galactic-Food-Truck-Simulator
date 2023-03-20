@@ -52,7 +52,9 @@ public class MenuItem : MonoBehaviour
     /// </summary>
     private void PerformButtonAction()
     {
-        Debug.Log($"you've chose {itemName}, nice choice");
+        // TODO: logic for only invoking if the correct option is chosen 
+        Debug.Log($"{itemName} has been chosen");
+        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
     }
 
 }
