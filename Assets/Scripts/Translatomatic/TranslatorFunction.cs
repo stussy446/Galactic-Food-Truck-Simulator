@@ -27,7 +27,7 @@ using UnityEngine;
 
             languageIndex++;
 
-            if (languageIndex > SqliteScript.GetLanguageSize())
+            if (languageIndex > SqliteScript.GetSize("LangID", "LangIndex"))
             {
                 languageIndex = 1;
             }
@@ -39,9 +39,9 @@ using UnityEngine;
 
         public void OnRandomLineClicked()
         {
-            lineID = Random.Range(1, SqliteScript.GetLineSize() + 1);
+            lineID = Random.Range(1, SqliteScript.GetSize("LineID", "OrderTable") + 1);
 
-            languageID = Random.Range(1, SqliteScript.GetLanguageSize() + 1);
+            languageID = Random.Range(1, SqliteScript.GetSize("LangID", "LangIndex") + 1);
             languageIndex = languageID;
 
             inputText.text = SqliteScript.GetLine(languageID, lineID);
