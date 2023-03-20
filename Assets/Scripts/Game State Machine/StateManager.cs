@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class StateManager : MonoBehaviour
 {
+    public static StateManager instance;
+
     // Cache whatever state user is currently in
     public StateAbstract currentState;
 
@@ -19,6 +22,11 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         // Sets currentState to the first state of the whole game
         currentState = freeRoamingState;
 

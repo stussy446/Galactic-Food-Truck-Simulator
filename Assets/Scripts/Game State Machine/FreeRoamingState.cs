@@ -13,20 +13,15 @@ public class FreeRoamingState : StateAbstract
     public override void EnterState(StateManager manager)
     {
         // TODO: User regains ability to move around and interact with the environment
-        ActionList.OnEnteredButtonPressing += SwitchStateListener;
-        ActionList.OnEnteredTranslator += SwitchStateListener;
-        ActionList.OnEnteredFoodReplicator += SwitchStateListener;
-        ActionList.OnCustomerArrived += SwitchStateListener;
+        Debug.Log("Free Roaming State");
+        AddRelevantListeners();
     }
 
     public override void ExitState(StateManager manager)
     {       
         if (goToState == null) { return; }
 
-        ActionList.OnEnteredButtonPressing -= SwitchStateListener;
-        ActionList.OnEnteredTranslator -= SwitchStateListener;
-        ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
-        ActionList.OnCustomerArrived -= SwitchStateListener;
+        RemoveRelevantListeners();
 
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);
@@ -44,7 +39,39 @@ public class FreeRoamingState : StateAbstract
     private void SwitchStateListener(ActionType type)
     {
         // Switch case based on type to figure out which state will be the goToState
-        // ExitState();
+
+        switch (type)
+        {
+            case ActionType.ButtonPressed:
+                goToState = StateManager.instance.pressingButtonState;
+                break;
+            case ActionType.EnteredTranslator:
+                goToState = StateManager.instance.translationState;
+                break;
+            case ActionType.EnteredFoodReplicator:
+                goToState = StateManager.instance.fulfillingOrderState;
+                break;
+            case ActionType.CustomerArrived:
+                goToState = StateManager.instance.receivingOrderState;
+                break;
+        }
+
+        ExitState(StateManager.instance);
     }
 
+    private void AddRelevantListeners()
+    {
+        ActionList.OnEnteredButtonPressing += SwitchStateListener;
+        ActionList.OnEnteredTranslator += SwitchStateListener;
+        ActionList.OnEnteredFoodReplicator += SwitchStateListener;
+        ActionList.OnCustomerArrived += SwitchStateListener;
+    }
+
+    private void RemoveRelevantListeners()
+    {
+        ActionList.OnEnteredButtonPressing -= SwitchStateListener;
+        ActionList.OnEnteredTranslator -= SwitchStateListener;
+        ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
+        ActionList.OnCustomerArrived -= SwitchStateListener;
+    }
 }
