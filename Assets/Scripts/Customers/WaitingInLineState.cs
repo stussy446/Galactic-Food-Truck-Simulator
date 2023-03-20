@@ -1,35 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WaitingInLineState : MonoBehaviour
+public class WaitingInLineState : CustomerBaseState
 {
-   // [SerializeField]
-   // private TextMeshProUGUI timer;
+
+    /// <summary>
+    /// Creates timer and initiates countdown for state switch to OrderingState
+    /// </summary>
 
     private float currentTime = 0f;
-    private float startingTime = 10f;
+    private float startingTime = 5f;
 
-  /// <summary>
-  /// Sets timer to countdown amount
-  /// </summary>
-    void Start()
+
+    public override void EnterState(CustomerStateManager customerState)
     {
-        currentTime = startingTime;
+        Debug.Log("I am waiting in line!!!");
     }
-/// <summary>
-/// Controls timer speed and countdown
-/// When timer reaches 0, changes state to OrderingState
-/// </summary>
-    void Update()
+
+
+    public override void UpdateState(CustomerStateManager customerState)
     {
-        currentTime-= 1 * Time.deltaTime;
-       // timer.text = currentTime.ToString("0");    
-        
+        currentTime = startingTime -= 1 * Time.deltaTime;
         if(currentTime <= 0)
         {
-          //TODO: Switch to OrderingState
+            customerState.SwitchState(customerState.orderingState);
         }
     }
+
 }

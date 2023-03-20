@@ -2,75 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrderingState : MonoBehaviour
+public class OrderingState : CustomerBaseState
 {
-    VoiceOverManager voiceOverManager;
-
-    [SerializeField]
-    private Transform customerSpawnLocation;
-    [SerializeField]
-    private Transform customerOrderLocation;
-
-    [SerializeField]
-    private GameObject alienCustomer;
-
-    [SerializeField]
-    private float alienSpeed = 10f;
-
-    private Rigidbody alienRigidbody;
-
-    [SerializeField]
-    public bool correctOrderFufilled;
-
-   /// <summary>
-   /// Populates customer with character model, orderID, and VO
-   /// </summary>
-    void Start()
-    {
-        alienRigidbody = alienCustomer.GetComponent<Rigidbody>();
-
-        CustomerEnterAnimation();
-        //need time for the customer to arrive before voice
-        CustomerVoiceClip();
-    }
-
-    private void CustomerEnterAnimation()
-    {
-        Instantiate(alienCustomer, customerSpawnLocation);
-        alienCustomer.transform.position = Vector3.MoveTowards(transform.position, customerOrderLocation.position, alienSpeed * Time.deltaTime);
-        //TODO: Connect visual of customer arrival
-        // Spawn customer and move them to window
-    }
-    private void CustomerVoiceClip()
-    {
-        //TODO:Trigger voice clip for entrance
-        //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
-        Debug.Log("BEEPBOORP please");
-    }
 
  
+    VoiceOverManager voiceOverManager;
 
-    /// <summary>
-    /// Check to see if order is correctly fufilled from FufillingOrderState. If yes, move to ExitState. If no, send player back to FufillingOrderState.
-    /// </summary>
-  
-    void Update()
+    private bool orderFufilledCheck;
+    private Transform customerPos;
+    private Vector3 orderPos;
+    private float customerSpeed;
+    public override void EnterState(CustomerStateManager customerState)
     {
-        if (alienCustomer.transform.position != customerOrderLocation.transform.position)
+        //-----------Attempting to intialize references to other scripts to gain access to variable info---
+        MollyTempSceneManager tempSceneManager = new MollyTempSceneManager();
+        CustomerStateManager customerStateManager = new CustomerStateManager();
+
+
+        orderFufilledCheck = tempSceneManager.correctOrderFufilled;
+        customerPos = customerStateManager.alienCustomerPrefab;
+        orderPos = customerStateManager.orderingPosVector; //run into null exception here
+        customerSpeed = customerStateManager.customerSpeed;
+
+        //--------------------------------------------------------------------
+
+
+        Debug.Log("THIS IS MY ORDER BEEP BOOP");
+
+
+        //TODO: for later
+        // find order location
+        // run entering animation
+        //when arrives at ordering position, play voice clip
+        //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
+
+    }
+
+    public override void UpdateState(CustomerStateManager customerState)
+    {
+
+        //------------Checking customer prefabs current position to see if equal to orderlocation, if not: move toward---
+     
+        if(customerPos.position != orderPos)
         {
-            alienCustomer.transform.position = Vector3.Lerp(alienCustomer.transform.position, customerOrderLocation.transform.position, alienSpeed * Time.deltaTime);
+            customerPos.position = Vector3.MoveTowards(customerPos.position, orderPos, customerSpeed * Time.deltaTime);
         }
-        if (correctOrderFufilled)
+
+
+        //----------------------------------------
+        
+        if (orderFufilledCheck)
         {
-            //Change to EndState
+            Debug.Log("Thank you so much!");
+       
+            customerState.SwitchState(customerState.customerExitState);
         }
         else
         {
-            // voiceOverManager.PlayAudioClip() wrong food choice
-            //send player back to FufillingState
-            correctOrderFufilled = false;
+            //play wrong order VO
+            //send player back to Replicator
         }
+
+        return;
+        
     }
+
+   
 
     //Destroy listeners
 }

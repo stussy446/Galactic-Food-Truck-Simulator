@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class CustomerExitState : MonoBehaviour
+public class CustomerExitState : CustomerBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+   
+
+    public override void EnterState(CustomerStateManager customerState)
     {
-        
+       
+        Debug.Log("K THANX BYYTYYYE (Blorp!)");
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void UpdateState(CustomerStateManager customerState)
     {
-        
+
+        return;
     }
+
+
+
 }

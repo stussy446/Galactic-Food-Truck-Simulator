@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8682427481042098770}
   - component: {fileID: 8682427481042098773}
   - component: {fileID: 8682427481042098772}
+  - component: {fileID: -4548035609333570266}
   m_Layer: 0
   m_Name: CustomerTest
-  m_TagString: Untagged
+  m_TagString: Current Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8682427481042098775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.191984, y: -0.089542866, z: -1.085535}
+  m_LocalPosition: {x: -6.191984, y: 1.0274572, z: -1.2825351}
   m_LocalScale: {x: 0.50503, y: 0.50503, z: 0.50503}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,3 +99,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4548035609333570266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682427481042098775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88be6665be7193747a06e402c433900d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienCustomerPrefab: {fileID: 8682427481042098771}
+  orderingLocation: {fileID: 1019468911867053420, guid: 2c26267e04b59c843aec809b0469ca1d,
+    type: 3}
+  customerExitLocation: {fileID: 2613142669165918374, guid: 8b99c3ce6f99a8e4bbdbf41d314cc79c,
+    type: 3}
+  orderingPosVector: {x: 0, y: 0, z: 0}
+  customerSpeed: 5
