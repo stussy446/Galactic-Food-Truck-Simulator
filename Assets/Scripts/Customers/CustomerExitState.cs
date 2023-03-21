@@ -2,22 +2,27 @@
 using UnityEngine;
 
 public class CustomerExitState : CustomerBaseState
-{
-   
 
+{
+    private Vector3 customerPos, exitPos;
+    private float customerSpeed;
     public override void EnterState(CustomerStateManager customerState)
     {
-       
-        Debug.Log("K THANX BYYTYYYE (Blorp!)");
-      
+       customerPos = customerState.alienCustomerPrefab.transform.position;
+       exitPos = customerState.customerExitLocation.transform.position;
+       customerSpeed = customerState.customerSpeed;
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
+        if (customerPos != exitPos)
+        {
+            customerPos = Vector3.MoveTowards(customerPos, exitPos, customerSpeed * Time.deltaTime);
+        }
 
-        return;
+        if(customerPos == exitPos)
+        {
+            customerState.OnCharacterExit();
+        }
     }
-
-
-
 }

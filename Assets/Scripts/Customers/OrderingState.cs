@@ -4,53 +4,31 @@ using UnityEngine;
 
 public class OrderingState : CustomerBaseState
 {
-
- 
     VoiceOverManager voiceOverManager;
 
     private bool orderFufilledCheck;
-    private Transform customerPos;
-    private Vector3 orderPos;
+    private Vector3 customerPos, orderPos;
     private float customerSpeed;
     public override void EnterState(CustomerStateManager customerState)
     {
-        //-----------Attempting to intialize references to other scripts to gain access to variable info---
-        MollyTempSceneManager tempSceneManager = new MollyTempSceneManager();
-        CustomerStateManager customerStateManager = new CustomerStateManager();
-
-
-        orderFufilledCheck = tempSceneManager.correctOrderFufilled;
-        customerPos = customerStateManager.alienCustomerPrefab;
-        orderPos = customerStateManager.orderingPosVector; //run into null exception here
-        customerSpeed = customerStateManager.customerSpeed;
-
-        //--------------------------------------------------------------------
-
-
-        Debug.Log("THIS IS MY ORDER BEEP BOOP");
-
-
-        //TODO: for later
-        // find order location
-        // run entering animation
-        //when arrives at ordering position, play voice clip
-        //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
+        orderFufilledCheck = customerState.correctOrderFufilled;
+        customerPos = customerState.alienCustomerPrefab.transform.position;
+        orderPos = customerState.orderingLocation.transform.position;
+        customerSpeed = customerState.customerSpeed;
 
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
-
-        //------------Checking customer prefabs current position to see if equal to orderlocation, if not: move toward---
      
-        if(customerPos.position != orderPos)
+        if(customerPos != orderPos)
         {
-            customerPos.position = Vector3.MoveTowards(customerPos.position, orderPos, customerSpeed * Time.deltaTime);
+            customerPos = Vector3.MoveTowards(customerPos, orderPos, customerSpeed * Time.deltaTime);
+            Debug.Log("THIS IS MY ORDER BEEP BOOP");
+            //TODO: connect voice clip
+            //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
         }
 
-
-        //----------------------------------------
-        
         if (orderFufilledCheck)
         {
             Debug.Log("Thank you so much!");
@@ -59,7 +37,7 @@ public class OrderingState : CustomerBaseState
         }
         else
         {
-            //play wrong order VO
+            //TODO: connect wrong order voice clip
             //send player back to Replicator
         }
 
