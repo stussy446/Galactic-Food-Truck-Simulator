@@ -19,6 +19,7 @@ using UnityEngine;
         private void OnEnable()
         {
             TranslateActions.OnDialClicked += RunTranslator;
+            TranslateActions.OnOrderSwitch += OnRandomLineClicked;
         }
 
 
@@ -53,6 +54,7 @@ using UnityEngine;
         private void OnDisable()
         {
             TranslateActions.OnDialClicked -= RunTranslator;
+            TranslateActions.OnOrderSwitch -= OnRandomLineClicked;
         }
 
         public int GetLanguageID()
