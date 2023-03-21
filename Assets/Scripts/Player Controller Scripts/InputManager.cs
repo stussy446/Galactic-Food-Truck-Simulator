@@ -29,9 +29,6 @@ public class InputManager : MonoBehaviour
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
-
-        ActionList.OnEnteredFoodReplicator += ctx => DisableMovement();
-        ActionList.OnDoneReplicatingFood += ctx => EnableMovement();
     }
 
     private void Update()
@@ -44,17 +41,18 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControls.Disable();
-        
-        ActionList.OnEnteredFoodReplicator -= ctx => DisableMovement();
-        ActionList.OnDoneReplicatingFood -= ctx => EnableMovement();
+    }
+
+    public void GoToReplicatingPosition()
+    {
+        transform.position = replicatorTransform.position;
+        transform.forward = replicatorTransform.forward;
     }
 
     public void DisableMovement()
     {
         playerMovement.enabled = false;
 
-        transform.position = replicatorTransform.position;
-        transform.forward = replicatorTransform.forward;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
 

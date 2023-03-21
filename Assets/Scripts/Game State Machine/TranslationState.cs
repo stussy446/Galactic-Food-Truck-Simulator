@@ -9,6 +9,7 @@ public class TranslationState : StateAbstract
 {
     public override void EnterState(StateManager manager)
     {
+        Debug.Log("Translation State");
         // TODO: Bring Translator to the screen (think Among Us task)
     }
 
@@ -22,5 +23,9 @@ public class TranslationState : StateAbstract
     {
         // TODO: Execute translator mechanics here or build another State Machine
         // TODO: Exit whenever user clicks outside of the translator
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ExitState(manager);
+        }
     }
 }

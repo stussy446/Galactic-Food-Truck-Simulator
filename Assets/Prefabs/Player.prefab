@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6255896258682953764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.27, z: 0}
+  m_LocalPosition: {x: 0, y: 2.357, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -409,7 +409,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6255896258550347461}
   - {fileID: 6255896258682953767}
@@ -449,6 +449,7 @@ MonoBehaviour:
   playerMovement: {fileID: 6255896258910827674}
   cameraMover: {fileID: 6255896258910827676}
   reticle: {fileID: 418410516}
+  replicatorTransform: {fileID: 0}
 --- !u!114 &6255896258910827674
 MonoBehaviour:
   m_ObjectHideFlags: 0

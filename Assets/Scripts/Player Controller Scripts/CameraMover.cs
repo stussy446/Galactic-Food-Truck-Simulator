@@ -50,11 +50,6 @@ public class CameraMover : MonoBehaviour
         ToggleCursorMode();
 
         Aim();
-        GameObject interactable = FindInteractableItem();
-        if (interactable != null)
-        {
-            Debug.Log(interactable.name);
-        }
     }
 
     /// <summary>
@@ -96,27 +91,6 @@ public class CameraMover : MonoBehaviour
                 ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
             }
         }
-    }
-
-
-
-    /// <summary>
-    /// Sphere sweep to identify if there is an interactable item in range
-    /// </summary>
-    /// <returns></returns>
-    private GameObject FindInteractableItem()
-    {
-        RaycastHit hit;
-        Vector3 origin = cam.transform.position;
-        Vector3 direction = cam.transform.forward;
-        float radius = 1f;
-
-        if (Physics.SphereCast(origin, radius, direction, out hit, detectionRange, itemsLayer))
-        {
-            return hit.collider.gameObject;
-        }
-
-        return null;
     }
 
     /// <summary>

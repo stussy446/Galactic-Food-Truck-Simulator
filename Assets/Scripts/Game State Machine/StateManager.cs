@@ -10,6 +10,8 @@ public class StateManager : MonoBehaviour
 {
     public static StateManager instance;
 
+    public InputManager playerInputManager;
+
     // Cache whatever state user is currently in
     public StateAbstract currentState;
 

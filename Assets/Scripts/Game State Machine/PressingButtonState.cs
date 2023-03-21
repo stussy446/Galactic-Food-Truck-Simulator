@@ -11,6 +11,7 @@ public class PressingButtonState : StateAbstract
 
     public override void EnterState(StateManager manager)
     {
+        Debug.Log("Pressing Button State");
         // TODO: Bring button to save the universe to the screen (Think Among Us task)
     }
 
@@ -29,5 +30,10 @@ public class PressingButtonState : StateAbstract
         //      - goToState = manager.freeRoamingState;
         //  - if customer shows up
         //      - goToState = manager.receivingOrderState;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            goToState = manager.freeRoamingState;
+            ExitState(manager);
+        }
     }
 }
