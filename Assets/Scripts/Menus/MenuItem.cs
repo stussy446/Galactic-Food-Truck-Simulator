@@ -11,12 +11,22 @@ public class MenuItem : MonoBehaviour
     private string itemName;
     private Sprite itemImage;
     private int itemID;
+    private OrderManager orderManager;
+
+    public int ItemID { get { return itemID; } }
 
     private void Awake()
     {
         itemName = config.itemName;
         itemImage = config.image;
         itemID = config.ID;
+
+        orderManager = FindObjectOfType<OrderManager>(includeInactive: true);
+
+        if (orderManager == null)
+        {
+            Debug.Log("no order manager found");
+        }
 
         UpdateText();
         UpdateImage();
@@ -54,10 +64,15 @@ public class MenuItem : MonoBehaviour
     /// </summary>
     private void PerformButtonAction()
     {
-        // TODO: logic for only invoking if the correct option is chosen 
         Debug.Log($"{itemName} has been chosen");
         Debug.Log($" {itemName}'s id is {itemID}");
-        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+
+        if (!orderManager.isActiveAndEnabled)
+        {
+            orderManager.enabled = true;
+        }
+
+        orderManager.ReceiveMenuItem(this);
     }
 
 }
