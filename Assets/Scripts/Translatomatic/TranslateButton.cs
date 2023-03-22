@@ -5,6 +5,7 @@ using UnityEngine;
 public class TranslateButton : MonoBehaviour
 {
     [SerializeField] private Vector3 dialAngle;
+    private Quaternion originalRotation;
 
     private void OnEnable()
     {
@@ -13,6 +14,7 @@ public class TranslateButton : MonoBehaviour
     private void Start()
     {
         dialAngle.y = 360 / (SqliteScript.GetSize("LangID", "LangIndex"));
+        originalRotation = transform.rotation;
     }
     void OnMouseDown()
     {
@@ -22,7 +24,7 @@ public class TranslateButton : MonoBehaviour
 
     private void SetDial(TranslatorFunction translate)
     {
-        transform.rotation = Quaternion.identity;
+        transform.rotation = originalRotation;
         transform.Rotate(dialAngle * translate.GetLanguageID());
     }
 

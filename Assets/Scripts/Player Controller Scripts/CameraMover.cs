@@ -1,7 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
+    private const string CAN_INTERACT_LAYER = "CanInteract";
+
     [Header("Mouse Sensitivity")]
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
@@ -11,21 +14,18 @@ public class CameraMover : MonoBehaviour
     [SerializeField] float xClamp = 85f;
     [SerializeField] float detectionRange = 1000f;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask itemsLayer;
     float xRotation = 0f;
 
     float mouseX;
     float mouseY;
     Camera cam;
-    InputManager inputManager;
 
     private void Awake()
     {
         RemoveExtraCameras();
         cam = Camera.main;
         LockCursor();
-
-        inputManager = GetComponent<InputManager>();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
@@ -88,9 +88,7 @@ public class CameraMover : MonoBehaviour
                 // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
                 MenuManager.Instance.ActivateMenu(MenuType.EightItem);
 
-                // TODO: Enter replication state here, code below is to confirm functionality and should likely be refactored to state machine later 
-                inputManager.DisableMovement();
-                UnlockCursor();
+                ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
             }
         }
     }

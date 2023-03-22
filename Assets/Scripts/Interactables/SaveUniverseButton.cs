@@ -21,6 +21,11 @@ public class SaveUniverseButton : MonoBehaviour
     // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
 
+    private void OnMouseDown()
+    {
+        ActionList.OnEnteredButtonPressing?.Invoke(ActionType.ButtonPressed);
+    }
+
     private void OnMouseDrag()
     {
         buttonBeingClicked = true;
