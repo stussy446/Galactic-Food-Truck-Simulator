@@ -15,6 +15,7 @@ public class FulfillingOrderState : StateAbstract
 
     public override void ExitState(StateManager manager)
     {
+        // TODO: Set replicator to original UI 
         // Return to free roaming state
         manager.SwitchStates(manager.freeRoamingState);
     }
@@ -22,6 +23,10 @@ public class FulfillingOrderState : StateAbstract
     public override void UpdateState(StateManager manager)
     {
         // TODO: Exit whenever user completes an order
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ExitState(manager);
+        }
     }
 
     // TODO: create button click methods for interacting with the UI

@@ -7,14 +7,20 @@ using UnityEngine;
 /// </summary>
 public class TranslationState : StateAbstract
 {
+    private TranslatorFunction translator;
+
     public override void EnterState(StateManager manager)
     {
         Debug.Log("Translation State");
+        translator = MonoBehaviour.FindObjectOfType<TranslatorFunction>();
+        translator.gameObject.GetComponent<Collider>().enabled = false;
         // TODO: Bring Translator to the screen (think Among Us task)
     }
 
     public override void ExitState(StateManager manager)
     {
+        translator.gameObject.GetComponent<Collider>().enabled = true;
+
         // Goes back to free roaming state
         manager.SwitchStates(manager.freeRoamingState);
     }
