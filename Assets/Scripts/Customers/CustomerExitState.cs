@@ -4,23 +4,27 @@ using UnityEngine;
 public class CustomerExitState : CustomerBaseState
 
 {
+    private GameObject alienCustomer;
     private Vector3 customerPos, exitPos;
     private float customerSpeed;
     public override void EnterState(CustomerStateManager customerState)
     {
+        alienCustomer = customerState.alienCustomerPrefab;
        customerPos = customerState.alienCustomerPrefab.transform.position;
        exitPos = customerState.customerExitLocation.transform.position;
        customerSpeed = customerState.customerSpeed;
+
+        alienCustomer.transform.position = customerPos;
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
-        if (customerPos != exitPos)
+        if (alienCustomer.transform.position != exitPos)
         {
-            customerPos = Vector3.MoveTowards(customerPos, exitPos, customerSpeed * Time.deltaTime);
+            alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, exitPos, customerSpeed * Time.deltaTime);
         }
 
-        if(customerPos == exitPos)
+        if(alienCustomer.transform.position == exitPos)
         {
             customerState.OnCharacterExit();
         }

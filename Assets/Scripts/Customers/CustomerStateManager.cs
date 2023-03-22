@@ -18,15 +18,15 @@ public  class CustomerStateManager : MonoBehaviour
     [SerializeField]
     public GameObject alienCustomerPrefab,customerResetLocation,orderingLocation, customerExitLocation;
     [SerializeField]
-    public bool correctOrderFufilled;
-    [SerializeField]
     public float customerSpeed = 5f;
 
 
+    [SerializeField]
+    public float customerCountdownStartTime = 5f;
+
+
     void Start()
-    {
-        correctOrderFufilled = false;
-       
+    {  
         //starting state for the customer before ordering
         currentCustomerState = waitingInLineState;
 
