@@ -15,6 +15,7 @@ public class PressingButtonState : StateAbstract
         Debug.Log("Pressing Button State");
         button = MonoBehaviour.FindObjectOfType<SaveUniverseButton>();
         button.gameObject.GetComponent<Collider>().enabled = true;
+        manager.playerInputManager.GoToButtonPosition();
         // TODO: Bring button to save the universe to the screen (Think Among Us task)
     }
 

@@ -14,6 +14,7 @@ public class TranslationState : StateAbstract
         Debug.Log("Translation State");
         translator = MonoBehaviour.FindObjectOfType<TranslatorFunction>();
         translator.gameObject.GetComponent<Collider>().enabled = false;
+        manager.playerInputManager.GoToTranslatorPosition();
         // TODO: Bring Translator to the screen (think Among Us task)
     }
 
