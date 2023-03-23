@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] CameraMover cameraMover;
     [SerializeField] GameObject reticle;
     [SerializeField] Transform replicatorTransform;
+    [SerializeField] Transform translatorTransform;
+    [SerializeField] Transform buttonTransform;
 
 
     PlayerControls playerControls;
@@ -31,6 +34,8 @@ public class InputManager : MonoBehaviour
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
         ActionList.OnEnteredFoodReplicator += ctx => GoToReplicatingPosition();
+        ActionList.OnEnteredTranslator += ctx => GoToTranslatorPosition();
+        ActionList.OnEnteredButtonPressing += ctx => GoToButtonPosition();
     }
 
     private void Update()
@@ -44,13 +49,38 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Disable();
         ActionList.OnEnteredFoodReplicator -= ctx => GoToReplicatingPosition();
+        ActionList.OnEnteredTranslator -= ctx => GoToTranslatorPosition();
+        ActionList.OnEnteredButtonPressing -= ctx => GoToButtonPosition();
 
     }
 
     public void GoToReplicatingPosition()
     {
-        transform.position = replicatorTransform.position;
-        transform.forward = replicatorTransform.forward;
+        StartCoroutine(GoToPosition(transform.position, replicatorTransform.position, transform.forward, replicatorTransform.forward));
+    }
+
+    public void GoToTranslatorPosition()
+    {
+        StartCoroutine(GoToPosition(transform.position, translatorTransform.position, transform.forward, translatorTransform.forward));
+    }
+
+    public void GoToButtonPosition()
+    {
+        StartCoroutine(GoToPosition(transform.position, buttonTransform.position, transform.forward, buttonTransform.forward));
+    }
+
+    private IEnumerator GoToPosition(Vector3 startPos, Vector3 endPos, Vector3 startForward, Vector3 endForward)
+    {
+        float difference = 0;
+        while (difference < 1)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, difference);
+            transform.forward = Vector3.Lerp(startForward, endForward, difference);
+            difference += Time.deltaTime * 2;
+            yield return null;
+        }
+        transform.position = endPos;
+        transform.forward = endForward;
     }
 
     public void DisableMovement()
