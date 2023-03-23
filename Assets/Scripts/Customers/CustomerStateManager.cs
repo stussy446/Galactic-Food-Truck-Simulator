@@ -4,32 +4,48 @@ using UnityEngine;
 
 public  class CustomerStateManager : MonoBehaviour
 {
-    //this script is attached to the customer prefab that is instatiated by MollyTempSceneManager
-    //set up state manager
+   /// <summary>
+   /// Controls Customer State Machine
+   /// </summary> 
+
+    [Header("References to Scriptable Objects")]
+    [SerializeField]
+    private List<ScriptableObject> customerScriptableObjects;
+    [SerializeField]
+    public CustomerScriptableObject customerSO;
 
     
-   public CustomerBaseState currentCustomerState;
-   public  WaitingInLineState waitingInLineState = new WaitingInLineState();
-   public  OrderingState orderingState = new OrderingState();
-   public CustomerExitState customerExitState = new CustomerExitState();
+    [Header ("Audio")]
+    public AudioSource customerAudioSource;
 
-    //Playing a few property types here to grab these locations when the customer prefab is first instatiated
+    [Header("Customer States")]
+    public CustomerBaseState currentCustomerState;
+    public  WaitingInLineState waitingInLineState = new WaitingInLineState();
+    public  OrderingState orderingState = new OrderingState();
+    public CustomerExitState customerExitState = new CustomerExitState();
 
+
+    [Header ("Customer Character Variables")]
     [SerializeField]
-    public GameObject alienCustomerPrefab,customerResetLocation,orderingLocation, customerExitLocation;
+    public GameObject alienCustomerPrefab;
     [SerializeField]
     public float customerSpeed = 5f;
-
-
     [SerializeField]
     public float customerCountdownStartTime = 5f;
 
+    [Header("Location GameObjects")]
+    [SerializeField]
+    public GameObject customerResetLocation;
+    [SerializeField]
+    public GameObject orderingLocation;
+    [SerializeField]
+    public GameObject customerExitLocation;
 
     void Start()
-    {  
-        //starting state for the customer before ordering
+    {
+        customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
+       
         currentCustomerState = waitingInLineState;
-
         currentCustomerState.EnterState(this);
     }
 
@@ -57,5 +73,22 @@ public  class CustomerStateManager : MonoBehaviour
         alienCustomerPrefab.SetActive(false);
     }
 
-    
+
+
+    //----------ONLY FOR VO TESTING---------------//
+    public void VOCoroutine()
+    {
+        StartCoroutine(PlayCustomerVO());
+    }
+
+
+    public IEnumerator PlayCustomerVO()
+    {
+       
+        yield return new WaitForSeconds(6);
+        customerAudioSource.enabled = false;
+    }
+
+
+
 }

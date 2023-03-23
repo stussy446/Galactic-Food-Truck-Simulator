@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Customer
-  m_Shader: {fileID: -6465566751694194690, guid: 2e22c77a1cb6a314cad1110bbb43ece1,
+  m_Shader: {fileID: -6465566751694194690, guid: 2fd0f4be8d008624baba094f54cbfb64,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -91,15 +91,18 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Expansion_Amount: 1.44
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _GlowPower: 25.3
     - _GlowThickness: 0.51
     - _Metallic: 0
     - _NoiseScale: 58.88
     - _NoiseStrength: 7.6
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _Pulse_Rate: 0.22
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -114,7 +117,9 @@ Material:
     - _BaseColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
     - _Color: {r: 1, g: 0.514151, b: 0.9360032, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlowColor: {r: 12.844469, g: 0, b: 8.876806, a: 1}
+    - _GlowColor: {r: 0.3160377, g: 0.9541263, b: 1, a: 1}
+    - _PositionOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Position_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2153922651703286487

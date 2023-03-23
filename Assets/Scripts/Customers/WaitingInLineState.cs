@@ -8,7 +8,6 @@ public class WaitingInLineState : CustomerBaseState
     /// </summary>
 
     private Vector3 customerPos, customerSpawnPos;
-
     private float currentTime;
     private float startingTime;
 
@@ -16,7 +15,6 @@ public class WaitingInLineState : CustomerBaseState
     public override void EnterState(CustomerStateManager customerState)
     {
         startingTime = customerState.customerCountdownStartTime;
-
         customerPos = customerState.alienCustomerPrefab.transform.position;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
 
@@ -24,9 +22,9 @@ public class WaitingInLineState : CustomerBaseState
         {
             customerPos = customerSpawnPos;
         }
+
         Debug.Log("JELLY ENTITY IS AWAITING IN CUE.");
     }
-
 
     public override void UpdateState(CustomerStateManager customerState)
     {
@@ -37,4 +35,8 @@ public class WaitingInLineState : CustomerBaseState
         }
     }
 
+    public override void ExitState(CustomerStateManager customerState)
+    {
+        throw new System.NotImplementedException();
+    }
 }
