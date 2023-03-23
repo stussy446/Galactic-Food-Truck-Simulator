@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2614,21 +2614,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 103700121545854783, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 103700121545854783, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 103700121545854783, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.47
-      objectReference: {fileID: 0}
     - target: {fileID: 103700122552120648, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: m_Name
@@ -2689,15 +2674,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 103700122555662440, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29.62
+      propertyPath: DopplerLevel
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7707311008097060840, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.36
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98023a7e8ca40a3438c7f2ce656e3534, type: 3}

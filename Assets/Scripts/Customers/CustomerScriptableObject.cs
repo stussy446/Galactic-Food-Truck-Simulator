@@ -9,5 +9,17 @@ public class CustomerScriptableObject : ScriptableObject
     public Mesh mesh;
     public Material material;
     public AudioClip orderAudio;
+    public AudioClip thankyouAudio;
     public int language;
+
+
+    public void PlayOrderAudio(AudioSource audioSource)
+    {
+        audioSource.PlayOneShot(orderAudio);
+    }
+
+    public void PlayThankYouAudio(AudioSource audioSource)
+    {
+        audioSource.PlayOneShot(thankyouAudio);
+    }
 }
