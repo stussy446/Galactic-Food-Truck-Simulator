@@ -11,12 +11,17 @@ public class MenuItem : MonoBehaviour
     private string itemName;
     private Sprite itemImage;
     private int itemID;
+    private OrderManager orderManager;
+
+    public int ItemID { get { return itemID; } }
 
     private void Awake()
     {
         itemName = config.itemName;
         itemImage = config.image;
         itemID = config.ID;
+
+        orderManager = FindObjectOfType<OrderManager>();
 
         UpdateText();
         UpdateImage();
@@ -57,7 +62,10 @@ public class MenuItem : MonoBehaviour
         // TODO: logic for only invoking if the correct option is chosen 
         Debug.Log($"{itemName} has been chosen");
         Debug.Log($" {itemName}'s id is {itemID}");
-        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+
+        orderManager.ReceiveOrderItems(this);
+
+        //ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
     }
 
 }

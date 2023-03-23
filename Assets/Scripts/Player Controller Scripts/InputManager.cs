@@ -29,8 +29,6 @@ public class InputManager : MonoBehaviour
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
-
-        ActionList.OnEnteredFoodReplicator += ctx => GoToReplicatingPosition();
     }
 
     private void Update()
@@ -43,7 +41,6 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControls.Disable();
-        ActionList.OnEnteredFoodReplicator -= ctx => GoToReplicatingPosition();
 
     }
 
@@ -59,6 +56,8 @@ public class InputManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
+
+        GoToReplicatingPosition();
 
         this.enabled = false;
     }
