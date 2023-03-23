@@ -28,8 +28,13 @@ public class FulfillingOrderState : StateAbstract
 
     public override void UpdateState(StateManager manager)
     {
-        if (Input.GetKeyDown(KeyCode.Space) || orderManager.IsCorrect)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            ExitState(manager);
+        }
+        else if (orderManager.IsCorrect)
+        {
+            Debug.Log("Correct, well done!");
             ExitState(manager);
         }
     }
