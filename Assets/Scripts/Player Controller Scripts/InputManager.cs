@@ -53,12 +53,8 @@ public class InputManager : MonoBehaviour
     public void DisableMovement()
     {
         playerMovement.enabled = false;
-
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
-
-        GoToReplicatingPosition();
-
         this.enabled = false;
     }
 
