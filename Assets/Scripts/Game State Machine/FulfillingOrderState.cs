@@ -11,6 +11,7 @@ public class FulfillingOrderState : StateAbstract
     {
         // TODO: Bring order screen to main screen (think Among Us task)
         Debug.Log("You are in the fulfilling order state!");
+        manager.playerInputManager.GoToReplicatingPosition();
     }
 
     public override void ExitState(StateManager manager)
