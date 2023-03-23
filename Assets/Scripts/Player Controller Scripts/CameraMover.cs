@@ -85,10 +85,8 @@ public class CameraMover : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
-                MenuManager.Instance.ActivateMenu(MenuType.EightItem);
-
-                ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
+                // switches to Fulfilling order state once the start button is pressed 
+                StateManager.instance.SwitchStates(new FulfillingOrderState());
             }
         }
     }
