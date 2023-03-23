@@ -24,7 +24,7 @@ public class WaitingInLineState : CustomerBaseState
         {
             customerPos = customerSpawnPos;
         }
-        Debug.Log("I am waiting in line!!!");
+        Debug.Log("JELLY ENTITY IS AWAITING IN CUE.");
     }
 
 

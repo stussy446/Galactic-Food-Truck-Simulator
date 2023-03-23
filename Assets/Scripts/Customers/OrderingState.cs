@@ -34,7 +34,7 @@ public class OrderingState : CustomerBaseState
 
         if (Input.GetKeyDown(KeyCode.O) == true)
         {
-            Debug.Log("Thank you so much!");
+            Debug.Log("JELLY ENTITY IS PLEASED AND EXPRESSES GRATITUDE. FAREWELL.");
        
             customerState.SwitchState(customerState.customerExitState);
         }
@@ -47,6 +47,6 @@ public class OrderingState : CustomerBaseState
 
     private void AudioCustomerOrder()
     {
-        Debug.Log("THIS IS MY ORDER BEEP BOOP");
+        Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
     }
 }
