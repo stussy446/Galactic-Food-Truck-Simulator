@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class OrderingState : CustomerBaseState
 {
-    VoiceOverManager voiceOverManager;
-
-    private bool orderFufilledCheck;
+   // VoiceOverManager voiceOverManager;
+    private GameObject alienCustomer;
     private Vector3 customerPos, orderPos;
     private float customerSpeed;
+
+
     public override void EnterState(CustomerStateManager customerState)
     {
-        orderFufilledCheck = customerState.correctOrderFufilled;
+        alienCustomer = customerState.alienCustomerPrefab;
         customerPos = customerState.alienCustomerPrefab.transform.position;
         orderPos = customerState.orderingLocation.transform.position;
         customerSpeed = customerState.customerSpeed;
+
+        alienCustomer.transform.position = customerPos;
 
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
      
-        if(customerPos != orderPos)
+        if(alienCustomer.transform.position != orderPos)
         {
-            customerPos = Vector3.MoveTowards(customerPos, orderPos, customerSpeed * Time.deltaTime);
-            Debug.Log("THIS IS MY ORDER BEEP BOOP");
+            alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
+            AudioCustomerOrder();
             //TODO: connect voice clip
             //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
         }
 
-        if (orderFufilledCheck)
+        if (Input.GetKeyDown(KeyCode.O) == true)
         {
             Debug.Log("Thank you so much!");
        
@@ -40,12 +43,10 @@ public class OrderingState : CustomerBaseState
             //TODO: connect wrong order voice clip
             //send player back to Replicator
         }
-
-        return;
-        
     }
 
-   
-
-    //Destroy listeners
+    private void AudioCustomerOrder()
+    {
+        Debug.Log("THIS IS MY ORDER BEEP BOOP");
+    }
 }

@@ -9,12 +9,14 @@ public class WaitingInLineState : CustomerBaseState
 
     private Vector3 customerPos, customerSpawnPos;
 
-    private float currentTime = 0f;
-    private float startingTime = 5f;
+    private float currentTime;
+    private float startingTime;
 
 
     public override void EnterState(CustomerStateManager customerState)
     {
+        startingTime = customerState.customerCountdownStartTime;
+
         customerPos = customerState.alienCustomerPrefab.transform.position;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
 
