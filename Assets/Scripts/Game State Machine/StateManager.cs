@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class responsible for initializing and switching between all concrete states.
 /// </summary>
 public class StateManager : MonoBehaviour
 {
+    public Image interactFeedback;
+
     public static StateManager instance;
 
     public InputManager playerInputManager;

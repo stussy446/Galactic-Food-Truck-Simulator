@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1b3f0449580fa44b4c083ffaf3f838, type: 3}
-  m_Name: Test Menu Config
+  m_Name: Evil Leo
   m_EditorClassIdentifier: 
-  itemName: cheeseburger
-  image: {fileID: 21300000, guid: 5fcb6ac31ee3d35458f97990c9fb4e77, type: 3}
+  itemName: Evil Leo
+  image: {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
+  ID: 3

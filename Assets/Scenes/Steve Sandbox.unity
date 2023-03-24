@@ -925,6 +925,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4622631506213879902, guid: 937a25dd3215fe244af20c313913a160,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4622631506213879903, guid: 937a25dd3215fe244af20c313913a160,
         type: 3}
       propertyPath: m_Camera
@@ -1197,5 +1202,15 @@ PrefabInstance:
       propertyPath: replicatorTransform
       value: 
       objectReference: {fileID: 526517845}
+    - target: {fileID: 6255896258910827676, guid: cafaca0543f6a094fa47c070d5e9392a,
+        type: 3}
+      propertyPath: detectionRange
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255896258910827676, guid: cafaca0543f6a094fa47c070d5e9392a,
+        type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}

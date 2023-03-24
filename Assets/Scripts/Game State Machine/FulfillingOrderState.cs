@@ -7,24 +7,34 @@ using UnityEngine;
 /// </summary>
 public class FulfillingOrderState : StateAbstract
 {
+    OrderManager orderManager;
+
     public override void EnterState(StateManager manager)
     {
+        orderManager = MonoBehaviour.FindObjectOfType<OrderManager>();
+        manager.playerInputManager.DisableMovement();
+        MenuManager.Instance.ActivateMenu(MenuType.EightItem);
+
         // TODO: Bring order screen to main screen (think Among Us task)
         Debug.Log("You are in the fulfilling order state!");
+        manager.playerInputManager.GoToReplicatingPosition();
     }
 
     public override void ExitState(StateManager manager)
     {
-        // TODO: Set replicator to original UI 
-        // Return to free roaming state
+        MenuManager.Instance.ActivateMenu(MenuType.Start);
         manager.SwitchStates(manager.freeRoamingState);
     }
 
     public override void UpdateState(StateManager manager)
     {
-        // TODO: Exit whenever user completes an order
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            ExitState(manager);
+        }
+        else if (orderManager.IsCorrect)
+        {
+            Debug.Log("Correct, well done!");
             ExitState(manager);
         }
     }

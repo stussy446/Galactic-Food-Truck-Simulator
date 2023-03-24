@@ -28,6 +28,7 @@ public class FreeRoamingState : StateAbstract
         manager.playerInputManager.DisableMovement();
 
         RemoveRelevantListeners();
+        ToggleInteractFeedback(false);
 
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);
@@ -85,8 +86,10 @@ public class FreeRoamingState : StateAbstract
 
         if (Physics.SphereCast(origin, radius, direction, out hit, detectionRange, LayerMask.GetMask(CAN_INTERACT)))
         {
+            ToggleInteractFeedback(true);
             return hit.collider.gameObject;
         }
+        ToggleInteractFeedback(false);
         return null;
     }
 
@@ -111,6 +114,11 @@ public class FreeRoamingState : StateAbstract
                 ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
                 break;
         }
+    }
+
+    private void ToggleInteractFeedback(bool toggle)
+    {
+        StateManager.instance.interactFeedback.gameObject.SetActive(toggle);
     }
 
     private void AddRelevantListeners()
