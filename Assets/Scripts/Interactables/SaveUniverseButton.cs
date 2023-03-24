@@ -15,7 +15,7 @@ public class SaveUniverseButton : MonoBehaviour
     private float dangerLevel = 100;
 
     // Set how fast slilder lowers and how fast it increases
-    private float dropSliderFactor = 0.75f;
+    private float dropSliderFactor = 1.25f;
     private float increaseSliderFactor = 8f;
 
     // Checks to see if button is being pressed
@@ -52,6 +52,10 @@ public class SaveUniverseButton : MonoBehaviour
         {
             dangerLevel -= dropSliderFactor * Time.deltaTime;
             SetDangerLevel(dangerLevel);
+            if (dangerLevel <= 0)
+            {
+                StateManager.instance.SwitchStates(StateManager.instance.lostGameState);
+            }
             return;
         }
 

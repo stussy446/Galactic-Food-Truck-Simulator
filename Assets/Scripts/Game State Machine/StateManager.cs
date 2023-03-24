@@ -24,6 +24,7 @@ public class StateManager : MonoBehaviour
     public TranslationState translationState = new TranslationState();
     public FulfillingOrderState fulfillingOrderState = new FulfillingOrderState();
     public PressingButtonState pressingButtonState = new PressingButtonState();
+    public LostGameState lostGameState = new LostGameState();
 
     void Start()
     {

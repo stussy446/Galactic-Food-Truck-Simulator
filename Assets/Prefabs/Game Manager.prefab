@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43bd35b920fc0a4fb081e053da8da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lostGameMessage: {fileID: 0}
+  restartButton: {fileID: 0}
+  quitButton: {fileID: 0}
