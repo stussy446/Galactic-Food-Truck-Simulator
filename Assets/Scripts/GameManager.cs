@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private GameObject lostMenu;
     [SerializeField] private TMP_Text lostGameMessage;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }
+        } 
         RemoveListenersFromLostMenu();
         AddListenersToLostMenu();
         ToggleLostMenu(false);
@@ -27,9 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void ToggleLostMenu(bool toggle)
     {
-        lostGameMessage.gameObject.SetActive(toggle);
-        restartButton.gameObject.SetActive(toggle);
-        quitButton.gameObject.SetActive(toggle); 
+        lostMenu.SetActive(toggle);
     }
 
     public void AddListenersToLostMenu()
@@ -51,6 +50,6 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        // TODO: Go back to main menu
+        SceneManager.LoadScene(0);
     }
 }
