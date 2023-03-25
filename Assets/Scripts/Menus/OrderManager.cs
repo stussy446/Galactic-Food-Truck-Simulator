@@ -6,14 +6,18 @@ using UnityEngine;
 public class OrderManager : MonoBehaviour
 {
     MenuItem menuItem;
-    CustomerStateManager customer; // TODO: this feels like there should be a Customer class we can grab here rather than the state manager 
-    public bool isCorrect; // should be private after customer id is implemented
+    Customer customer; 
 
     public bool IsCorrect { 
         get 
         {
-            // return menuItem.ItemID == customer.ID;  <----- this is what it should be after id is implemented with customer 
-            return isCorrect;
+            if (!IsCorrectChoice())
+            {
+                return false;
+            }
+
+            ResetOrder();
+            return true;
         }
     }
 
@@ -25,11 +29,37 @@ public class OrderManager : MonoBehaviour
 
     private void FindCustomer()
     {
-        customer = FindObjectOfType<CustomerStateManager>();
+        customer = FindObjectOfType<Customer>();
         if (customer == null)
         {
             Debug.Log("No customer was found");
         }
+    }
+
+    private void ResetOrder()
+    {
+        menuItem = null;
+        customer = null;
+    }
+
+    private bool ChoiceNotReady()
+    {
+        if(menuItem == null || customer == null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsCorrectChoice()
+    {
+        if (ChoiceNotReady())
+        {
+            return false;
+        }
+
+        return menuItem.ItemID == customer.OrderID;
     }
 
 
