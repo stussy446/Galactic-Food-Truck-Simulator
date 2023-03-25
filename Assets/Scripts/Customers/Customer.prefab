@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7747796856407232535}
   - component: {fileID: 7747796856407232534}
   - component: {fileID: 4459490129708039806}
+  - component: {fileID: 6184188910244122165}
   - component: {fileID: 7792163686299187417}
   m_Layer: 0
   m_Name: Customer
@@ -121,6 +122,19 @@ MonoBehaviour:
   customerResetLocation: {fileID: 0}
   orderingLocation: {fileID: 0}
   customerExitLocation: {fileID: 0}
+--- !u!114 &6184188910244122165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747796856407232537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c024cd06dfe527a4b864645432dbe3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerConfig: {fileID: 11400000, guid: 0414810855c7920439ce5afce160d768, type: 2}
 --- !u!82 &7792163686299187417
 AudioSource:
   m_ObjectHideFlags: 0
