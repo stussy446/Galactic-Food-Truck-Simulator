@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -845,7 +845,7 @@ PrefabInstance:
     - target: {fileID: 6255896258910827673, guid: cafaca0543f6a094fa47c070d5e9392a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6255896258910827673, guid: cafaca0543f6a094fa47c070d5e9392a,
         type: 3}
@@ -2402,6 +2402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84293d4113349d408efa189a8b3e5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputText: {fileID: 0}
+  outputText: {fileID: 0}
   dialAngle: {x: 0, y: 120, z: 0}
 --- !u!136 &2279382581176912613
 CapsuleCollider:
@@ -4259,7 +4261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2279382581610758406}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.568, y: -0.31230482, z: -0}
+  m_LocalPosition: {x: -1.568, y: -0.5, z: -0}
   m_LocalScale: {x: 0.6246096, y: 0.62460965, z: 0.6246096}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5284,7 +5286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2279382582803011197}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.091838874, y: 11.755106, z: -9.68878}
+  m_LocalPosition: {x: -0.091838874, y: 11.76, z: -12.28}
   m_LocalScale: {x: 4.591837, y: 4.591836, z: 4.591836}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6057,8 +6059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11ff6a2fbb6c4b4dbf2ac08b7f4926d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: {fileID: 2279382581359562869}
-  outputText: {fileID: 2279382582721414337}
+  translatorUI: {fileID: 0}
 --- !u!65 &2279382582073673619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9590,10 +9591,10 @@ GameObject:
   m_Layer: 0
   m_Name: TranslatorTransform
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &2279382582825988704
 CanvasRenderer:
   m_ObjectHideFlags: 0
