@@ -21,6 +21,10 @@ public class SaveUniverseButton : MonoBehaviour
     // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
 
+    // Button Positions
+    private Vector3 notPressed;
+    private Vector3 pressed;
+
     private void OnMouseDown()
     {
         ActionList.OnEnteredButtonPressing?.Invoke(ActionType.ButtonPressed);
