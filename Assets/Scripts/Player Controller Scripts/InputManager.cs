@@ -74,6 +74,8 @@ public class InputManager : MonoBehaviour
         }
         transform.position = endPos;
         transform.forward = endForward;
+        cameraMover.ResetCameraRotation();
+
     }
 
     public void DisableMovement()
