@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2100545352437155925}
   - component: {fileID: 2050022458865768023}
   - component: {fileID: 6605657817358133012}
+  - component: {fileID: 3556545371837153241}
+  - component: {fileID: 7473611111306870620}
   m_Layer: 0
   m_Name: THE_BUTTON
   m_TagString: Untagged
@@ -83,6 +85,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3556545371837153241
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391616455501367743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.00601602
+  m_Height: 0.01203204
+  m_Direction: 1
+  m_Center: {x: -0.0000000040597876, y: -5.7996963e-10, z: 0.00195957}
+--- !u!114 &7473611111306870620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391616455501367743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1257afa12d8ba524d9cac0e3d9df800b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &802973745403215542
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,9 +137,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802973745403215542}
-  m_LocalRotation: {x: -0.50000006, y: -0.50000006, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -35.136, y: 2.88, z: 12.01}
-  m_LocalScale: {x: 51.385998, y: 51.385998, z: 51.385998}
+  m_LocalScale: {x: 205.544, y: 205.544, z: 205.544}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2100545352437155925}
