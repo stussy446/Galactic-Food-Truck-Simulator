@@ -74,6 +74,8 @@ public class InputManager : MonoBehaviour
         }
         transform.position = endPos;
         transform.forward = endForward;
+        cameraMover.ResetCameraRotation();
+
     }
 
     public void DisableMovement()
@@ -81,6 +83,7 @@ public class InputManager : MonoBehaviour
         playerMovement.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
+        cameraMover.IsPaused = true;
         this.enabled = false;
     }
 
@@ -89,6 +92,7 @@ public class InputManager : MonoBehaviour
         playerMovement.enabled = true;
         this.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
+        cameraMover.IsPaused = false;
         reticle.SetActive(true);
     }
 }
