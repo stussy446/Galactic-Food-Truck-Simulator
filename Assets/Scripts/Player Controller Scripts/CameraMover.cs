@@ -146,9 +146,9 @@ public class CameraMover : MonoBehaviour
     /// <summary>
     /// Resets the Rotation of the camera to zero
     /// </summary>
-    public void ResetCameraRotation()
+    public void LerpCameraRotationToZero(float factor)
     {
-        cam.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, Quaternion.Euler(Vector3.zero), factor);
     }
 
 }

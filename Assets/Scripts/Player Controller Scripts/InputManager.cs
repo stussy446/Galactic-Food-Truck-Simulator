@@ -69,12 +69,12 @@ public class InputManager : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPos, endPos, difference);
             transform.forward = Vector3.Lerp(startForward, endForward, difference);
+            cameraMover.LerpCameraRotationToZero(difference);
             difference += Time.deltaTime * 2;
             yield return null;
         }
         transform.position = endPos;
         transform.forward = endForward;
-        cameraMover.ResetCameraRotation();
 
     }
 

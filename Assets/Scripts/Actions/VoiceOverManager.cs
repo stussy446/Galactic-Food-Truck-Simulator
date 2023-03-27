@@ -57,12 +57,15 @@ public class VoiceOverManager : MonoBehaviour
     {
         Debug.Log("We get here");
         List<AudioClip> audioClips = GetClipList(type);
-        int index = UnityEngine.Random.Range(0, audioClips.Count);
-        AudioClip audioClip = audioClips[index];
-        source.clip = audioClip;
-        if (!source.isPlaying)
+        if (audioClips.Count > 0)
         {
-            source.Play();
+            int index = UnityEngine.Random.Range(0, audioClips.Count);
+            AudioClip audioClip = audioClips[index];
+            source.clip = audioClip;
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
     }
 

@@ -99,6 +99,7 @@ public class FreeRoamingState : StateAbstract
     /// <param name="obj"></param>
     private void OpenObjectInteraction(GameObject obj)
     {
+        Debug.Log(obj.name);
         InteractionManager interaction = obj.GetComponent<InteractionManager>();
         ActionType interactionType = interaction.actionType;
         switch (interactionType)
