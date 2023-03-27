@@ -101,7 +101,6 @@ public class FreeRoamingState : StateAbstract
     {
         InteractionManager interaction = obj.GetComponent<InteractionManager>();
         ActionType interactionType = interaction.actionType;
-        Debug.Log(interactionType.ToString());
         switch (interactionType)
         {
             case ActionType.EnteredButtonPressing:
@@ -131,7 +130,7 @@ public class FreeRoamingState : StateAbstract
 
     private void RemoveRelevantListeners()
     {
-        ActionList.OnEnteredButtonPressing -= SwitchStateListener;
+        ActionList.OnEnteredButtonPressing += SwitchStateListener;
         ActionList.OnEnteredTranslator -= SwitchStateListener;
         ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
         ActionList.OnCustomerArrived -= SwitchStateListener;

@@ -27,7 +27,7 @@ public class SaveUniverseButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ActionList.OnEnteredButtonPressing?.Invoke(ActionType.ButtonPressed);
+        ActionList.OnButtonPressed?.Invoke(ActionType.ButtonPressed);
     }
 
     private void OnMouseDrag()
@@ -56,6 +56,10 @@ public class SaveUniverseButton : MonoBehaviour
         {
             dangerLevel -= dropSliderFactor * Time.deltaTime;
             SetDangerLevel(dangerLevel);
+            if (dangerLevel < 20 && dangerLevel > 19.8f)
+            {
+                ActionList.OnPlayerCloseToLosing?.Invoke(ActionType.PlayerCloseToLosing);
+            }
             if (dangerLevel <= 0)
             {
                 StateManager.instance.SwitchStates(StateManager.instance.lostGameState);
