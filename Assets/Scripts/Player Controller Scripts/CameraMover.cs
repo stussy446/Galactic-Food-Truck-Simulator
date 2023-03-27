@@ -96,7 +96,7 @@ public class CameraMover : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 // switches to Fulfilling order state once the start button is pressed 
-                StateManager.instance.SwitchStates(new FulfillingOrderState());
+                StateManager.instance.SwitchStates(StateManager.instance.fulfillingOrderState);
             }
         }
     }
