@@ -17,9 +17,16 @@ public class CameraMover : MonoBehaviour
     [SerializeField] LayerMask itemsLayer;
     float xRotation = 0f;
 
-    float mouseX;
-    float mouseY;
-    Camera cam;
+    private float mouseX;
+    private float mouseY;
+    private Camera cam;
+    private bool isPaused;
+
+    public bool IsPaused
+    {
+        get { return isPaused; }
+        set { isPaused = value; } 
+    }
 
     private void Awake()
     {
@@ -45,10 +52,13 @@ public class CameraMover : MonoBehaviour
 
     private void Update()
     {
-        RotateHorizontally();
-        RotateVertically();
-        ToggleCursorMode();
+        if (!isPaused)
+        {
+            RotateHorizontally();
+            RotateVertically();
+        }
 
+        ToggleCursorMode();
         Aim();
     }
 
@@ -86,7 +96,7 @@ public class CameraMover : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 // switches to Fulfilling order state once the start button is pressed 
-                StateManager.instance.SwitchStates(new FulfillingOrderState());
+                StateManager.instance.SwitchStates(StateManager.instance.fulfillingOrderState);
             }
         }
     }
@@ -132,4 +142,13 @@ public class CameraMover : MonoBehaviour
             LockCursor();
         }
     }
+
+    /// <summary>
+    /// Resets the Rotation of the camera to zero
+    /// </summary>
+    public void ResetCameraRotation()
+    {
+        cam.transform.localRotation = Quaternion.Euler(Vector3.zero);
+    }
+
 }

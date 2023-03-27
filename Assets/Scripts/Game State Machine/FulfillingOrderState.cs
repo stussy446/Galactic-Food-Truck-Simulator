@@ -14,6 +14,7 @@ public class FulfillingOrderState : StateAbstract
         orderManager = MonoBehaviour.FindObjectOfType<OrderManager>();
         manager.playerInputManager.DisableMovement();
         MenuManager.Instance.ActivateMenu(MenuType.EightItem);
+        ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
 
         // TODO: Bring order screen to main screen (think Among Us task)
         Debug.Log("You are in the fulfilling order state!");
@@ -23,6 +24,7 @@ public class FulfillingOrderState : StateAbstract
     public override void ExitState(StateManager manager)
     {
         MenuManager.Instance.ActivateMenu(MenuType.Start);
+        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
         manager.SwitchStates(manager.freeRoamingState);
     }
 

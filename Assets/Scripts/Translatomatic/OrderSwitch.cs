@@ -6,6 +6,10 @@ public class OrderSwitch : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        TranslateActions.OnOrderSwitch();
+        var lineID = Random.Range(1, SqliteScript.GetSize("LineID", "OrderTable") + 1);
+
+        var languageID = Random.Range(1, SqliteScript.GetSize("LangID", "LangIndex") + 1);
+
+        TranslateActions.OnReceiveOrder(languageID,lineID);
     }
 }

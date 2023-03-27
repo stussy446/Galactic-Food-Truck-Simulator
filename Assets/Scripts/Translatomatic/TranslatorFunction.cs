@@ -4,11 +4,10 @@ using TMPro;
 using UnityEngine;
 
 
-    public class TranslatorFunction : MonoBehaviour
-    {
+public class TranslatorFunction : MonoBehaviour
+{
 
-        [SerializeField] private TMP_Text inputText;
-        [SerializeField] private TMP_Text outputText;
+        [SerializeField] private TranslateButton translatorUI;
         private int lineID, languageID;
 
 
@@ -20,6 +19,7 @@ using UnityEngine;
         {
             TranslateActions.OnDialClicked += RunTranslator;
             TranslateActions.OnOrderSwitch += OnRandomLineClicked;
+            TranslateActions.OnReceiveOrder += OnOrderReceived;
         }
 
 
@@ -33,9 +33,21 @@ using UnityEngine;
                 languageIndex = 1;
             }
 
-            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
+            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
 
 
+
+        }
+
+        public void OnOrderReceived(int lang, int line)
+        {
+            lineID = line;
+            languageID = lang;
+            languageIndex = lang;
+            translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
+            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
+
+            TranslateActions.OnNewOrder(this);
         }
 
         public void OnRandomLineClicked()
@@ -45,8 +57,8 @@ using UnityEngine;
             languageID = Random.Range(1, SqliteScript.GetSize("LangID", "LangIndex") + 1);
             languageIndex = languageID;
 
-            inputText.text = SqliteScript.GetLine(languageID, lineID);
-            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
+            translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
+            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
 
             TranslateActions.OnNewOrder(this);
         }
@@ -55,7 +67,8 @@ using UnityEngine;
         {
             TranslateActions.OnDialClicked -= RunTranslator;
             TranslateActions.OnOrderSwitch -= OnRandomLineClicked;
-        }
+            TranslateActions.OnReceiveOrder -= OnOrderReceived;
+    }
 
         public int GetLanguageID()
         {
