@@ -16,6 +16,7 @@ public class CustomerScriptableObject : ScriptableObject
     public void PlayOrderAudio(AudioSource audioSource)
     {
         audioSource.PlayOneShot(orderAudio);
+
     }
 
     public void PlayThankYouAudio(AudioSource audioSource)

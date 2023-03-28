@@ -31,7 +31,7 @@ public class OrderingState : CustomerBaseState
             alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
         }
 
-        if (alienCustomer.transform.position == orderPos && audioSource.enabled)
+        if (alienCustomer.transform.position == orderPos && audioSource.enabled && !audioSource.isPlaying)
         {
             //TODO: connect voice clip
             //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);

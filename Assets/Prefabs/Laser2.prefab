@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5637181489389235340}
   - component: {fileID: 7628259053756221802}
+  - component: {fileID: 2683826362506879621}
   m_Layer: 0
   m_Name: Laser2
   m_TagString: Untagged
@@ -49,6 +50,19 @@ MonoBehaviour:
   spawnPoint: {fileID: 6669338794121593322}
   explodey: {fileID: 2251106015492302743, guid: f54d8589fa2d99649afba550989b1634,
     type: 3}
+--- !u!114 &2683826362506879621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372102643862186238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c96eaed2a8124fa39875eeec519d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroytime: 2
 --- !u!1 &5467575766493650948
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +105,6 @@ GameObject:
   - component: {fileID: 6553412305990014813}
   - component: {fileID: 6553412305990014814}
   - component: {fileID: 6553412305990014815}
-  - component: {fileID: 8206808604490289732}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -164,16 +177,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8206808604490289732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6553412305990014809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1c96eaed2a8124fa39875eeec519d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroytime: 2

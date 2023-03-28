@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -916,8 +916,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962908045}
-  - component: {fileID: 962908044}
   - component: {fileID: 962908043}
+  - component: {fileID: 962908046}
   m_Layer: 0
   m_Name: Voice Manager
   m_TagString: Untagged
@@ -1021,48 +1021,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &962908044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962908042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504a0fe457932124782d81cee1d4cabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 962908043}
-  buttonPressed:
-  - {fileID: 8300000, guid: c72892fe64182b9479181cd591cceb44, type: 3}
-  - {fileID: 8300000, guid: e77e504d733ecdf49a5e9a67f877f8d8, type: 3}
-  - {fileID: 8300000, guid: 2a1e0ad32314c2940b688d7c42397cef, type: 3}
-  - {fileID: 8300000, guid: bf9c85bec470a434d88cc29a64c81501, type: 3}
-  - {fileID: 8300000, guid: 4056b1a3d57dfed44a3a7de1ea3d0fa9, type: 3}
-  playerCloseToLosing:
-  - {fileID: 8300000, guid: 279f6c15e44a9ff40bb4f2c4fdac98aa, type: 3}
-  - {fileID: 8300000, guid: 674ae7decf1dbc946b90b6933209af72, type: 3}
-  - {fileID: 8300000, guid: f6d7d9f0b3496464a8c7d54bca13e013, type: 3}
-  - {fileID: 8300000, guid: 0d65d46fc19a0524c9fd7a5c5da9b6eb, type: 3}
-  - {fileID: 8300000, guid: 279441771f1ab9943b9f1cbf7b496a85, type: 3}
-  - {fileID: 8300000, guid: fcbadd3ae83cff740bdbc9ece2417307, type: 3}
-  enteredFoodReplicator:
-  - {fileID: 8300000, guid: 272b046ca632db74fa852b0dab133ae5, type: 3}
-  - {fileID: 8300000, guid: a220a80397fd2284293ab2bbbf2b2624, type: 3}
-  - {fileID: 8300000, guid: 5c405f2c469432043bfd55153b629e4d, type: 3}
-  - {fileID: 8300000, guid: 11c604a40dcbe8843bd7db6aae679303, type: 3}
-  doneReplicatingFood:
-  - {fileID: 8300000, guid: 0d543627ced177a408a0f05646e7fc4f, type: 3}
-  - {fileID: 8300000, guid: 509f5b11d0a1ce949b77b45a213f8c48, type: 3}
-  - {fileID: 8300000, guid: 22b4af2707488314690db9fb2978ce44, type: 3}
-  customerReceivedFood: []
-  triedInteractingWithInactiveButton: []
-  enteredTranslator: []
-  exitedTranslator: []
-  customerArrived: []
-  customerOrdered: []
-  customerLeft: []
 --- !u!4 &962908045
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,6 +1036,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &962908046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962908042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac64b16d17e38ab4cbb04e9a05a6a309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 962908043}
 --- !u!1001 &984933652
 PrefabInstance:
   m_ObjectHideFlags: 0

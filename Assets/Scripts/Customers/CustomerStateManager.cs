@@ -85,7 +85,7 @@ public  class CustomerStateManager : MonoBehaviour
     public IEnumerator PlayCustomerVO()
     {
        
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         customerAudioSource.enabled = false;
     }
 
