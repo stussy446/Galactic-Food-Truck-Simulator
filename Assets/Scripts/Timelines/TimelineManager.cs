@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.Timeline;
 
-public class MusicManager : MonoBehaviour
+public class TimelineManager : MonoBehaviour
 {
     [SerializeField] PlayableDirector director;
+    [SerializeField] GameObject menuCanvas;
+
     AudioSource audioSource;
 
     float timer = 0;
@@ -40,5 +39,10 @@ public class MusicManager : MonoBehaviour
         {
             StopMusic();
         }
+    }
+
+    public void SwitchToMainMenu()
+    {
+        menuCanvas.SetActive(true);
     }
 }
