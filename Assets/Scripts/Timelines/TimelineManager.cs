@@ -3,24 +3,18 @@ using UnityEngine.Playables;
 
 public class TimelineManager : MonoBehaviour
 {
-    [SerializeField] PlayableDirector director;
     [SerializeField] GameObject menuCanvas;
+    [SerializeField] AudioSource audioSource;
 
-    AudioSource audioSource;
-
-    float timer = 0;
+    PlayableDirector director;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null) 
+        director = GetComponent<PlayableDirector>();
+        if (director == null) 
         {
-            Debug.Log("no audiosource available");
+            Debug.Log("no director available");
         }
-    }
-    private void Update()
-    {
-        //StopIfDone();
     }
 
     public void PlayMusic()
@@ -31,14 +25,6 @@ public class TimelineManager : MonoBehaviour
     public void StopMusic()
     {
         audioSource.Stop();
-    }
-    private void StopIfDone()
-    {
-        timer += Time.deltaTime;
-        if (director.duration <= timer)
-        {
-            StopMusic();
-        }
     }
 
     public void SwitchToMainMenu()

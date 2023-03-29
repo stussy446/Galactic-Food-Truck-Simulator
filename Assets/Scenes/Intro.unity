@@ -274,7 +274,6 @@ GameObject:
   - component: {fileID: 878700850}
   - component: {fileID: 878700851}
   - component: {fileID: 878700853}
-  - component: {fileID: 878700852}
   m_Layer: 5
   m_Name: Intro Canvas
   m_TagString: Untagged
@@ -481,20 +480,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &878700852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878700844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee419dd2cb0abc4ba8355efbdb9a383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  director: {fileID: 1169880938}
-  menuCanvas: {fileID: 878812290}
 --- !u!114 &878700853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +499,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 878700852}
-          m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
+        - m_Target: {fileID: 1169880940}
+          m_TargetAssemblyTypeName: TimelineManager, Assembly-CSharp
           m_MethodName: PlayMusic
           m_Mode: 1
           m_Arguments:
@@ -528,7 +513,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 878700852}
+        - m_Target: {fileID: 1169880940}
           m_TargetAssemblyTypeName: TimelineManager, Assembly-CSharp
           m_MethodName: SwitchToMainMenu
           m_Mode: 1
@@ -651,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1169880939}
   - component: {fileID: 1169880938}
+  - component: {fileID: 1169880940}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -700,6 +686,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1169880940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169880937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee419dd2cb0abc4ba8355efbdb9a383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCanvas: {fileID: 878812290}
+  audioSource: {fileID: 878700851}
 --- !u!1 &1486854516
 GameObject:
   m_ObjectHideFlags: 0
