@@ -27,8 +27,8 @@ public class TimelineManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void SwitchToMainMenu()
+    public void EnableManipulation(TextManipulator manipulator)
     {
-        menuCanvas.SetActive(true);
+        manipulator.enabled = true;
     }
 }
