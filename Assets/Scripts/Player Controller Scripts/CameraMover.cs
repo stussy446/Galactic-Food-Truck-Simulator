@@ -21,6 +21,7 @@ public class CameraMover : MonoBehaviour
     private float mouseY;
     private Camera cam;
     private bool isPaused;
+    private bool interactionButtonPressed;
 
     public bool IsPaused
     {
@@ -93,7 +94,7 @@ public class CameraMover : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange, interactableLayer))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (interactionButtonPressed)
             {
                 // switches to Fulfilling order state once the start button is pressed 
                 StateManager.instance.SwitchStates(StateManager.instance.fulfillingOrderState);
@@ -105,10 +106,12 @@ public class CameraMover : MonoBehaviour
     /// Receives a Vector2 representing the mouses input and stores values into mouseX and mouseY fields
     /// </summary>
     /// <param name="mouseInput">Vector2</param>
-    public void ReceiveInput(Vector2 mouseInput)
+    public void ReceiveInput(Vector2 mouseInput, bool isInteracting)
     {
         mouseX = mouseInput.x * sensitivityX;
         mouseY = mouseInput.y * sensitivityY;
+
+        interactionButtonPressed = isInteracting;
     }
 
     /// <summary>
