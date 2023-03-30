@@ -18,6 +18,10 @@ public class InputManager : MonoBehaviour
     Vector2 horizontalInput;
     Vector2 mouseInput;
 
+    bool isInteracting;
+
+    public bool IsInteracting { get { return isInteracting; } } 
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -30,8 +34,12 @@ public class InputManager : MonoBehaviour
         playerControls.Enable();
 
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
+
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+
+        movementActions.Interact.performed += ctx => isInteracting = true;
+        movementActions.Interact.canceled += ctx => isInteracting = false;   
     }
 
     private void Update()
