@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
     {
         // passes the input value to the PlayerMovement script and CameraMover script each frame
         playerMovement.ReceiveInput(horizontalInput); 
-        cameraMover.ReceiveInput(mouseInput);
+        cameraMover.ReceiveInput(mouseInput, isInteracting);
     }
 
     private void OnDisable()
