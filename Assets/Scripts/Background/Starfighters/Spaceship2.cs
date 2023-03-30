@@ -8,7 +8,6 @@ public class Spaceship2 : MonoBehaviour
     [SerializeField] private float yAmplitude;
     [SerializeField] private float zAmplitude;
     [SerializeField] private float xspeed, yspeed, zspeed;
-    [SerializeField] private GameObject explosion;
 
     private Vector3 lookDirection;
     private Vector3 oldPosition;
@@ -51,6 +50,12 @@ public class Spaceship2 : MonoBehaviour
 
     void FireExplosion()
     {
-        var newExplosion = Instantiate(explosion, transform.position + lookDirection.normalized, Quaternion.identity);
+        GameObject explosion = ObjectPool.SharedInstance.GetObject();
+        if (explosion != null)
+        {
+            explosion.transform.position = transform.position + lookDirection.normalized;
+            explosion.SetActive(true);
+            explosion.GetComponentInChildren<ParticleSystem>().Play();
+        }
     }
 }
