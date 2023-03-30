@@ -117,5 +117,4 @@ MonoBehaviour:
   xspeed: 1
   yspeed: 1
   zspeed: 1
-  explosion: {fileID: 2251106015492302743, guid: 87ae12ac998be2b4ba291aedbbaef36a,
-    type: 3}
+  explosion: {fileID: 0}

@@ -21,11 +21,6 @@ public class CapShip : MonoBehaviour
         InvokeRepeating("FireZeLaser", fireRate, fireRate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FireZeLaser()
     {
@@ -33,6 +28,8 @@ public class CapShip : MonoBehaviour
         var firingLine = transform.rotation;
         firingLine.x += fireAngle;
 
-        Instantiate(projectile, firePoint.position, firingLine);
+        projectile.transform.rotation = firingLine;
+        projectile.SetActive(true);
+ 
     }
 }
