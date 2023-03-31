@@ -35,7 +35,7 @@ public class OrderingState : CustomerBaseState
         {
             //TODO: connect voice clip
             //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
-
+            TranslateActions.OnReceiveOrder(customerState.customerSO.language, customerState.customerSO.orderId); 
             //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
             customerState.customerSO.PlayOrderAudio(audioSource);
             Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
