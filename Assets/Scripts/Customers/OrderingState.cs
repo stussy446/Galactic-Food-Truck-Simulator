@@ -20,6 +20,7 @@ public class OrderingState : CustomerBaseState
         audioSource = customerState.customerAudioSource;
 
         alienCustomer.transform.position = customerPos;
+        customerState.buttonBox.CloseBox();
 
     }
 
@@ -44,7 +45,7 @@ public class OrderingState : CustomerBaseState
 
         if (Input.GetKeyDown(KeyCode.O) == true)
         {
-            customerState.SwitchState(customerState.customerExitState);
+            ExitState(customerState);
         }
         else
         {
@@ -55,7 +56,8 @@ public class OrderingState : CustomerBaseState
 
     public override void ExitState(CustomerStateManager customerState)
     {
-        throw new System.NotImplementedException();
+        customerState.buttonBox.OpenBox();
+        customerState.SwitchState(customerState.customerExitState);
     }
 }
 
