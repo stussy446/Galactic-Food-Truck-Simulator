@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7320516421318129343}
   - component: {fileID: 559922277476964236}
+  - component: {fileID: 3978683194748337930}
   m_Layer: 0
   m_Name: GlassBox
   m_TagString: Untagged
@@ -45,6 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e32d41f0b299594986ca090c05fdf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3978683194748337930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534575112200417065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9522603, y: 1.7001644, z: 2.3163033}
+  m_Center: {x: 0, y: 0.7701786, z: -1.0502465}
 --- !u!1001 &8475585897182367556
 PrefabInstance:
   m_ObjectHideFlags: 0
