@@ -21,6 +21,7 @@ public class OrderingState : CustomerBaseState
 
         alienCustomer.transform.position = customerPos;
         customerState.buttonBox.CloseBox();
+        customerState.customerAlert.gameObject.SetActive(true);
 
     }
 
@@ -56,6 +57,7 @@ public class OrderingState : CustomerBaseState
 
     public override void ExitState(CustomerStateManager customerState)
     {
+        customerState.customerAlert.gameObject.SetActive(false);
         customerState.buttonBox.OpenBox();
         customerState.SwitchState(customerState.customerExitState);
     }

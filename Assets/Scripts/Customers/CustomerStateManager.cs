@@ -43,6 +43,7 @@ public  class CustomerStateManager : MonoBehaviour
 
     [Header("Customer Dependencies")]
     public BoxOpener buttonBox;
+    public Light customerAlert;
 
     void Start()
     {
