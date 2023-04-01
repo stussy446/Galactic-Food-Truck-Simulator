@@ -41,6 +41,10 @@ public  class CustomerStateManager : MonoBehaviour
     [SerializeField]
     public GameObject customerExitLocation;
 
+    [Header("Customer Dependencies")]
+    public BoxOpener buttonBox;
+    public Light customerAlert;
+
     void Start()
     {
         customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
