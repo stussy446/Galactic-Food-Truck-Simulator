@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CustomerLight : MonoBehaviour
 {
-    public Light light;
+    public Light warningLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        light.gameObject.SetActive(false);
+        warningLight.gameObject.SetActive(false);
     }
 
     private void Update()
