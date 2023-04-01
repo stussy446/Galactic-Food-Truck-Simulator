@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 /// <summary>
 /// Game State for when user is simply walking around the environment.
@@ -15,7 +11,7 @@ public class FreeRoamingState : StateAbstract
 
     public override void EnterState(StateManager manager)
     {
-        // TODO: User regains ability to move around and interact with the environment
+        // TODO: User regains ability to move around and isInteracting with the environment
         Debug.Log("Free Roaming State");
         AddRelevantListeners();
         manager.playerInputManager.EnableMovement();
@@ -38,8 +34,10 @@ public class FreeRoamingState : StateAbstract
     {
         GameObject interactable = FindInteractableItem();
         if (interactable == null) { return; }
-        //Debug.Log(interactable.name);
-        if (Input.GetKeyDown(KeyCode.E))
+
+        bool isInteracting = manager.playerInputManager.IsInteracting;
+
+        if (isInteracting)
         {
             OpenObjectInteraction(interactable);
         }
