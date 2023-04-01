@@ -17,6 +17,7 @@ public class OrderManager : MonoBehaviour
             }
 
             ResetOrder();
+            ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
             return true;
         }
     }
