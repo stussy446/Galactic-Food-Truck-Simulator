@@ -63,7 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5581821141996862463, guid: c84cc1757d46a8946bd52c2f0cc23784, type: 3}
-  - {fileID: -1087731590894463733, guid: c84cc1757d46a8946bd52c2f0cc23784, type: 3}
+  - {fileID: 2100000, guid: 7407b126b0137314dbfd24a8a7511bcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -314,7 +314,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5581821141996862463, guid: c84cc1757d46a8946bd52c2f0cc23784, type: 3}
-  - {fileID: -1087731590894463733, guid: c84cc1757d46a8946bd52c2f0cc23784, type: 3}
+  - {fileID: 2100000, guid: 7407b126b0137314dbfd24a8a7511bcc, type: 2}
   - {fileID: -4347731923644493172, guid: c84cc1757d46a8946bd52c2f0cc23784, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -363,7 +363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2911583628792115301}
-  m_LocalRotation: {x: -0.57483023, y: 0.4117891, z: 0.4117891, w: 0.57483023}
+  m_LocalRotation: {x: -0.57483053, y: 0.41178864, z: 0.41178864, w: 0.57483053}
   m_LocalPosition: {x: -27.07, y: 6.772, z: 5.01}
   m_LocalScale: {x: 122.1, y: 122.1, z: 122.1}
   m_ConstrainProportionsScale: 0
@@ -437,9 +437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  aiCameraBody: {fileID: 8491619812699621996}
-  rotationSpeed: 4.62
-  lookOffset: 2
+  aiCameraBody: {fileID: 2369447955910133148}
+  rotationSpeed: 0.6
+  lookOffset: 0.5
   aiLockOnStart: 1
 --- !u!1 &5059756351920666300
 GameObject:
@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 6798878454864426675}
   - component: {fileID: 1993656733731335796}
   - component: {fileID: 1737068338197128222}
+  - component: {fileID: 1636509576}
   m_Layer: 0
   m_Name: CameraFocusRing
   m_TagString: Untagged
@@ -646,3 +647,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1636509576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180125930103436786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d8b03f69169b28409b98b900bce8455, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

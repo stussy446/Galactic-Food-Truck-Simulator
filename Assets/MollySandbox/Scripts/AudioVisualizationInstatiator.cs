@@ -7,6 +7,8 @@ public class AudioVisualizationInstatiator : MonoBehaviour
 
     [SerializeField]
     public GameObject prefabShape;
+    [SerializeField]
+    private GameObject parentTransform;
     GameObject instantiatedShape;
     private float randomAudioSample;
     GameObject[] prefabShapeArray = new GameObject[64];
@@ -23,7 +25,7 @@ public class AudioVisualizationInstatiator : MonoBehaviour
         {
             GameObject instancePrefabShape = (GameObject)Instantiate(prefabShape);
             instancePrefabShape.transform.position = this.transform.position;
-            instancePrefabShape.transform.parent = this.transform;
+            instancePrefabShape.transform.parent = parentTransform.transform;
             instancePrefabShape.name = "PrefabShape" + i;
             this.transform.localPosition = new Vector3(0, 0, (float).5 * i);
             instancePrefabShape.transform.position = Vector3.forward * 10;
