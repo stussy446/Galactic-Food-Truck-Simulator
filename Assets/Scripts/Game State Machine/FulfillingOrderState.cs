@@ -8,6 +8,7 @@ using UnityEngine;
 public class FulfillingOrderState : StateAbstract
 {
     OrderManager orderManager;
+    bool orderCorrect;
 
     public override void EnterState(StateManager manager)
     {
@@ -17,14 +18,16 @@ public class FulfillingOrderState : StateAbstract
         ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
 
         // TODO: Bring order screen to main screen (think Among Us task)
-        Debug.Log("You are in the fulfilling order state!");
         manager.playerInputManager.GoToReplicatingPosition();
+
+        ActionList.OnDoneReplicatingFood += ctx => orderCorrect = true;
+
     }
 
     public override void ExitState(StateManager manager)
     {
         MenuManager.Instance.ActivateMenu(MenuType.Start);
-        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+        orderCorrect = false;
         manager.SwitchStates(manager.freeRoamingState);
     }
 
@@ -34,12 +37,10 @@ public class FulfillingOrderState : StateAbstract
         {
             ExitState(manager);
         }
-        else if (orderManager.IsCorrect)
+        else if (orderCorrect)
         {
-            Debug.Log("Correct, well done!");
             ExitState(manager);
         }
     }
 
-    // TODO: create button click methods for interacting with the UI
 }

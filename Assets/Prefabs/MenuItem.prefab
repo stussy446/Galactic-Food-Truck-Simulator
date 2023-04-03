@@ -215,6 +215,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2561253953552665415}
   itemButton: {fileID: 1283115320627770825}
+  originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  incorrectBackgroundColor: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 0.39215687}
+  incorrectDelay: 0
 --- !u!1 &7820535754875412213
 GameObject:
   m_ObjectHideFlags: 0
