@@ -1558,7 +1558,7 @@ PrefabInstance:
     - target: {fileID: 103700122552120648, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 103700122552120649, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
@@ -4465,11 +4465,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---Customer---
       objectReference: {fileID: 0}
-    - target: {fileID: 103700122552120648, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 103700122552120649, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: m_RootOrder
@@ -4535,31 +4530,6 @@ PrefabInstance:
       propertyPath: customerAlert
       value: 
       objectReference: {fileID: 870067538}
-    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: DopplerLevel
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877702985630904100, guid: 98023a7e8ca40a3438c7f2ce656e3534,
-        type: 3}
-      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98023a7e8ca40a3438c7f2ce656e3534, type: 3}
 --- !u!1 &343313431761686544

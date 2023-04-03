@@ -10,13 +10,20 @@ public class WaitingInLineState : CustomerBaseState
     private Vector3 customerPos, customerSpawnPos;
     private float currentTime;
     private float startingTime;
+    private GameObject alienCustomer;
+    private Vector3  orderPos;
+    private float customerSpeed;
 
 
     public override void EnterState(CustomerStateManager customerState)
     {
-        startingTime = customerState.customerCountdownStartTime;
+        alienCustomer = customerState.alienCustomerPrefab;
+        orderPos = customerState.orderingLocation.transform.position;
         customerPos = customerState.alienCustomerPrefab.transform.position;
+        startingTime = customerState.customerCountdownStartTime;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
+
+        alienCustomer.transform.position = customerPos;
 
         if (customerPos != customerSpawnPos)
         {
@@ -31,7 +38,8 @@ public class WaitingInLineState : CustomerBaseState
         currentTime = startingTime -= 1 * Time.deltaTime;
         if(currentTime <= 0)
         {
-            customerState.SwitchState(customerState.orderingState);
+            Debug.Log(alienCustomer.transform.position);
+            alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
         }
     }
 
