@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 /// <summary>
 /// Game State for when user is simply walking around the environment.
@@ -14,20 +10,26 @@ public class FreeRoamingState : StateAbstract
     private StateAbstract goToState;
 
     public override void EnterState(StateManager manager)
-    {
-        // TODO: User regains ability to move around and interact with the environment
-        Debug.Log("Free Roaming State");
+    {   
+        // Add listeners to actions that allow user to leave this state
         AddRelevantListeners();
+
+        // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
     }
 
     public override void ExitState(StateManager manager)
-    {       
+    {
+        // Checks to make sure we have a state to go to
         if (goToState == null) { return; }
 
+        // Disables player movement while out of this state
         manager.playerInputManager.DisableMovement();
 
+        // Remove all the listeners
         RemoveRelevantListeners();
+
+        // Turn off the interact UI element
         ToggleInteractFeedback(false);
 
         // Go to whichever state is set to goToState;
@@ -36,10 +38,14 @@ public class FreeRoamingState : StateAbstract
 
     public override void UpdateState(StateManager manager)
     {
+        // Identify if there is an interactable item
         GameObject interactable = FindInteractableItem();
+
         if (interactable == null) { return; }
-        //Debug.Log(interactable.name);
-        if (Input.GetKeyDown(KeyCode.E))
+
+        // Checks to see if user has pressed the interact key and interacts with
+        // that object.
+        if (manager.playerInputManager.IsInteracting)
         {
             OpenObjectInteraction(interactable);
         }
@@ -84,6 +90,7 @@ public class FreeRoamingState : StateAbstract
         float radius = 1f;
         float detectionRange = 3f;
 
+        // Cast a sphere that collides with the CanInteract layer
         if (Physics.SphereCast(origin, radius, direction, out hit, detectionRange, LayerMask.GetMask(CAN_INTERACT)))
         {
             ToggleInteractFeedback(true);
@@ -99,8 +106,11 @@ public class FreeRoamingState : StateAbstract
     /// <param name="obj"></param>
     private void OpenObjectInteraction(GameObject obj)
     {
+        // Find the interaction type on the GameObject
         InteractionManager interaction = obj.GetComponent<InteractionManager>();
         ActionType interactionType = interaction.actionType;
+
+        // Invoke the correct action
         switch (interactionType)
         {
             case ActionType.EnteredButtonPressing:
@@ -115,6 +125,10 @@ public class FreeRoamingState : StateAbstract
         }
     }
 
+    /// <summary>
+    /// Sets the Interact UI element to active or inactive
+    /// </summary>
+    /// <param name="toggle"></param>
     private void ToggleInteractFeedback(bool toggle)
     {
         StateManager.instance.interactFeedback.gameObject.SetActive(toggle);

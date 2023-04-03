@@ -12,7 +12,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public static class SqliteScript 
 {
-    private static string dbURI = "URI=file:" + Application.dataPath + "/LinesDB.db";
+    private static string dbURI = "URI=file:" + Application.streamingAssetsPath + "/LinesDB.db";
 
     //Returns the line of text from a specified table with a given lineID
     //Function specific to Translator. Do not use for anything else

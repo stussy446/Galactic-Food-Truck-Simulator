@@ -36,11 +36,12 @@ public class CustomerExitState : CustomerBaseState
         if(alienCustomer.transform.position == exitPos)
         {
             customerState.OnCharacterExit();
+            ExitState(customerState);
         }
     }
 
     public override void ExitState(CustomerStateManager customerState)
     {
-        throw new System.NotImplementedException();
+        customerState.SwitchState(customerState.waitingInLineState);
     }
 }

@@ -10,14 +10,15 @@ public class Laser : MonoBehaviour
     private float boomTimer = 0.5f;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         Invoke("Boomboom", boomTimer);
     }
 
     void Boomboom()
     {
-        Instantiate(explodey, spawnPoint);
+        explodey.SetActive(true);
+        explodey.GetComponentInChildren<ParticleSystem>().Play();
     }
 
 

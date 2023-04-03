@@ -8,38 +8,39 @@ using UnityEngine;
 public class FulfillingOrderState : StateAbstract
 {
     OrderManager orderManager;
+    bool orderCorrect;
 
     public override void EnterState(StateManager manager)
     {
+        // Gets reference to orderManager
         orderManager = MonoBehaviour.FindObjectOfType<OrderManager>();
-        manager.playerInputManager.DisableMovement();
+        
+        // Activates Replicator menu
         MenuManager.Instance.ActivateMenu(MenuType.EightItem);
-        ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
-
-        // TODO: Bring order screen to main screen (think Among Us task)
-        Debug.Log("You are in the fulfilling order state!");
+        
+        // Sets player position to be in front of replicator
         manager.playerInputManager.GoToReplicatingPosition();
+
+        // Calls action once order is correctly fulfilled
+        ActionList.OnDoneReplicatingFood += ctx => orderCorrect = true;
+
     }
 
     public override void ExitState(StateManager manager)
     {
+        // Sets replicator menu to original view
         MenuManager.Instance.ActivateMenu(MenuType.Start);
-        ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+
+        orderCorrect = false;
         manager.SwitchStates(manager.freeRoamingState);
     }
 
     public override void UpdateState(StateManager manager)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || orderCorrect)
         {
-            ExitState(manager);
-        }
-        else if (orderManager.IsCorrect)
-        {
-            Debug.Log("Correct, well done!");
             ExitState(manager);
         }
     }
 
-    // TODO: create button click methods for interacting with the UI
 }

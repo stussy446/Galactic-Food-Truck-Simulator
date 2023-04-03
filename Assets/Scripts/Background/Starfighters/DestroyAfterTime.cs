@@ -5,8 +5,14 @@ using UnityEngine;
 public class DestroyAfterTime : MonoBehaviour
 {
     [SerializeField] private float destroytime = 2f;
+    [SerializeField] private ParticleSystem particle;
     // Start is called before the first frame update
     void Start()
+    {
+        Invoke("DestroyObject", destroytime);
+    }
+
+    void OnEnable()
     {
         Invoke("DestroyObject", destroytime);
     }
@@ -19,6 +25,8 @@ public class DestroyAfterTime : MonoBehaviour
 
     void DestroyObject()
     {
-        Destroy(gameObject);
+        particle.Stop();
+        particle.Clear();
+        gameObject.SetActive(false);
     }
 }

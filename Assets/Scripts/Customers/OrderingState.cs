@@ -20,6 +20,8 @@ public class OrderingState : CustomerBaseState
         audioSource = customerState.customerAudioSource;
 
         alienCustomer.transform.position = customerPos;
+        customerState.buttonBox.CloseBox();
+        customerState.customerAlert.gameObject.SetActive(true);
 
     }
 
@@ -31,11 +33,11 @@ public class OrderingState : CustomerBaseState
             alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
         }
 
-        if (alienCustomer.transform.position == orderPos && audioSource.enabled)
+        if (alienCustomer.transform.position == orderPos && audioSource.enabled && !audioSource.isPlaying)
         {
             //TODO: connect voice clip
             //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
-
+            TranslateActions.OnReceiveOrder(customerState.customerSO.language, customerState.customerSO.orderId); 
             //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
             customerState.customerSO.PlayOrderAudio(audioSource);
             Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
@@ -44,7 +46,7 @@ public class OrderingState : CustomerBaseState
 
         if (Input.GetKeyDown(KeyCode.O) == true)
         {
-            customerState.SwitchState(customerState.customerExitState);
+            ExitState(customerState);
         }
         else
         {
@@ -55,7 +57,9 @@ public class OrderingState : CustomerBaseState
 
     public override void ExitState(CustomerStateManager customerState)
     {
-        throw new System.NotImplementedException();
+        customerState.customerAlert.gameObject.SetActive(false);
+        customerState.buttonBox.OpenBox();
+        customerState.SwitchState(customerState.customerExitState);
     }
 }
 

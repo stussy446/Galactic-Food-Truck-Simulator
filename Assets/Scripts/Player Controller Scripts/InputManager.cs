@@ -18,6 +18,10 @@ public class InputManager : MonoBehaviour
     Vector2 horizontalInput;
     Vector2 mouseInput;
 
+    bool isInteracting;
+
+    public bool IsInteracting { get { return isInteracting; } } 
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -30,15 +34,19 @@ public class InputManager : MonoBehaviour
         playerControls.Enable();
 
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
+
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+
+        movementActions.Interact.performed += ctx => isInteracting = true;
+        movementActions.Interact.canceled += ctx => isInteracting = false;   
     }
 
     private void Update()
     {
         // passes the input value to the PlayerMovement script and CameraMover script each frame
         playerMovement.ReceiveInput(horizontalInput); 
-        cameraMover.ReceiveInput(mouseInput);
+        cameraMover.ReceiveInput(mouseInput, isInteracting);
     }
 
     private void OnDisable()
@@ -69,12 +77,12 @@ public class InputManager : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPos, endPos, difference);
             transform.forward = Vector3.Lerp(startForward, endForward, difference);
+            cameraMover.LerpCameraRotationToZero(difference);
             difference += Time.deltaTime * 2;
             yield return null;
         }
         transform.position = endPos;
         transform.forward = endForward;
-        cameraMover.ResetCameraRotation();
 
     }
 
