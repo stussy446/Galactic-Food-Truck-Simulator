@@ -9,10 +9,13 @@ using UnityEngine.UI;
 /// </summary>
 public class StateManager : MonoBehaviour
 {
+    // Interact UI Element
     public Image interactFeedback;
 
+    // Singleton
     public static StateManager instance;
 
+    // Reference to the player inputManager
     public InputManager playerInputManager;
 
     // Cache whatever state user is currently in

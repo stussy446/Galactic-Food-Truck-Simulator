@@ -12,28 +12,31 @@ public class PressingButtonState : StateAbstract
 
     public override void EnterState(StateManager manager)
     {
-        Debug.Log("Pressing Button State");
+        // Find the button in the hierarchy
         button = MonoBehaviour.FindObjectOfType<SaveUniverseButton>();
+
+        // Set button to be interactable
         button.gameObject.GetComponent<Collider>().enabled = true;
+
+        // Set player position to be right in front of button table
         manager.playerInputManager.GoToButtonPosition();
-        // TODO: Bring button to save the universe to the screen (Think Among Us task)
+        
     }
 
     public override void ExitState(StateManager manager)
     {
         if (goToState == null) { return; }
+
+        // Set button to not interactable
         button.gameObject.GetComponent<Collider>().enabled = false;
-        // Go back to free roaming state
+
+        // Go back to state based on goToState
         manager.SwitchStates(goToState);
     }
 
     public override void UpdateState(StateManager manager)
     {
-        // TODO: Exit state when user presses to leave button area or Customer shows up
-        //  - if user leaves button pressing area
-        //      - goToState = manager.freeRoamingState;
-        //  - if customer shows up
-        //      - goToState = manager.receivingOrderState;
+        // TODO: Logic for when customer arrives, also exit state
         if (Input.GetKeyDown(KeyCode.Space))
         {
             goToState = manager.freeRoamingState;

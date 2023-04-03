@@ -12,32 +12,32 @@ public class FulfillingOrderState : StateAbstract
 
     public override void EnterState(StateManager manager)
     {
+        // Gets reference to orderManager
         orderManager = MonoBehaviour.FindObjectOfType<OrderManager>();
-        manager.playerInputManager.DisableMovement();
+        
+        // Activates Replicator menu
         MenuManager.Instance.ActivateMenu(MenuType.EightItem);
-        ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
-
-        // TODO: Bring order screen to main screen (think Among Us task)
+        
+        // Sets player position to be in front of replicator
         manager.playerInputManager.GoToReplicatingPosition();
 
+        // Calls action once order is correctly fulfilled
         ActionList.OnDoneReplicatingFood += ctx => orderCorrect = true;
 
     }
 
     public override void ExitState(StateManager manager)
     {
+        // Sets replicator menu to original view
         MenuManager.Instance.ActivateMenu(MenuType.Start);
+
         orderCorrect = false;
         manager.SwitchStates(manager.freeRoamingState);
     }
 
     public override void UpdateState(StateManager manager)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ExitState(manager);
-        }
-        else if (orderCorrect)
+        if (Input.GetKeyDown(KeyCode.Space) || orderCorrect)
         {
             ExitState(manager);
         }
