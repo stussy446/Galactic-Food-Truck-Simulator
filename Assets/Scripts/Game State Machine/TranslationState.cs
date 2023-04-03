@@ -11,15 +11,20 @@ public class TranslationState : StateAbstract
 
     public override void EnterState(StateManager manager)
     {
-        Debug.Log("Translation State");
+        // Find the translator in the scene
         translator = MonoBehaviour.FindObjectOfType<TranslatorFunction>();
+
+        // Set the translator dial to interactable by disabling the translator's collider
         translator.gameObject.GetComponent<Collider>().enabled = false;
+
+        // Set player position to be right in front of the translator
         manager.playerInputManager.GoToTranslatorPosition();
-        // TODO: Bring Translator to the screen (think Among Us task)
+
     }
 
     public override void ExitState(StateManager manager)
     {
+        // Set dial to not interactable
         translator.gameObject.GetComponent<Collider>().enabled = true;
 
         // Goes back to free roaming state
@@ -28,8 +33,6 @@ public class TranslationState : StateAbstract
 
     public override void UpdateState(StateManager manager)
     {
-        // TODO: Execute translator mechanics here or build another State Machine
-        // TODO: Exit whenever user clicks outside of the translator
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ExitState(manager);

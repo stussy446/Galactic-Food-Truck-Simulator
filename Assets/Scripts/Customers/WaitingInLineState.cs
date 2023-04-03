@@ -23,20 +23,23 @@ public class WaitingInLineState : CustomerBaseState
             customerPos = customerSpawnPos;
         }
 
+        customerState.alienCustomerPrefab.SetActive(true);
+
         Debug.Log("JELLY ENTITY IS AWAITING IN CUE.");
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
-        currentTime = startingTime -= 1 * Time.deltaTime;
+        currentTime = startingTime -= Time.deltaTime;
         if(currentTime <= 0)
         {
-            customerState.SwitchState(customerState.orderingState);
+            ExitState(customerState);
         }
     }
 
     public override void ExitState(CustomerStateManager customerState)
     {
-        throw new System.NotImplementedException();
+        customerState.SwitchState(customerState.orderingState);
+
     }
 }

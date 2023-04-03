@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fb220362854a4448193ba2703796c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 870067538}
+  warningLight: {fileID: 870067538}
 --- !u!114 &876627879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6255896258910827675, guid: cafaca0543f6a094fa47c070d5e9392a,
@@ -1316,6 +1316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273758f56db20f44791b94112220881b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &899185674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6255896258910827673, guid: cafaca0543f6a094fa47c070d5e9392a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1049348780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &962908042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,6 +3961,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84293d4113349d408efa189a8b3e5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1832658442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.772
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.57483053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.57483053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.41178864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.41178864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532101949941050079, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 71.233
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641761624887156441, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 899185674}
+    - target: {fileID: 2911583628792115301, guid: 54851908a28815b44a83c1a0c6fadae9,
+        type: 3}
+      propertyPath: m_Name
+      value: AI_Camera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54851908a28815b44a83c1a0c6fadae9, type: 3}
 --- !u!4 &1846623444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6725496510300854053, guid: 50c3212a3163b0c49ba7fc706b6c8560,
@@ -5376,6 +5456,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 547aa3d6476d4744d9c6707326563615, type: 2}
   itemText: {fileID: 2279382581637831131}
   itemButton: {fileID: 2279382581772180763}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382581305003676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7816,6 +7899,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382581473668888}
   itemButton: {fileID: 2279382581261793722}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382581933657067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8266,6 +8352,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 97c87f7d5425d7a4b9a192b11885c463, type: 2}
   itemText: {fileID: 2279382583258957625}
   itemButton: {fileID: 2279382582254265193}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!222 &2279382582109970760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8660,6 +8749,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 547aa3d6476d4744d9c6707326563615, type: 2}
   itemText: {fileID: 2279382581482796690}
   itemButton: {fileID: 2279382582109970766}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582236143750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8988,6 +9080,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382581547915124}
   itemButton: {fileID: 2279382582383665546}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582275460017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9336,6 +9431,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382582611207395}
   itemButton: {fileID: 2279382581615207982}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582367629621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9883,6 +9981,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 97c87f7d5425d7a4b9a192b11885c463, type: 2}
   itemText: {fileID: 2279382582242770154}
   itemButton: {fileID: 2279382581268790711}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582520785439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9977,6 +10078,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 547aa3d6476d4744d9c6707326563615, type: 2}
   itemText: {fileID: 2279382581985700307}
   itemButton: {fileID: 2279382582559622145}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582543718687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10424,6 +10528,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382581169648306}
   itemButton: {fileID: 2279382581877226035}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582615124031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11049,6 +11156,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382583012651005}
   itemButton: {fileID: 2279382582937582276}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582801093581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11167,6 +11277,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382582313685980}
   itemButton: {fileID: 2279382582111234739}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582825988711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11234,6 +11347,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
   itemText: {fileID: 2279382582767769822}
   itemButton: {fileID: 2279382581696583721}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582848961718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11395,6 +11511,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 97c87f7d5425d7a4b9a192b11885c463, type: 2}
   itemText: {fileID: 2279382582674293680}
   itemButton: {fileID: 2279382581719086041}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382582915533361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11880,6 +11999,9 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 547aa3d6476d4744d9c6707326563615, type: 2}
   itemText: {fileID: 2279382581930979834}
   itemButton: {fileID: 2279382581688133705}
+  originalBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  incorrectDelay: 0
 --- !u!114 &2279382583023765317
 MonoBehaviour:
   m_ObjectHideFlags: 0

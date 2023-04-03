@@ -11,7 +11,9 @@ public class VOManager : MonoBehaviour
     [SerializeField] private AudioSource source;
     private string dataPath = "Voice Overs/";
 
-
+    /// <summary>
+    /// Adds the PLayAudioClip as a listeners to all the possible player actions
+    /// </summary>
     private void OnEnable()
     {
         ActionList.OnButtonPressed += PlayAudioClip;
@@ -53,6 +55,9 @@ public class VOManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes the listeners from the actions
+    /// </summary>
     private void OnDisable()
     {
         ActionList.OnButtonPressed -= PlayAudioClip;

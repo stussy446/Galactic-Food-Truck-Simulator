@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,33 +5,51 @@ public class OrderManager : MonoBehaviour
 {
     MenuItem menuItem;
     Customer customer; 
+    AudioSource audioSource;
 
-    public bool IsCorrect { 
-        get 
-        {
-            if (!IsCorrectChoice())
-            {
-                return false;
-            }
+    [Header("Audio clip Configs")]
+    [SerializeField] AudioClip incorrectChoiceClip;
+    [SerializeField] AudioClip correctChoiceClip;
 
-            ResetOrder();
-            return true;
-        }
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ReceiveOrderItems(MenuItem item)
     {
         menuItem = item;
         FindCustomer();
+
+        if (IsCorrectChoice())
+        {
+            ResetOrder();
+            PlayAudioClip(correctChoiceClip);
+            ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+        }
+        else
+        {
+            menuItem.ShowIncorrectChoice();
+            if (!audioSource.isPlaying)
+            {
+                PlayAudioClip(incorrectChoiceClip);
+            }
+        }
     }
 
-    private void FindCustomer()
+    private Customer FindCustomer()
     {
         customer = FindObjectOfType<Customer>();
         if (customer == null)
         {
             Debug.Log("No customer was found");
+            return null;
         }
+        else
+        {
+            return customer;
+        }
+
     }
 
     private void ResetOrder()
@@ -62,5 +78,10 @@ public class OrderManager : MonoBehaviour
         return menuItem.ItemID == customer.OrderID;
     }
 
+    private void PlayAudioClip(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
 
 }

@@ -11,6 +11,11 @@ public class BoxOpener : MonoBehaviour
     {
         openRotation = transform.localRotation;
     }
+
+    /// <summary>
+    /// Smoothly opens the box
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator OpenBoxCoroutine() 
     {
         float factor = 0;
@@ -21,9 +26,12 @@ public class BoxOpener : MonoBehaviour
             yield return null;
         }
         transform.localRotation = openRotation;
-
-
     }
+
+    /// <summary>
+    /// Smoothly closes the box
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator CloseBoxCoroutine() 
     {
         float factor = 0;
