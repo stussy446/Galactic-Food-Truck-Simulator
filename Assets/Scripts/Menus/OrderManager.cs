@@ -5,7 +5,6 @@ public class OrderManager : MonoBehaviour
 {
     MenuItem menuItem;
     Customer customer; 
-    List<MenuItem> changedMenuItems = new List<MenuItem>();
     AudioSource audioSource;
 
     [Header("Audio clip Configs")]
@@ -25,7 +24,6 @@ public class OrderManager : MonoBehaviour
         if (IsCorrectChoice())
         {
             ResetOrder();
-            ResetAllItems();
             PlayAudioClip(correctChoiceClip);
             ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
         }
@@ -78,14 +76,6 @@ public class OrderManager : MonoBehaviour
         }
 
         return menuItem.ItemID == customer.OrderID;
-    }
-
-    private void ResetAllItems()
-    {
-        foreach (var item in changedMenuItems)
-        {
-            item.ShowOriginalColor();
-        }
     }
 
     private void PlayAudioClip(AudioClip clip)
