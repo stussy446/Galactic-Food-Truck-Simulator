@@ -14,6 +14,7 @@ public class CustomerLight : MonoBehaviour
 
     private void Update()
     {
+        // Check to see if warning light has been activated
         if (gameObject.activeInHierarchy)
         {
             transform.Rotate(5, 0, 0);
