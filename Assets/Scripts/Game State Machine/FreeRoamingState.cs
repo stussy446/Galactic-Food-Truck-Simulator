@@ -122,6 +122,9 @@ public class FreeRoamingState : StateAbstract
             case ActionType.EnteredFoodReplicator:
                 ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
                 break;
+            case ActionType.CustomerOrdered:
+                ActionList.OnCustomerOrdered?.Invoke(ActionType.CustomerOrdered);
+                break;
         }
     }
 
@@ -144,7 +147,7 @@ public class FreeRoamingState : StateAbstract
 
     private void RemoveRelevantListeners()
     {
-        ActionList.OnEnteredButtonPressing += SwitchStateListener;
+        ActionList.OnEnteredButtonPressing -= SwitchStateListener;
         ActionList.OnEnteredTranslator -= SwitchStateListener;
         ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
         ActionList.OnCustomerArrived -= SwitchStateListener;
