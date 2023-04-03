@@ -1,17 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class MenuItem : MonoBehaviour
 {
     [SerializeField] MenuItemConfig config;
     [SerializeField] TMP_Text itemText;
     [SerializeField] Button itemButton;
+    [SerializeField] Color originalBackgroundColor;
+    [SerializeField] Color incorrectBackgroundColor;
+
+    [Tooltip("Number of seconds incorrect color displays before returning to normal color")][SerializeField] float incorrectDelay;
 
     private string itemName;
     private Sprite itemImage;
     private int itemID;
+
     private OrderManager orderManager;
+    private Image backgroundImage;
 
     public int ItemID { get { return itemID; } }
 
@@ -22,6 +29,7 @@ public class MenuItem : MonoBehaviour
         itemID = config.ID;
 
         orderManager = FindObjectOfType<OrderManager>();
+        backgroundImage = GetComponent<Image>();
 
         UpdateText();
         UpdateImage();
@@ -59,13 +67,19 @@ public class MenuItem : MonoBehaviour
     /// </summary>
     private void PerformButtonAction()
     {
-        // TODO: logic for only invoking if the correct option is chosen 
-        Debug.Log($"{itemName} has been chosen");
-        Debug.Log($" {itemName}'s id is {itemID}");
-
         orderManager.ReceiveOrderItems(this);
+    }
 
-        //ActionList.OnDoneReplicatingFood?.Invoke(ActionType.DoneReplicatingFood);
+    public void ShowIncorrectChoice()
+    {
+        backgroundImage.color = incorrectBackgroundColor;
+        StartCoroutine(ShowOriginalColor());
+    }
+
+    public IEnumerator ShowOriginalColor()
+    {
+        yield return new WaitForSeconds(incorrectDelay);
+        backgroundImage.color = originalBackgroundColor;
     }
 
 }
