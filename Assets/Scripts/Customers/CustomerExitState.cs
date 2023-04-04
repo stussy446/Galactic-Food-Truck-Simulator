@@ -35,6 +35,7 @@ public class CustomerExitState : CustomerBaseState
 
         if(alienCustomer.transform.position == exitPos)
         {
+            alienCustomer.transform.position = customerState.customerResetLocation.transform.position; 
             customerState.OnCharacterExit();
             ExitState(customerState);
         }
