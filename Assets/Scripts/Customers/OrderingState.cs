@@ -8,10 +8,13 @@ public class OrderingState : CustomerBaseState
     private float customerSpeed;
     private ScriptableObject customerOrderVO;
     private AudioSource audioSource;
+    
 
 
     public override void EnterState(CustomerStateManager customerState)
     {
+        ActionList.OnDoneReplicatingFood += ToCustomerExitState;
+
         alienCustomer = customerState.alienCustomerPrefab;
         customerPos = customerState.alienCustomerPrefab.transform.position;
         orderPos = customerState.orderingLocation.transform.position;
@@ -23,11 +26,13 @@ public class OrderingState : CustomerBaseState
         customerState.buttonBox.CloseBox();
         customerState.customerAlert.gameObject.SetActive(true);
 
+        Debug.Log("OrderingState");
+
     }
 
     public override void UpdateState(CustomerStateManager customerState)
     {
-
+        alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
 
         if (alienCustomer.transform.position == orderPos && audioSource.enabled && !audioSource.isPlaying)
         {
@@ -40,22 +45,31 @@ public class OrderingState : CustomerBaseState
             customerState.VOCoroutine();
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ExitState(customerState);
-        }
-        else
-        {
-            //TODO: connect wrong order voice clip
-            //send player back to Replicator
-        }
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    ExitState(customerState);
+        //}
+        //else
+        //{
+        //TODO: connect wrong order voice clip
+        //send player back to Replicator
+        //}
+
     }
+
+    void ToCustomerExitState(ActionType actionType)
+    {
+        ExitState(CustomerStateManager.instance);
+    }
+  
 
     public override void ExitState(CustomerStateManager customerState)
     {
+        ActionList.OnDoneReplicatingFood -= ToCustomerExitState;
         customerState.customerAlert.gameObject.SetActive(false);
         customerState.buttonBox.OpenBox();
         customerState.SwitchState(customerState.customerExitState);
+
     }
 }
 

@@ -14,7 +14,10 @@ public class WaitingInLineState : CustomerBaseState
 
     public override void EnterState(CustomerStateManager customerState)
     {
+        // TO DO:  set all the information of this instance to the scriptable objects values 
+
         startingTime = customerState.customerCountdownStartTime;
+        currentTime = startingTime;
         customerPos = customerState.alienCustomerPrefab.transform.position;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
 
