@@ -49,7 +49,7 @@ public class FreeRoamingState : StateAbstract
         // that object.
         if (manager.playerInputManager.IsInteracting)
         {
-            OpenObjectInteraction(interactable);
+            interactable.Interact();
         }
     }
 
@@ -102,32 +102,6 @@ public class FreeRoamingState : StateAbstract
         return null;
     }
 
-    /// <summary>
-    /// Invokes action to switch state based on which object was interacted with
-    /// </summary>
-    /// <param name="obj"></param>
-    private void OpenObjectInteraction(InteractionManager interaction)
-    {
-        // Find the interaction type on the GameObject
-        ActionType interactionType = interaction.actionType;
-
-        // Invoke the correct action
-        switch (interactionType)
-        {
-            case ActionType.EnteredButtonPressing:
-                ActionList.OnEnteredButtonPressing?.Invoke(ActionType.EnteredButtonPressing);
-                break;
-            case ActionType.EnteredTranslator:
-                ActionList.OnEnteredTranslator?.Invoke(ActionType.EnteredTranslator);
-                break;
-            case ActionType.EnteredFoodReplicator:
-                ActionList.OnEnteredFoodReplicator?.Invoke(ActionType.EnteredFoodReplicator);
-                break;
-            case ActionType.CustomerOrdered:
-                ActionList.OnCustomerOrdered?.Invoke(ActionType.CustomerOrdered);
-                break;
-        }
-    }
 
     /// <summary>
     /// Sets the Interact UI element to active or inactive
