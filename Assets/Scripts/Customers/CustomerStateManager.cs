@@ -7,6 +7,9 @@ public  class CustomerStateManager : MonoBehaviour
    /// <summary>
    /// Controls Customer State Machine
    /// </summary> 
+   /// 
+
+    public static CustomerStateManager instance;
 
     [Header("References to Scriptable Objects")]
     [SerializeField]
@@ -47,6 +50,11 @@ public  class CustomerStateManager : MonoBehaviour
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
         customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
        
         currentCustomerState = waitingInLineState;
