@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Takes in a vector2 value and sets it to the horizontalInput field for use
     /// </summary>
-    /// <param name="receivedHorizontalInput">Vector2</param>
+    /// <param name="receivedHorizontalInput">Vector2 representing the players input value</param>
     public void ReceiveInput(Vector2 receivedHorizontalInput)
     {
         playerMovement = receivedHorizontalInput;

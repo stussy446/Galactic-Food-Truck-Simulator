@@ -1,7 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
+    private const string CAN_INTERACT_LAYER = "CanInteract";
+
     [Header("Mouse Sensitivity")]
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 8f;
@@ -11,21 +14,26 @@ public class CameraMover : MonoBehaviour
     [SerializeField] float xClamp = 85f;
     [SerializeField] float detectionRange = 1000f;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask itemsLayer;
     float xRotation = 0f;
 
-    float mouseX;
-    float mouseY;
-    Camera cam;
-    InputManager inputManager;
+    private float mouseX;
+    private float mouseY;
+    private Camera cam;
+    private bool isPaused;
+    private bool interactionButtonPressed;
+
+    public bool IsPaused
+    {
+        get { return isPaused; }
+        set { isPaused = value; } 
+    }
 
     private void Awake()
     {
         RemoveExtraCameras();
         cam = Camera.main;
         LockCursor();
-
-        inputManager = GetComponent<InputManager>();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
@@ -45,10 +53,13 @@ public class CameraMover : MonoBehaviour
 
     private void Update()
     {
-        RotateHorizontally();
-        RotateVertically();
-        ToggleCursorMode();
+        if (!isPaused)
+        {
+            RotateHorizontally();
+            RotateVertically();
+        }
 
+        ToggleCursorMode();
         Aim();
     }
 
@@ -83,14 +94,10 @@ public class CameraMover : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, detectionRange, interactableLayer))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (interactionButtonPressed)
             {
-                // TODO: This can be changed to pull from different menu types, that way we can for example, start with 2 item, then 4 and then go to 8
-                MenuManager.Instance.ActivateMenu(MenuType.EightItem);
-
-                // TODO: Enter replication state here, code below is to confirm functionality and should likely be refactored to state machine later 
-                inputManager.DisableMovement();
-                UnlockCursor();
+                // switches to Fulfilling order state once the start button is pressed 
+                StateManager.instance.SwitchStates(StateManager.instance.fulfillingOrderState);
             }
         }
     }
@@ -99,10 +106,12 @@ public class CameraMover : MonoBehaviour
     /// Receives a Vector2 representing the mouses input and stores values into mouseX and mouseY fields
     /// </summary>
     /// <param name="mouseInput">Vector2</param>
-    public void ReceiveInput(Vector2 mouseInput)
+    public void ReceiveInput(Vector2 mouseInput, bool isInteracting)
     {
         mouseX = mouseInput.x * sensitivityX;
         mouseY = mouseInput.y * sensitivityY;
+
+        interactionButtonPressed = isInteracting;
     }
 
     /// <summary>
@@ -136,4 +145,13 @@ public class CameraMover : MonoBehaviour
             LockCursor();
         }
     }
+
+    /// <summary>
+    /// Resets the Rotation of the camera to zero
+    /// </summary>
+    public void LerpCameraRotationToZero(float factor)
+    {
+        cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, Quaternion.Euler(Vector3.zero), factor);
+    }
+
 }

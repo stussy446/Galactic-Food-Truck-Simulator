@@ -6,13 +6,13 @@ using System.Data;
 using static UnityEngine.Rendering.DebugUI;
 
 
-//TODO:
-// - Rework functions to take table names as input parameters instead of hardcoding
+
 
 
 public static class SqliteScript 
 {
-    private static string dbURI = "URI=file:" + Application.dataPath + "/LinesDB.db";
+    //path where Unity stores database file on build
+    private static string dbURI = "URI=file:" + Application.streamingAssetsPath + "/LinesDB.db";
 
     //Returns the line of text from a specified table with a given lineID
     //Function specific to Translator. Do not use for anything else
@@ -26,6 +26,13 @@ public static class SqliteScript
     }
 
     //Returns line of text from specified table at specified index
+    /*For general use:
+     * Column = name of column in the table
+     * Table = name of the table to query
+     * id = column used for matching criteria
+     * index = int index of id for matching
+     * 
+     * */
     public static string GetLine(string column, string table, string id, int index)
     {
         IDbConnection dbConnection = new SqliteConnection(dbURI);
@@ -44,6 +51,7 @@ public static class SqliteScript
     }
 
     //Returns size of "table" based on the number of non null elements in "column"
+    //For general use
     public static int GetSize(string column, string table)
     {
         IDbConnection dbConnection = new SqliteConnection(dbURI);

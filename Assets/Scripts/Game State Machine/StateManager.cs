@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class responsible for initializing and switching between all concrete states.
 /// </summary>
 public class StateManager : MonoBehaviour
 {
+    // Interact UI Element
+    public Image interactFeedback;
+
+    // Singleton
+    public static StateManager instance;
+
+    // Reference to the player inputManager
+    public InputManager playerInputManager;
+
     // Cache whatever state user is currently in
     public StateAbstract currentState;
 
@@ -16,9 +27,15 @@ public class StateManager : MonoBehaviour
     public TranslationState translationState = new TranslationState();
     public FulfillingOrderState fulfillingOrderState = new FulfillingOrderState();
     public PressingButtonState pressingButtonState = new PressingButtonState();
+    public LostGameState lostGameState = new LostGameState();
 
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         // Sets currentState to the first state of the whole game
         currentState = freeRoamingState;
 

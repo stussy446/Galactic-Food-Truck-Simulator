@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ActionType
 {
+    EnteredButtonPressing,
     ButtonPressed,
     PlayerCloseToLosing,
     EnteredFoodReplicator,

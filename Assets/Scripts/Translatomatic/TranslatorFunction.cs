@@ -4,24 +4,23 @@ using TMPro;
 using UnityEngine;
 
 
-    public class TranslatorFunction : MonoBehaviour
-    {
+public class TranslatorFunction : MonoBehaviour
+{
 
-        [SerializeField] private TMP_Text inputText;
-        [SerializeField] private TMP_Text outputText;
+        [SerializeField] private TranslateButton translatorUI;
         private int lineID, languageID;
-
 
         private int languageIndex = 1;
 
 
-
+        //Listen for actions which trigger the translator to work ie. receiving an order
         private void OnEnable()
         {
             TranslateActions.OnDialClicked += RunTranslator;
+            TranslateActions.OnReceiveOrder += OnOrderReceived;
         }
 
-
+        //Changes translator output by querying database for the equivalent line in different language
         void RunTranslator()
         {
 
@@ -32,29 +31,33 @@ using UnityEngine;
                 languageIndex = 1;
             }
 
-            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
+            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
+
 
 
         }
-
-        public void OnRandomLineClicked()
+        
+        //Sets up translator by selecting the correct line from database as well as the starting language
+        public void OnOrderReceived(int lang, int line)
         {
-            lineID = Random.Range(1, SqliteScript.GetSize("LineID", "OrderTable") + 1);
-
-            languageID = Random.Range(1, SqliteScript.GetSize("LangID", "LangIndex") + 1);
-            languageIndex = languageID;
-
-            inputText.text = SqliteScript.GetLine(languageID, lineID);
-            outputText.text = SqliteScript.GetLine(languageIndex, lineID);
+            lineID = line;
+            languageID = lang;
+            languageIndex = lang;
+            translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
+            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
 
             TranslateActions.OnNewOrder(this);
         }
 
+
+        //stop listening to actions on disable
         private void OnDisable()
         {
             TranslateActions.OnDialClicked -= RunTranslator;
+            TranslateActions.OnReceiveOrder -= OnOrderReceived;
         }
 
+        //returns the language ID as an INT
         public int GetLanguageID()
         {
             return languageID;

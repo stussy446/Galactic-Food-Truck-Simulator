@@ -55,31 +55,50 @@ public class VoiceOverManager : MonoBehaviour
     /// <param name="type"></param>
     public void PlayAudioClip(ActionType type)
     {
+        Debug.Log("We get here");
         List<AudioClip> audioClips = GetClipList(type);
-        int index = UnityEngine.Random.Range(0, audioClips.Count);
-        AudioClip audioClip = audioClips[index];
-        source.clip = audioClip;
-        if (!source.isPlaying)
+        if (audioClips.Count > 0)
         {
-            source.Play();
+            int index = UnityEngine.Random.Range(0, audioClips.Count);
+            AudioClip audioClip = audioClips[index];
+            source.clip = audioClip;
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        allActions = ActionList.GetAllActions();
-        for (int i = 0; i < allActions.Count; i++)
-        {
-            allActions[i] += PlayAudioClip;
-        }
+        ActionList.OnButtonPressed += PlayAudioClip;
+        ActionList.OnEnteredButtonPressing += PlayAudioClip;
+        ActionList.OnPlayerCloseToLosing+= PlayAudioClip;
+        ActionList.OnEnteredFoodReplicator+= PlayAudioClip;
+        ActionList.OnDoneReplicatingFood+= PlayAudioClip;
+        ActionList.OnCustomerReceivedFood+= PlayAudioClip;
+        ActionList.OnTriedInteractingWithInactiveButton+= PlayAudioClip;
+        ActionList.OnEnteredTranslator+= PlayAudioClip;
+        ActionList.OnExitedTranslator+= PlayAudioClip;
+        ActionList.OnCustomerArrived+= PlayAudioClip;
+        ActionList.OnCustomerOrdered+= PlayAudioClip;
+        ActionList.OnCustomerLeft+= PlayAudioClip;
         
     }
 
     private void OnDisable()
     {
-        for (int i = 0; i < allActions.Count; i++)
-        {
-            allActions[i] -= PlayAudioClip;
-        }
+        ActionList.OnButtonPressed -= PlayAudioClip;
+        ActionList.OnEnteredButtonPressing -= PlayAudioClip;
+        ActionList.OnPlayerCloseToLosing -= PlayAudioClip;
+        ActionList.OnEnteredFoodReplicator -= PlayAudioClip;
+        ActionList.OnDoneReplicatingFood -= PlayAudioClip;
+        ActionList.OnCustomerReceivedFood -= PlayAudioClip;
+        ActionList.OnTriedInteractingWithInactiveButton -= PlayAudioClip;
+        ActionList.OnEnteredTranslator -= PlayAudioClip;
+        ActionList.OnExitedTranslator -= PlayAudioClip;
+        ActionList.OnCustomerArrived -= PlayAudioClip;
+        ActionList.OnCustomerOrdered -= PlayAudioClip;
+        ActionList.OnCustomerLeft -= PlayAudioClip;
     }
 }

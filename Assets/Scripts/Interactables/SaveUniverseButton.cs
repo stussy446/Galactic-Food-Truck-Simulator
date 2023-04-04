@@ -15,11 +15,20 @@ public class SaveUniverseButton : MonoBehaviour
     private float dangerLevel = 100;
 
     // Set how fast slilder lowers and how fast it increases
-    private float dropSliderFactor = 0.75f;
+    private float dropSliderFactor = 1.25f;
     private float increaseSliderFactor = 8f;
 
     // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
+
+    // Button Positions
+    private Vector3 notPressed;
+    private Vector3 pressed;
+
+    private void OnMouseDown()
+    {
+        ActionList.OnButtonPressed?.Invoke(ActionType.ButtonPressed);
+    }
 
     private void OnMouseDrag()
     {
@@ -47,6 +56,14 @@ public class SaveUniverseButton : MonoBehaviour
         {
             dangerLevel -= dropSliderFactor * Time.deltaTime;
             SetDangerLevel(dangerLevel);
+            if (dangerLevel < 20 && dangerLevel > 19.8f)
+            {
+                ActionList.OnPlayerCloseToLosing?.Invoke(ActionType.PlayerCloseToLosing);
+            }
+            if (dangerLevel <= 0)
+            {
+                StateManager.instance.SwitchStates(StateManager.instance.lostGameState);
+            }
             return;
         }
 
