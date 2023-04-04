@@ -77,6 +77,10 @@ public  class CustomerStateManager : MonoBehaviour
         alienCustomerPrefab.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        ActionList.OnCustomerOrdered += ToCustomerOrder;
+    }
 
 
     //----------ONLY FOR VO TESTING---------------//
@@ -93,6 +97,13 @@ public  class CustomerStateManager : MonoBehaviour
         customerAudioSource.enabled = false;
     }
 
+   void ToCustomerOrder(ActionType actionType)
+    {
+       // ActionList.OnCustomerOrdered?.Invoke(actionType);
+
+        SwitchState(orderingState);
+
+    }
 
 
 }

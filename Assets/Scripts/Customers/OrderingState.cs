@@ -28,10 +28,6 @@ public class OrderingState : CustomerBaseState
     public override void UpdateState(CustomerStateManager customerState)
     {
 
-        if (alienCustomer.transform.position != orderPos)
-        {
-            alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
-        }
 
         if (alienCustomer.transform.position == orderPos && audioSource.enabled && !audioSource.isPlaying)
         {
@@ -44,7 +40,7 @@ public class OrderingState : CustomerBaseState
             customerState.VOCoroutine();
         }
 
-        if (Input.GetKeyDown(KeyCode.O) == true)
+        if (Input.GetKeyDown(KeyCode.O))
         {
             ExitState(customerState);
         }
