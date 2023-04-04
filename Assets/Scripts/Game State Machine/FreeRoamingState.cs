@@ -16,6 +16,8 @@ public class FreeRoamingState : StateAbstract
 
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
+
+        Debug.Log("Free Roaming");
     }
 
     public override void ExitState(StateManager manager)
@@ -39,7 +41,7 @@ public class FreeRoamingState : StateAbstract
     public override void UpdateState(StateManager manager)
     {
         // Identify if there is an interactable item
-        GameObject interactable = FindInteractableItem();
+        InteractionManager interactable = FindInteractableItem();
 
         if (interactable == null) { return; }
 
@@ -82,7 +84,7 @@ public class FreeRoamingState : StateAbstract
     /// Sphere sweep to identify if there is an interactable item in range
     /// </summary>
     /// <returns></returns>
-    private GameObject FindInteractableItem()
+    private InteractionManager FindInteractableItem()
     {
         RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
@@ -94,7 +96,7 @@ public class FreeRoamingState : StateAbstract
         if (Physics.SphereCast(origin, radius, direction, out hit, detectionRange, LayerMask.GetMask(CAN_INTERACT)))
         {
             ToggleInteractFeedback(true);
-            return hit.collider.gameObject;
+            return hit.collider.gameObject.GetComponent<InteractionManager>();
         }
         ToggleInteractFeedback(false);
         return null;
@@ -104,10 +106,9 @@ public class FreeRoamingState : StateAbstract
     /// Invokes action to switch state based on which object was interacted with
     /// </summary>
     /// <param name="obj"></param>
-    private void OpenObjectInteraction(GameObject obj)
+    private void OpenObjectInteraction(InteractionManager interaction)
     {
         // Find the interaction type on the GameObject
-        InteractionManager interaction = obj.GetComponent<InteractionManager>();
         ActionType interactionType = interaction.actionType;
 
         // Invoke the correct action
