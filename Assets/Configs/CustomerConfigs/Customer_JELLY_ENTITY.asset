@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Customer_JELLY_ENTITY
   m_EditorClassIdentifier: 
   orderId: 1
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 70603062681a62f43ac50669d1bd386b, type: 2}
+  modelPrefab: {fileID: 7747796856407232537, guid: 35cd425c6144cd04588898e2c4f08532,
+    type: 3}
   orderAudio: {fileID: 8300000, guid: dc182dc41eb215641a1eabf2fff396aa, type: 3}
   thankyouAudio: {fileID: 8300000, guid: 915d081e59f703b4da33db7fcd5539cd, type: 3}
   language: 2

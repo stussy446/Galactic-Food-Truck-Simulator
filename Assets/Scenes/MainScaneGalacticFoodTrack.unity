@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00080953416, g: 0.0041618776, b: 0.020063909, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -770,6 +770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 63a202397b6f09041bfabe8dc4d522a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a202397b6f09041bfabe8dc4d522a9, type: 3}
@@ -4530,7 +4535,43 @@ PrefabInstance:
       propertyPath: customerAlert
       value: 
       objectReference: {fileID: 870067538}
-    m_RemovedComponents: []
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0414810855c7920439ce5afce160d768,
+        type: 2}
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d59bf7e9f92c41e449752d5ac4760493,
+        type: 2}
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b9ff9417bfe5c4c488b8ef375d75c3dc,
+        type: 2}
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a9243cfefb0c8ec4bbc4383939056a39,
+        type: 2}
+    - target: {fileID: 7707311008097060836, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7707311008097060841, guid: 98023a7e8ca40a3438c7f2ce656e3534, type: 3}
+    - {fileID: 7707311008097060842, guid: 98023a7e8ca40a3438c7f2ce656e3534, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98023a7e8ca40a3438c7f2ce656e3534, type: 3}
 --- !u!1 &343313431761686544
 GameObject:

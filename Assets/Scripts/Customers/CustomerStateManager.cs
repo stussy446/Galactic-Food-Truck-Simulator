@@ -11,11 +11,13 @@ public  class CustomerStateManager : MonoBehaviour
 
     public static CustomerStateManager instance;
 
-    [Header("References to Scriptable Objects")]
-    [SerializeField]
-    private List<ScriptableObject> customerScriptableObjects;
-    [SerializeField]
-    public CustomerScriptableObject customerSO;
+    //[Header("References to Scriptable Objects")]
+    //[SerializeField]
+    //private List<ScriptableObject> customerScriptableObjects;
+    //[SerializeField]
+    //public CustomerScriptableObject customerSO;
+
+    public Customer customer;
 
     
     [Header ("Audio")]
@@ -54,6 +56,8 @@ public  class CustomerStateManager : MonoBehaviour
         {
             instance = this;
         }
+
+        customer = GetComponent<Customer>();
 
         customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
        
