@@ -9,11 +9,14 @@ public class Customer : MonoBehaviour
 {
     public List<CustomerScriptableObject> customerData;
 
-    private int orderID;
-    private GameObject modelPrefab;
-    private AudioClip orderAudio;
-    private AudioClip thankyouAudio;
-    private int language;
+    [SerializeField] private int orderID;
+    [SerializeField] private GameObject modelPrefab;
+    [SerializeField] private AudioClip orderAudio;
+    [SerializeField] private AudioClip thankyouAudio;
+    [SerializeField] private int language;
+    [SerializeField] private CustomerScriptableObject currentCustomerSO;
+
+    public AudioClip OrderAudio { get { return orderAudio; } }
 
     public int OrderID { get { return orderID; }  }
 
@@ -38,6 +41,7 @@ public class Customer : MonoBehaviour
         thankyouAudio = config.thankyouAudio;
         language = config.language;
         Instantiate(modelPrefab, transform);
+        currentCustomerSO = config;
     }
 
     /// <summary>
@@ -49,6 +53,11 @@ public class Customer : MonoBehaviour
         int randomIndex = Random.Range(0, customerData.Count);
         CustomerScriptableObject customer = customerData[randomIndex];
         return customer;
+    }
+
+    public CustomerScriptableObject GetCurrentCustomer()
+    {
+        return currentCustomerSO;
     }
 
     /// <summary>

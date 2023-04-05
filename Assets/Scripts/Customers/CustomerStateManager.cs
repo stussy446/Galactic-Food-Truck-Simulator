@@ -80,6 +80,8 @@ public  class CustomerStateManager : MonoBehaviour
     {
         //TODO: set prefab model
         //set VO clips
+        customerAudioSource.clip = customer.OrderAudio;
+        customerAudioSource.enabled = true;
         //set order
         alienCustomerPrefab.SetActive(true);
     }
@@ -91,7 +93,7 @@ public  class CustomerStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ActionList.OnCustomerOrdered += ToCustomerOrder;
+        //ActionList.OnCustomerOrdered += ToCustomerOrder;
     }
 
 
