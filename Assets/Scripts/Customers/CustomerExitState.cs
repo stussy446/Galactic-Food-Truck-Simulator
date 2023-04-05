@@ -43,6 +43,7 @@ public class CustomerExitState : CustomerBaseState
 
     public override void ExitState(CustomerStateManager customerState)
     {
+        customerState.customer.DestroyModel();
         customerState.SwitchState(customerState.waitingInLineState);
     }
 }

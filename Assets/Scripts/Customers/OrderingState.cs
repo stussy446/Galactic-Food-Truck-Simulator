@@ -6,7 +6,7 @@ public class OrderingState : CustomerBaseState
     private GameObject alienCustomer;
     private Vector3 customerPos, orderPos;
     private float customerSpeed;
-    private ScriptableObject customerOrderVO;
+    private CustomerScriptableObject customerOrderVO;
     private AudioSource audioSource;
     
 
@@ -19,7 +19,7 @@ public class OrderingState : CustomerBaseState
         customerPos = customerState.alienCustomerPrefab.transform.position;
         orderPos = customerState.orderingLocation.transform.position;
         customerSpeed = customerState.customerSpeed;
-        customerOrderVO = customerState.customerSO;
+        customerOrderVO = customerState.customer.GetRandomCustomer();
         audioSource = customerState.customerAudioSource;
 
         alienCustomer.transform.position = customerPos;
@@ -38,9 +38,9 @@ public class OrderingState : CustomerBaseState
         {
             //TODO: connect voice clip
             //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
-            TranslateActions.OnReceiveOrder(customerState.customerSO.language, customerState.customerSO.orderId); 
+            TranslateActions.OnReceiveOrder(customerOrderVO.language, customerOrderVO.orderId);
             //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
-            customerState.customerSO.PlayOrderAudio(audioSource);
+            customerOrderVO.PlayOrderAudio(audioSource);
             Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
             customerState.VOCoroutine();
         }

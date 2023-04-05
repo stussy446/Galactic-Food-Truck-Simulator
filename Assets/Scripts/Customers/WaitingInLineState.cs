@@ -20,6 +20,7 @@ public class WaitingInLineState : CustomerBaseState
         currentTime = startingTime;
         customerPos = customerState.alienCustomerPrefab.transform.position;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
+        customerState.customer.SetUpCustomer(customerState.customer.GetRandomCustomer());
 
         Debug.Log($"Customer Position is: {customerPos}, spawn pos is: {customerSpawnPos}");
 

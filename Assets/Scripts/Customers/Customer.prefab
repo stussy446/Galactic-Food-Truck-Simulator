@@ -122,6 +122,8 @@ MonoBehaviour:
   customerResetLocation: {fileID: 0}
   orderingLocation: {fileID: 0}
   customerExitLocation: {fileID: 0}
+  buttonBox: {fileID: 0}
+  customerAlert: {fileID: 0}
 --- !u!114 &6184188910244122165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerConfig: {fileID: 11400000, guid: 0414810855c7920439ce5afce160d768, type: 2}
+  customerData: []
 --- !u!82 &7792163686299187417
 AudioSource:
   m_ObjectHideFlags: 0
