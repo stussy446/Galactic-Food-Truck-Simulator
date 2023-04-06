@@ -10,19 +10,17 @@ public class TranslatorFunction : MonoBehaviour
         [SerializeField] private TranslateButton translatorUI;
         private int lineID, languageID;
 
-
         private int languageIndex = 1;
 
 
-
+        //Listen for actions which trigger the translator to work ie. receiving an order
         private void OnEnable()
         {
             TranslateActions.OnDialClicked += RunTranslator;
-            TranslateActions.OnOrderSwitch += OnRandomLineClicked;
             TranslateActions.OnReceiveOrder += OnOrderReceived;
         }
 
-
+        //Changes translator output by querying database for the equivalent line in different language
         void RunTranslator()
         {
 
@@ -38,7 +36,8 @@ public class TranslatorFunction : MonoBehaviour
 
 
         }
-
+        
+        //Sets up translator by selecting the correct line from database as well as the starting language
         public void OnOrderReceived(int lang, int line)
         {
             lineID = line;
@@ -50,26 +49,15 @@ public class TranslatorFunction : MonoBehaviour
             TranslateActions.OnNewOrder(this);
         }
 
-        public void OnRandomLineClicked()
-        {
-            lineID = Random.Range(1, SqliteScript.GetSize("LineID", "OrderTable") + 1);
 
-            languageID = Random.Range(1, SqliteScript.GetSize("LangID", "LangIndex") + 1);
-            languageIndex = languageID;
-
-            translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
-            translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
-
-            TranslateActions.OnNewOrder(this);
-        }
-
+        //stop listening to actions on disable
         private void OnDisable()
         {
             TranslateActions.OnDialClicked -= RunTranslator;
-            TranslateActions.OnOrderSwitch -= OnRandomLineClicked;
             TranslateActions.OnReceiveOrder -= OnOrderReceived;
-    }
+        }
 
+        //returns the language ID as an INT
         public int GetLanguageID()
         {
             return languageID;

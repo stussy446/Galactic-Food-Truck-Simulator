@@ -16,7 +16,7 @@ public class PressingButtonState : StateAbstract
         button = MonoBehaviour.FindObjectOfType<SaveUniverseButton>();
 
         // Set button to be interactable
-        button.gameObject.GetComponent<Collider>().enabled = true;
+        //button.gameObject.GetComponent<Collider>().enabled = true;
 
         // Set player position to be right in front of button table
         manager.playerInputManager.GoToButtonPosition();
@@ -28,7 +28,7 @@ public class PressingButtonState : StateAbstract
         if (goToState == null) { return; }
 
         // Set button to not interactable
-        button.gameObject.GetComponent<Collider>().enabled = false;
+        //button.gameObject.GetComponent<Collider>().enabled = false;
 
         // Go back to state based on goToState
         manager.SwitchStates(goToState);

@@ -6,8 +6,7 @@ using UnityEngine;
 public class CustomerScriptableObject : ScriptableObject
 {
     public int orderId;
-    public Mesh mesh;
-    public Material material;
+    public GameObject modelPrefab;
     public AudioClip orderAudio;
     public AudioClip thankyouAudio;
     public int language;

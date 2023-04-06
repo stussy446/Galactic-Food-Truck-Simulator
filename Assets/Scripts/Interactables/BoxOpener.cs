@@ -53,5 +53,7 @@ public class BoxOpener : MonoBehaviour
     public void CloseBox()
     {
         StartCoroutine(CloseBoxCoroutine());
+        StateManager.instance.SwitchStates(StateManager.instance.freeRoamingState);
+
     }
 }

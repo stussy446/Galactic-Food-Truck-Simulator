@@ -277,6 +277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer
       objectReference: {fileID: 0}
+    - target: {fileID: 7747796856407232537, guid: 6cf8bc7b0488d28498097b6c4481c4be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7792163686299187417, guid: 6cf8bc7b0488d28498097b6c4481c4be,
         type: 3}
       propertyPath: m_Pitch
@@ -285,12 +290,17 @@ PrefabInstance:
     - target: {fileID: 7792163686299187417, guid: 6cf8bc7b0488d28498097b6c4481c4be,
         type: 3}
       propertyPath: DopplerLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792163686299187417, guid: 6cf8bc7b0488d28498097b6c4481c4be,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7792163686299187417, guid: 6cf8bc7b0488d28498097b6c4481c4be,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.542
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7792163686299187417, guid: 6cf8bc7b0488d28498097b6c4481c4be,
         type: 3}
@@ -305,6 +315,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 103700121901848573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7525861861165548224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707311008097060836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59485c4bb470a8e45a8b6e4a53bc9cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionType: 10
+  interactionPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &7707311008097060840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7747796856407232533, guid: 6cf8bc7b0488d28498097b6c4481c4be,

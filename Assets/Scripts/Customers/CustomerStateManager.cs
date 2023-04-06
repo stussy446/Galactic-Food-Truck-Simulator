@@ -7,12 +7,17 @@ public  class CustomerStateManager : MonoBehaviour
    /// <summary>
    /// Controls Customer State Machine
    /// </summary> 
+   /// 
 
-    [Header("References to Scriptable Objects")]
-    [SerializeField]
-    private List<ScriptableObject> customerScriptableObjects;
-    [SerializeField]
-    public CustomerScriptableObject customerSO;
+    public static CustomerStateManager instance;
+
+    //[Header("References to Scriptable Objects")]
+    //[SerializeField]
+    //private List<ScriptableObject> customerScriptableObjects;
+    //[SerializeField]
+    //public CustomerScriptableObject customerSO;
+
+    public Customer customer;
 
     
     [Header ("Audio")]
@@ -47,6 +52,13 @@ public  class CustomerStateManager : MonoBehaviour
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
+        customer = GetComponent<Customer>();
+
         customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
        
         currentCustomerState = waitingInLineState;
@@ -68,6 +80,8 @@ public  class CustomerStateManager : MonoBehaviour
     {
         //TODO: set prefab model
         //set VO clips
+        customerAudioSource.clip = customer.OrderAudio;
+        customerAudioSource.enabled = true;
         //set order
         alienCustomerPrefab.SetActive(true);
     }
@@ -77,6 +91,10 @@ public  class CustomerStateManager : MonoBehaviour
         alienCustomerPrefab.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        //ActionList.OnCustomerOrdered += ToCustomerOrder;
+    }
 
 
     //----------ONLY FOR VO TESTING---------------//
@@ -93,6 +111,13 @@ public  class CustomerStateManager : MonoBehaviour
         customerAudioSource.enabled = false;
     }
 
+   void ToCustomerOrder(ActionType actionType)
+    {
+       // ActionList.OnCustomerOrdered?.Invoke(actionType);
+
+        SwitchState(orderingState);
+
+    }
 
 
 }
