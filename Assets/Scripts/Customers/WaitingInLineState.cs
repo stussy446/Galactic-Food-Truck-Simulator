@@ -28,8 +28,8 @@ public class WaitingInLineState : CustomerBaseState
         {
             customerState.alienCustomerPrefab.transform.position = customerSpawnPos;
         }
-
-        customerState.alienCustomerPrefab.SetActive(true);
+        customerState.OnCustomerEnter();
+        //customerState.alienCustomerPrefab.SetActive(true);
 
         
         Debug.Log("JELLY ENTITY IS AWAITING IN CUE.");
