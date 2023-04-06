@@ -9,6 +9,8 @@ public class Customer : MonoBehaviour
 {
     public List<CustomerScriptableObject> customerData;
 
+    private AudioSource customerAudioSource;
+
     [SerializeField] private int orderID;
     [SerializeField] private GameObject modelPrefab;
     [SerializeField] private AudioClip orderAudio;
@@ -19,15 +21,15 @@ public class Customer : MonoBehaviour
     public AudioClip OrderAudio { get { return orderAudio; } }
 
     public int OrderID { get { return orderID; }  }
+    public AudioSource CustomerAudioSource { get { return customerAudioSource; } }
 
 
     private void Awake()
     {
+        customerAudioSource = GetComponent<AudioSource>();
         // assigns all values that come from the Scriptable Object 
         //SetUpCustomer(GetRandomCustomer());
     }
-
-    // TODO: add other logic if we decide to use this script as well
 
     /// <summary>
     /// Assigns all values that come from the Scriptable Object 
@@ -70,5 +72,27 @@ public class Customer : MonoBehaviour
         {
             Destroy(transform.GetChild(i).gameObject);
         }
+    }
+
+    public void OnCustomerEnter()
+    {
+        customerAudioSource.clip = orderAudio;
+        customerAudioSource.enabled = true;
+        modelPrefab.SetActive(true);
+    }
+
+    public void VOCoroutine()
+    {
+        StartCoroutine(PlayCustomerVo());
+    }
+
+    public IEnumerator PlayCustomerVo()
+    {
+        yield return new WaitForSeconds(5f);
+    }
+
+    public void OnCharacterExit()
+    {
+        modelPrefab.SetActive(false);
     }
 }
