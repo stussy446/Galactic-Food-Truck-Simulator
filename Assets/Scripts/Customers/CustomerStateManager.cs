@@ -13,10 +13,6 @@ public  class CustomerStateManager : MonoBehaviour
 
     public Customer customer;
 
-    
-    [Header ("Audio")]
-    public AudioSource customerAudioSource;
-
     [Header("Customer States")]
     public CustomerBaseState currentCustomerState;
     public  WaitingInLineState waitingInLineState = new WaitingInLineState();
@@ -52,9 +48,6 @@ public  class CustomerStateManager : MonoBehaviour
         }
 
         customer = GetComponent<Customer>();
-
-        customerAudioSource = alienCustomerPrefab.GetComponent<AudioSource>();
-       
         currentCustomerState = waitingInLineState;
         currentCustomerState.EnterState(this);
     }
@@ -69,35 +62,7 @@ public  class CustomerStateManager : MonoBehaviour
         currentCustomerState = state;
         state.EnterState(this);
     }
-
-    public void OnCustomerEnter()
-    {
-        //TODO: set prefab model
-        //set VO clips
-        customerAudioSource.clip = customer.OrderAudio;
-        customerAudioSource.enabled = true;
-        //set order
-        alienCustomerPrefab.SetActive(true);
-    }
-
-    public void OnCharacterExit()
-    {
-        alienCustomerPrefab.SetActive(false);
-    }
-
-    //----------ONLY FOR VO TESTING---------------//
-    public void VOCoroutine()
-    {
-        StartCoroutine(PlayCustomerVO());
-    }
-
-
-    public IEnumerator PlayCustomerVO()
-    {
-        yield return new WaitForSeconds(5);
-        customerAudioSource.enabled = false;
-    }
-
+   
    void ToCustomerOrder(ActionType actionType)
     {
         SwitchState(orderingState);

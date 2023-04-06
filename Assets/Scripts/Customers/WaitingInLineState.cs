@@ -28,7 +28,7 @@ public class WaitingInLineState : CustomerBaseState
         {
             customerState.alienCustomerPrefab.transform.position = customerSpawnPos;
         }
-        customerState.OnCustomerEnter();
+        customerState.customer.OnCustomerEnter();
         //customerState.alienCustomerPrefab.SetActive(true);
 
         

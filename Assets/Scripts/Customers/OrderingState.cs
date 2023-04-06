@@ -23,7 +23,7 @@ public class OrderingState : CustomerBaseState
         orderPos = customerState.orderingLocation.transform.position;
         customerSpeed = customerState.customerSpeed;
         customerOrderVO = customerState.customer.GetCurrentCustomer();
-        audioSource = customerState.customerAudioSource;
+        audioSource = customerState.customer.CustomerAudioSource;
 
         alienCustomer.transform.position = customerPos;
         customerState.buttonBox.CloseBox();
@@ -70,7 +70,7 @@ public class OrderingState : CustomerBaseState
         //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
         customerOrderVO.PlayOrderAudio(audioSource);
         Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
-        cusState.VOCoroutine();
+        cusState.customer.VOCoroutine();
     }
 
     void ToCustomerExitState(ActionType actionType)
