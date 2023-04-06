@@ -27,8 +27,6 @@ public class Customer : MonoBehaviour
         //SetUpCustomer(GetRandomCustomer());
     }
 
-    // TODO: add other logic if we decide to use this script as well
-
     /// <summary>
     /// Assigns all values that come from the Scriptable Object 
     /// </summary>
