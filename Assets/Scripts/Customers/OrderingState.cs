@@ -18,8 +18,8 @@ public class OrderingState : CustomerBaseState
         ActionList.OnDoneReplicatingFood += ToCustomerExitState;
         ActionList.OnCustomerOrdered += OnCustomerInteract;
 
-        alienCustomer = customerState.alienCustomerPrefab;
-        customerPos = customerState.alienCustomerPrefab.transform.position;
+        alienCustomer = customerState.customer.CustomerPrefab;
+        customerPos = alienCustomer.transform.position;
         orderPos = customerState.orderingLocation.transform.position;
         customerSpeed = customerState.customerSpeed;
         customerOrderVO = customerState.customer.GetCurrentCustomer();

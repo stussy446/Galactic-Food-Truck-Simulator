@@ -22,8 +22,6 @@ public  class CustomerStateManager : MonoBehaviour
 
     [Header ("Customer Character Variables")]
     [SerializeField]
-    public GameObject alienCustomerPrefab;
-    [SerializeField]
     public float customerSpeed = 5f;
     [SerializeField]
     public float customerCountdownStartTime = 5f;
