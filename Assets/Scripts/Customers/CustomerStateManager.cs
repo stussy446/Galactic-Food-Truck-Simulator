@@ -11,12 +11,6 @@ public  class CustomerStateManager : MonoBehaviour
 
     public static CustomerStateManager instance;
 
-    //[Header("References to Scriptable Objects")]
-    //[SerializeField]
-    //private List<ScriptableObject> customerScriptableObjects;
-    //[SerializeField]
-    //public CustomerScriptableObject customerSO;
-
     public Customer customer;
 
     
@@ -91,12 +85,6 @@ public  class CustomerStateManager : MonoBehaviour
         alienCustomerPrefab.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        //ActionList.OnCustomerOrdered += ToCustomerOrder;
-    }
-
-
     //----------ONLY FOR VO TESTING---------------//
     public void VOCoroutine()
     {
@@ -106,17 +94,13 @@ public  class CustomerStateManager : MonoBehaviour
 
     public IEnumerator PlayCustomerVO()
     {
-       
         yield return new WaitForSeconds(5);
         customerAudioSource.enabled = false;
     }
 
    void ToCustomerOrder(ActionType actionType)
     {
-       // ActionList.OnCustomerOrdered?.Invoke(actionType);
-
         SwitchState(orderingState);
-
     }
 
 
