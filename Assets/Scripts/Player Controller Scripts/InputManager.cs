@@ -55,21 +55,38 @@ public class InputManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Replicator 
+    /// </summary>
     public void GoToReplicatingPosition()
     {
         StartCoroutine(GoToPosition(transform.position, replicatorTransform.position, transform.forward, replicatorTransform.forward));
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Translator 
+    /// </summary>
     public void GoToTranslatorPosition()
     {
         StartCoroutine(GoToPosition(transform.position, translatorTransform.position, transform.forward, translatorTransform.forward));
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Save The Universe Button
+    /// </summary>
     public void GoToButtonPosition()
     {
         StartCoroutine(GoToPosition(transform.position, buttonTransform.position, transform.forward, buttonTransform.forward));
     }
 
+    /// <summary>
+    /// Moves object from a starting position and rotation to an ending position and rotation using Lerp
+    /// </summary>
+    /// <param name="startPos">Vector3 starting position of object</param>
+    /// <param name="endPos">Vector3 ending position of object</param>
+    /// <param name="startForward">Vector3 starting forward rotation of object</param>
+    /// <param name="endForward">Vector3 ending forward rotation of object</param>
+    /// <returns>IEnumerator</returns>
     private IEnumerator GoToPosition(Vector3 startPos, Vector3 endPos, Vector3 startForward, Vector3 endForward)
     {
         float difference = 0;
@@ -86,6 +103,9 @@ public class InputManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Disables camera and player movement for the player while interacting with UI in the world
+    /// </summary>
     public void DisableMovement()
     {
         playerMovement.enabled = false;
@@ -95,6 +115,9 @@ public class InputManager : MonoBehaviour
         this.enabled = false;
     }
 
+    /// <summary>
+    /// Reenables camera and player movement after done interacting with UI in the world
+    /// </summary>
     public void EnableMovement()
     {
         playerMovement.enabled = true;
