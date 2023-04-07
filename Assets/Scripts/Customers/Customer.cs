@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// I think we can refactor stuff out of the CustomerStateManager into this customer script
-// so that we arent having that script do too much. Basically anything that doesnt 
-// have to do with the State logic could come in here
 public class Customer : MonoBehaviour
 {
     public List<CustomerScriptableObject> customerData;
@@ -64,19 +61,26 @@ public class Customer : MonoBehaviour
         return customer;
     }
 
+    /// <summary>
+    /// Returns the current customer Scriptable Object
+    /// </summary>
+    /// <returns>CustomerScriptableObject</returns>
     public CustomerScriptableObject GetCurrentCustomer()
     {
         return currentCustomerSO;
     }
 
     /// <summary>
-    /// Destroys the prefab of the customer
+    /// Destroys the active model of the customer
     /// </summary>
     public void DestroyModel()
     {
         Destroy(model);
     }
 
+    /// <summary>
+    /// Plays order audio and sets the current customer's model to active
+    /// </summary>
     public void OnCustomerEnter()
     {
         customerAudioSource.clip = orderAudio;
@@ -94,6 +98,9 @@ public class Customer : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
+    /// <summary>
+    /// deactivates the currently active model on the customer 
+    /// </summary>
     public void OnCharacterExit()
     {
         model.SetActive(false);
