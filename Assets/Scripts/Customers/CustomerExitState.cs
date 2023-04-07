@@ -14,10 +14,10 @@ public class CustomerExitState : CustomerBaseState
     public override void EnterState(CustomerStateManager customerState)
     {
        //Intializing variables from CustomerStateManager
-        alienCustomer = customerState.alienCustomerPrefab;
-        customerPos = customerState.alienCustomerPrefab.transform.position;
+        alienCustomer = customerState.customer.CustomerPrefab;
+        customerPos = alienCustomer.transform.position;
         exitPos = customerState.customerExitLocation.transform.position;
-        customerSpeed = customerState.customerSpeed;
+        customerSpeed = customerState.customer.CustomerSpeed;
 
         alienCustomer.transform.position = customerPos;
 

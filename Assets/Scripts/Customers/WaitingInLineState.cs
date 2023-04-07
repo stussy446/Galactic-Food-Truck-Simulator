@@ -10,15 +10,17 @@ public class WaitingInLineState : CustomerBaseState
     private Vector3 customerPos, customerSpawnPos;
     private float currentTime;
     private float startingTime;
+    private GameObject alienCustomer;
 
 
     public override void EnterState(CustomerStateManager customerState)
     {
         // TO DO:  set all the information of this instance to the scriptable objects values 
 
-        startingTime = customerState.customerCountdownStartTime;
+        startingTime = customerState.customer.CustomerCountdownStartTime;
+        alienCustomer = customerState.customer.CustomerPrefab;
         currentTime = startingTime;
-        customerPos = customerState.alienCustomerPrefab.transform.position;
+        customerPos = alienCustomer.transform.position;
         customerSpawnPos = customerState.customerResetLocation.transform.position;
         customerState.customer.SetUpCustomer(customerState.customer.GetRandomCustomer());
 
@@ -26,10 +28,9 @@ public class WaitingInLineState : CustomerBaseState
 
         if (customerPos != customerSpawnPos)
         {
-            customerState.alienCustomerPrefab.transform.position = customerSpawnPos;
+            alienCustomer.transform.position = customerSpawnPos;
         }
         customerState.customer.OnCustomerEnter();
-        //customerState.alienCustomerPrefab.SetActive(true);
 
         
         Debug.Log("JELLY ENTITY IS AWAITING IN CUE.");

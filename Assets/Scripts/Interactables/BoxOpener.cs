@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoxOpener : MonoBehaviour
 {
     private Quaternion openRotation;
-    private Vector3 closeRotation = new Vector3(0, 0, 0);
+    private Vector3 closeRotation = new Vector3(-24, 0, 0);
 
     private void Start()
     {

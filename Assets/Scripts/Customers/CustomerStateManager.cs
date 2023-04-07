@@ -19,15 +19,6 @@ public  class CustomerStateManager : MonoBehaviour
     public  OrderingState orderingState = new OrderingState();
     public CustomerExitState customerExitState = new CustomerExitState();
 
-
-    [Header ("Customer Character Variables")]
-    [SerializeField]
-    public GameObject alienCustomerPrefab;
-    [SerializeField]
-    public float customerSpeed = 5f;
-    [SerializeField]
-    public float customerCountdownStartTime = 5f;
-
     [Header("Location GameObjects")]
     [SerializeField]
     public GameObject customerResetLocation;
@@ -37,7 +28,6 @@ public  class CustomerStateManager : MonoBehaviour
     public GameObject customerExitLocation;
 
     [Header("Customer Dependencies")]
-    public BoxOpener buttonBox;
     public Light customerAlert;
 
     void Start()

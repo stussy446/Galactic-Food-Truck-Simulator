@@ -11,24 +11,32 @@ public class Customer : MonoBehaviour
 
     private AudioSource customerAudioSource;
 
+    [Header("Customer Setup Configs")]
     [SerializeField] private int orderID;
-    [SerializeField] private GameObject modelPrefab;
+    [SerializeField] private GameObject model;
     [SerializeField] private AudioClip orderAudio;
     [SerializeField] private AudioClip thankyouAudio;
     [SerializeField] private int language;
     [SerializeField] private CustomerScriptableObject currentCustomerSO;
+    [SerializeField] private float customerSpeed = 5f;
+    [SerializeField] private float customerCountdownStartTime = 5f;
+
+    [Header("Customer base prefab")]
+    [SerializeField] private GameObject customerPrefab;
 
     public AudioClip OrderAudio { get { return orderAudio; } }
 
     public int OrderID { get { return orderID; }  }
     public AudioSource CustomerAudioSource { get { return customerAudioSource; } }
+    public GameObject CustomerPrefab { get { return customerPrefab; } }
+
+    public float CustomerSpeed { get { return customerSpeed; } }
+    public float CustomerCountdownStartTime { get { return customerCountdownStartTime; } }
 
 
     private void Awake()
     {
         customerAudioSource = GetComponent<AudioSource>();
-        // assigns all values that come from the Scriptable Object 
-        //SetUpCustomer(GetRandomCustomer());
     }
 
     /// <summary>
@@ -38,11 +46,10 @@ public class Customer : MonoBehaviour
     public void SetUpCustomer(CustomerScriptableObject config)
     {
         orderID = config.orderId;
-        modelPrefab = config.modelPrefab;
+        model = Instantiate(config.modelPrefab, transform);
         orderAudio = config.orderAudio;
         thankyouAudio = config.thankyouAudio;
         language = config.language;
-        Instantiate(modelPrefab, transform);
         currentCustomerSO = config;
     }
 
@@ -67,18 +74,14 @@ public class Customer : MonoBehaviour
     /// </summary>
     public void DestroyModel()
     {
-        int children = transform.childCount;
-        for (int i = 0; i < children; i++)
-        {
-            Destroy(transform.GetChild(i).gameObject);
-        }
+        Destroy(model);
     }
 
     public void OnCustomerEnter()
     {
         customerAudioSource.clip = orderAudio;
         customerAudioSource.enabled = true;
-        modelPrefab.SetActive(true);
+        model.SetActive(true);
     }
 
     public void VOCoroutine()
@@ -93,6 +96,6 @@ public class Customer : MonoBehaviour
 
     public void OnCharacterExit()
     {
-        modelPrefab.SetActive(false);
+        model.SetActive(false);
     }
 }
