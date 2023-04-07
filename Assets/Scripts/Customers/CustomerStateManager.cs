@@ -5,7 +5,7 @@ using UnityEngine;
 public  class CustomerStateManager : MonoBehaviour
 { 
     public static CustomerStateManager instance;
-    public Customer customer;
+    [HideInInspector] public Customer customer;
 
     [Header("Customer States")]
     public CustomerBaseState currentCustomerState;

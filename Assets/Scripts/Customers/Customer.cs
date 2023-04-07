@@ -7,14 +7,14 @@ public class Customer : MonoBehaviour
     public List<CustomerScriptableObject> customerData;
 
     private AudioSource customerAudioSource;
+    private int orderID;
+    private GameObject model;
+    private AudioClip orderAudio;
+    private AudioClip thankyouAudio;
+    private int language;
+    private CustomerScriptableObject currentCustomerSO;
 
     [Header("Customer Setup Configs")]
-    [SerializeField] private int orderID;
-    [SerializeField] private GameObject model;
-    [SerializeField] private AudioClip orderAudio;
-    [SerializeField] private AudioClip thankyouAudio;
-    [SerializeField] private int language;
-    [SerializeField] private CustomerScriptableObject currentCustomerSO;
     [SerializeField] private float customerSpeed = 5f;
     [SerializeField] private float customerCountdownStartTime = 5f;
 
