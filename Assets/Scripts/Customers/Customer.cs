@@ -30,6 +30,9 @@ public class Customer : MonoBehaviour
     public AudioSource CustomerAudioSource { get { return customerAudioSource; } }
     public GameObject CustomerPrefab { get { return customerPrefab; } }
 
+    public float CustomerSpeed { get { return customerSpeed; } }
+    public float CustomerCountdownStartTime { get { return customerCountdownStartTime; } }
+
 
     private void Awake()
     {

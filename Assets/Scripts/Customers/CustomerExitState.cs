@@ -17,7 +17,7 @@ public class CustomerExitState : CustomerBaseState
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
         exitPos = customerState.customerExitLocation.transform.position;
-        customerSpeed = customerState.customerSpeed;
+        customerSpeed = customerState.customer.CustomerSpeed;
 
         alienCustomer.transform.position = customerPos;
 

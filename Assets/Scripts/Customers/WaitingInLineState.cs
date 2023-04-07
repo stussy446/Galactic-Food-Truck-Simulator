@@ -17,7 +17,7 @@ public class WaitingInLineState : CustomerBaseState
     {
         // TO DO:  set all the information of this instance to the scriptable objects values 
 
-        startingTime = customerState.customerCountdownStartTime;
+        startingTime = customerState.customer.CustomerCountdownStartTime;
         alienCustomer = customerState.customer.CustomerPrefab;
         currentTime = startingTime;
         customerPos = alienCustomer.transform.position;

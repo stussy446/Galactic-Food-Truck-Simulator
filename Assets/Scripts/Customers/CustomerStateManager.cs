@@ -19,13 +19,6 @@ public  class CustomerStateManager : MonoBehaviour
     public  OrderingState orderingState = new OrderingState();
     public CustomerExitState customerExitState = new CustomerExitState();
 
-
-    [Header ("Customer Character Variables")]
-    [SerializeField]
-    public float customerSpeed = 5f;
-    [SerializeField]
-    public float customerCountdownStartTime = 5f;
-
     [Header("Location GameObjects")]
     [SerializeField]
     public GameObject customerResetLocation;

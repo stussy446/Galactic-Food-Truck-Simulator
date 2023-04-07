@@ -21,7 +21,7 @@ public class OrderingState : CustomerBaseState
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
         orderPos = customerState.orderingLocation.transform.position;
-        customerSpeed = customerState.customerSpeed;
+        customerSpeed = customerState.customer.CustomerSpeed;
         customerOrderVO = customerState.customer.GetCurrentCustomer();
         audioSource = customerState.customer.CustomerAudioSource;
 
