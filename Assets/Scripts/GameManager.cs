@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private GameObject lostMenu;
     [SerializeField] private TMP_Text lostGameMessage;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
@@ -23,12 +22,6 @@ public class GameManager : MonoBehaviour
         } 
         RemoveListenersFromLostMenu();
         AddListenersToLostMenu();
-        ToggleLostMenu(false);
-    }
-
-    public void ToggleLostMenu(bool toggle)
-    {
-        lostMenu.SetActive(toggle);
     }
 
     public void AddListenersToLostMenu()

@@ -9,7 +9,7 @@ public class LostGameState : StateAbstract
     public override void EnterState(StateManager manager)
     {
         manager.playerInputManager.DisableMovement();
-        GameManager.instance.ToggleLostMenu(true);
+        StateManager.instance.ToggleLostMenu(true, StateManager.instance.textToShow);
     }
 
     public override void ExitState(StateManager manager)
