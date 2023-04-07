@@ -21,6 +21,7 @@ public class Customer : MonoBehaviour
     [Header("Customer base prefab")]
     [SerializeField] private GameObject customerPrefab;
 
+    #region public fields
     public AudioClip OrderAudio { get { return orderAudio; } }
 
     public int OrderID { get { return orderID; }  }
@@ -29,7 +30,7 @@ public class Customer : MonoBehaviour
 
     public float CustomerSpeed { get { return customerSpeed; } }
     public float CustomerCountdownStartTime { get { return customerCountdownStartTime; } }
-
+    #endregion
 
     private void Awake()
     {
@@ -88,6 +89,15 @@ public class Customer : MonoBehaviour
         model.SetActive(true);
     }
 
+    /// <summary>
+    /// deactivates the currently active model on the customer 
+    /// </summary>
+    public void OnCharacterExit()
+    {
+        model.SetActive(false);
+    }
+
+    #region VO methods
     public void VOCoroutine()
     {
         StartCoroutine(PlayCustomerVo());
@@ -97,12 +107,5 @@ public class Customer : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
     }
-
-    /// <summary>
-    /// deactivates the currently active model on the customer 
-    /// </summary>
-    public void OnCharacterExit()
-    {
-        model.SetActive(false);
-    }
+    #endregion
 }
