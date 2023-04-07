@@ -10,6 +10,7 @@ public class OrderingState : CustomerBaseState
     private AudioSource audioSource;
 
     private CustomerStateManager cusState;
+    private BoxOpener boxOpener;
     
 
 
@@ -17,6 +18,7 @@ public class OrderingState : CustomerBaseState
     {
         ActionList.OnDoneReplicatingFood += ToCustomerExitState;
         ActionList.OnCustomerOrdered += OnCustomerInteract;
+        boxOpener = MonoBehaviour.FindObjectOfType<BoxOpener>();
 
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
@@ -26,7 +28,7 @@ public class OrderingState : CustomerBaseState
         audioSource = customerState.customer.CustomerAudioSource;
 
         alienCustomer.transform.position = customerPos;
-        customerState.buttonBox.CloseBox();
+        boxOpener.CloseBox();
         customerState.customerAlert.gameObject.SetActive(true);
 
         Debug.Log("OrderingState");
@@ -84,7 +86,7 @@ public class OrderingState : CustomerBaseState
         ActionList.OnDoneReplicatingFood -= ToCustomerExitState;
         ActionList.OnCustomerOrdered -= OnCustomerInteract;
         customerState.customerAlert.gameObject.SetActive(false);
-        customerState.buttonBox.OpenBox();
+        boxOpener.OpenBox();
         customerState.SwitchState(customerState.customerExitState);
 
     }

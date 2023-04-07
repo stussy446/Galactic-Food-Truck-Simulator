@@ -28,7 +28,6 @@ public  class CustomerStateManager : MonoBehaviour
     public GameObject customerExitLocation;
 
     [Header("Customer Dependencies")]
-    public BoxOpener buttonBox;
     public Light customerAlert;
 
     void Start()
