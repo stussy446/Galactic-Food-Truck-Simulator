@@ -4340,6 +4340,12 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2132367157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7707311008097060836, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+    type: 3}
+  m_PrefabInstance: {fileID: 103700123486024204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &103700123486024204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4417,6 +4423,11 @@ PrefabInstance:
       propertyPath: customerAlert
       value: 
       objectReference: {fileID: 870067538}
+    - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
+        type: 3}
+      propertyPath: customerPrefab
+      value: 
+      objectReference: {fileID: 2132367157}
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: customerData.Array.size
