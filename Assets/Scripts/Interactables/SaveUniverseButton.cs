@@ -62,6 +62,7 @@ public class SaveUniverseButton : MonoBehaviour
             }
             if (dangerLevel <= 0)
             {
+                StateManager.instance.textToShow = StateManager.instance.loseToExplosionText;
                 StateManager.instance.SwitchStates(StateManager.instance.lostGameState);
             }
             return;

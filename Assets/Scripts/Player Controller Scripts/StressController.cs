@@ -7,19 +7,25 @@ public class StressController : MonoBehaviour
 {
     [SerializeField] private Slider slider;
 
-    private float stressLevel; 
+    private float stressLevel;
 
     // Update is called once per frame
     void Update()
     {
         PestMover[] pestMovers = FindObjectsOfType<PestMover>();
-        if (pestMovers.Length == 0)
+        if (pestMovers.Length == 0 && stressLevel > 0)
         {
             stressLevel -= 0.025f * Time.deltaTime;
             slider.value = stressLevel;
             return;
         }
-        stressLevel += pestMovers.Length * 0.01f * Time.deltaTime;
+        stressLevel += pestMovers.Length * 0.035f * Time.deltaTime;
         slider.value = stressLevel;
+
+        if (slider.value >= 5)
+        {
+            StateManager.instance.textToShow = StateManager.instance.loseToStressText;
+            StateManager.instance.SwitchStates(StateManager.instance.lostGameState);
+        }
     }
 }
