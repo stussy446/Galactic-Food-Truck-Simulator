@@ -123,3 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b301aeae264a34ea2fb77e35d6a0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeMagnitude: 7.87
+  shakeRoughness: 4.01
+  shakeFadeInTime: 0
+  shakeFadeOutTime: 1
