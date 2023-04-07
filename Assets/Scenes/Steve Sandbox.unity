@@ -4260,28 +4260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84293d4113349d408efa189a8b3e5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1752725070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6255896258682953764, guid: cafaca0543f6a094fa47c070d5e9392a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1049348780}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1752725080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752725070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
-  DefaultRotInfluence: {x: 1, y: 1, z: 1}
-  RestPositionOffset: {x: 0, y: 3, z: 0}
-  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1832658442
 PrefabInstance:
   m_ObjectHideFlags: 0
