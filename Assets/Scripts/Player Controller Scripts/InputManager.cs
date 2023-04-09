@@ -106,12 +106,12 @@ public class InputManager : MonoBehaviour
     /// <summary>
     /// Disables camera and player movement for the player while interacting with UI in the world
     /// </summary>
-    public void DisableMovement()
+    public void DisableMovement(bool pauseCamera)
     {
         playerMovement.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
-        cameraMover.IsPaused = true;
+        cameraMover.IsPaused = pauseCamera;
         this.enabled = false;
     }
 

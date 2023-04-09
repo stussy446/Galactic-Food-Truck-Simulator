@@ -26,7 +26,7 @@ public class FreeRoamingState : StateAbstract
         if (goToState == null) { return; }
 
         // Disables player movement while out of this state
-        manager.playerInputManager.DisableMovement();
+        manager.playerInputManager.DisableMovement(true);
 
         // Remove all the listeners
         RemoveRelevantListeners();

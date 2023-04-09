@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public  class CustomerStateManager : MonoBehaviour
-{
-   /// <summary>
-   /// Controls Customer State Machine
-   /// </summary> 
-   /// 
-
+{ 
     public static CustomerStateManager instance;
-
-    public Customer customer;
+    [HideInInspector] public Customer customer;
 
     [Header("Customer States")]
     public CustomerBaseState currentCustomerState;
@@ -26,9 +20,6 @@ public  class CustomerStateManager : MonoBehaviour
     public GameObject orderingLocation;
     [SerializeField]
     public GameObject customerExitLocation;
-
-    [Header("Customer Dependencies")]
-    public Light customerAlert;
 
     void Start()
     {
@@ -57,6 +48,4 @@ public  class CustomerStateManager : MonoBehaviour
     {
         SwitchState(orderingState);
     }
-
-
 }

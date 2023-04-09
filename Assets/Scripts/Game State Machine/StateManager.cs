@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,12 @@ public class StateManager : MonoBehaviour
 
     // Cache whatever state user is currently in
     public StateAbstract currentState;
+
+    // Lose condition texts
+    public GameObject lostMenu;
+    public TMP_Text textToShow;
+    public TMP_Text loseToExplosionText;
+    public TMP_Text loseToStressText;
 
     // Initialize every concrete state
     public ReceivingOrderState receivingOrderState = new ReceivingOrderState();
@@ -56,5 +63,11 @@ public class StateManager : MonoBehaviour
 
         // Runs the "Start" function of that state
         currentState.EnterState(this);
+    }
+
+    public void ToggleLostMenu(bool toggle, TMP_Text textToShow)
+    {
+        lostMenu.SetActive(toggle);
+        textToShow.gameObject.SetActive(toggle);
     }
 }
