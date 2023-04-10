@@ -12,7 +12,7 @@ public class TutorialReplicatorInteraction : TutorialAbstract
         ActionList.OnDoneReplicatingFood += PlayerGaveCorrectOrder;
 
         Debug.Log("We are here");
-        manager.replicator.layer = LayerMask.NameToLayer(CAN_INTERACT);
+        manager.replicator.gameObject.SetActive(true);
         // VO Explaining the replicator
 
     }
@@ -21,15 +21,15 @@ public class TutorialReplicatorInteraction : TutorialAbstract
     {
         ActionList.OnDoneReplicatingFood -= PlayerGaveCorrectOrder;
 
+        manager.replicator.gameObject.SetActive(false);
+
+
         manager.SwitchStates(manager.tutorialButton);
     }
 
     public override void UpdateState(TutorialStateManager manager)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ExitState(manager);
-        }
+        
     }
 
     private void PlayerGaveCorrectOrder(ActionType type)
