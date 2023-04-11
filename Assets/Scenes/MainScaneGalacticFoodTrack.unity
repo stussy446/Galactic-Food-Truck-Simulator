@@ -608,7 +608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &290265901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &712279367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1704,14 +1704,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
         type: 3}
+      propertyPath: lostMenu
+      value: 
+      objectReference: {fileID: 694648057}
+    - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
+        type: 3}
       propertyPath: interactFeedback
       value: 
-      objectReference: {fileID: 712279368}
+      objectReference: {fileID: 290265900}
+    - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
+        type: 3}
+      propertyPath: loseToStressText
+      value: 
+      objectReference: {fileID: 1835518319}
     - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
         type: 3}
       propertyPath: playerInputManager
       value: 
       objectReference: {fileID: 876627879}
+    - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
+        type: 3}
+      propertyPath: loseToExplosionText
+      value: 
+      objectReference: {fileID: 2022965259}
     - target: {fileID: 1993177250043425473, guid: 6cb3fc647e9f1e940931bae84984f8e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -4320,7 +4335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1835518318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4732,7 +4747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2022965257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4936,7 +4951,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

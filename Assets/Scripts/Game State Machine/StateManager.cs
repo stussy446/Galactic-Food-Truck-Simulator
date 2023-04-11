@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class StateManager : MonoBehaviour
 {
     // Interact UI Element
-    public Image interactFeedback;
+    public GameObject interactFeedback;
 
     // Singleton
     public static StateManager instance;

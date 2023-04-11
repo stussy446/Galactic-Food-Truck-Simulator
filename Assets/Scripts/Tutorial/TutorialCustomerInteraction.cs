@@ -8,12 +8,14 @@ public class TutorialCustomerInteraction : TutorialAbstract
     {
         ActionList.OnCustomerOrdered += PlayerInteractedWithCustomer;
 
+
         manager.customer.gameObject.SetActive(true);
     }
 
     public override void ExitState(TutorialStateManager manager)
     {
         ActionList.OnCustomerOrdered -= PlayerInteractedWithCustomer;
+
         manager.SwitchStates(manager.tutorialTranslator);
 
     }
