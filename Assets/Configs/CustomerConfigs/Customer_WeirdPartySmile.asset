@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
+  m_Name: Customer_WeirdPartySmile
+  m_EditorClassIdentifier: 
+  orderId: 2
+  modelPrefab: {fileID: 8630237419540924719, guid: 5afafc44e5ef04a4c85661a9032578a2,
+    type: 3}
+  orderAudio: {fileID: 0}
+  thankyouAudio: {fileID: 0}
+  language: 4
