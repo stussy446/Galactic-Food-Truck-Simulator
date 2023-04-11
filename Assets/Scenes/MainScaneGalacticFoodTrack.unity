@@ -608,7 +608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &290265901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &712279367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactFeedback
       value: 
-      objectReference: {fileID: 712279368}
+      objectReference: {fileID: 290265900}
     - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
         type: 3}
       propertyPath: loseToStressText

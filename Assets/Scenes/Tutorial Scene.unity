@@ -1999,7 +1999,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactFeedback
       value: 
-      objectReference: {fileID: 712279368}
+      objectReference: {fileID: 290265900}
     - target: {fileID: 1993177250043425472, guid: 6cb3fc647e9f1e940931bae84984f8e0,
         type: 3}
       propertyPath: playerInputManager
