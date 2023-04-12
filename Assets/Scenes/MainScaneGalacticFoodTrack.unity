@@ -5048,7 +5048,7 @@ PrefabInstance:
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: customerData.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
@@ -5066,7 +5066,7 @@ PrefabInstance:
         type: 3}
       propertyPath: customerData.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: b9ff9417bfe5c4c488b8ef375d75c3dc,
+      objectReference: {fileID: 11400000, guid: 574b90141ee0c0542904f598673bb7e0,
         type: 2}
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}

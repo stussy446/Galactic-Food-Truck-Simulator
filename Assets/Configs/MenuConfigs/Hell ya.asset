@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hell ya
   m_EditorClassIdentifier: 
   itemName: Hell ya
-  image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 21300000, guid: b0cbe0420ca5b7747b376c9731a2177f, type: 3}
   ID: 2
