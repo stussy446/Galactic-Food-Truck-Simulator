@@ -69,5 +69,42 @@ public static class SqliteScript
         return returnCount;
     }
 
+    public static List<string> GetScoreTable(int limit = 0)
+    {
+        List<string> returnList = new List<string>();
+
+        IDbConnection dbConnection = new SqliteConnection(dbURI);
+        dbConnection.Open();
+        string query;
+        if(limit <=0)
+            query = $"SELECT Name, Score FROM HighScores ORDER BY Score DESC;";
+        else
+            query = $"SELECT Name, Score FROM HighScores ORDER BY Score DESC LIMIT {limit};";
+
+        IDbCommand command = dbConnection.CreateCommand();
+        command.CommandText = query;
+        IDataReader reader = command.ExecuteReader();
+        while(reader.Read())
+        {
+            string listItem = $"{reader.GetString(0)}, {reader.GetInt32(1)}";
+            returnList.Add(listItem);
+        }
+        reader.Close();
+        dbConnection.Close();
+
+        return returnList;
+    }
+
+    public static void InsertScore(string insertString)
+    {
+        IDbConnection dbConnection = new SqliteConnection(dbURI);
+        dbConnection.Open();
+        string query = $"INSERT INTO HighScores VALUES({insertString});";
+        IDbCommand command = dbConnection.CreateCommand();
+        command.CommandText = query;
+        command.ExecuteNonQuery();
+        dbConnection.Close();
+    }
+
     
 }
