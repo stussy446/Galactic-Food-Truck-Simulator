@@ -37,6 +37,7 @@ public class PestMover : MonoBehaviour
     /// <param name="position">Position where bug should end up</param>
     private void MoveToPosition(Vector3 position)
     {
+        transform.LookAt(position);
         transform.position = Vector3.MoveTowards(transform.position, position, bugSpeed * Time.deltaTime);
     }
 }

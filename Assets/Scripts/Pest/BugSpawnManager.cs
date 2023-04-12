@@ -25,7 +25,7 @@ public class BugSpawnManager : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0)
         {
-            Instantiate(bugPrefab, new RandomMovePosition().position, Quaternion.identity);
+            Instantiate(bugPrefab, new RandomMovePosition().position, bugPrefab.transform.rotation);
             ResetSpawnTimer();
         }
     }
