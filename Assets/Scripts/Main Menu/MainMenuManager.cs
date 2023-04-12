@@ -1,19 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using System;
+using System.Collections.Generic;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Header("Buttons")]
+    [SerializeField] private GameObject menuButtons;
     [SerializeField] private Button startGameButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitGameButton;
+
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private TMP_Text titleText;
-    [SerializeField] private GameObject menuButtons;
+
+    private Button[] buttons;
+
+    private void Awake()
+    {
+        buttons = menuButtons.GetComponentsInChildren<Button>();
+    }
 
     public void StartGame()
     {
@@ -22,27 +29,30 @@ public class MainMenuManager : MonoBehaviour
 
     public void EnterSettings()
     {
-        // TODO: make a settings page
         settingsPanel.SetActive(true);
-        menuButtons.SetActive(false);
-        ToggleTitle(false);
+        titleText.enabled = false;
+        ToggleButtons(false);
     }
 
     public void ExitSettings()
     {
+        //TODO:Fix buttons not going back to correct place
+
         settingsPanel.SetActive(false);
-        ToggleTitle(true);
-        menuButtons.SetActive(true);
+        titleText.enabled = true;
+        ToggleButtons(true);
     }
 
     public void QuitGame()
     {
-        // TODO: Quit Game
         Application.Quit();
     }
 
-    private void ToggleTitle(bool toogle)
+    private void ToggleButtons(bool toggle)
     {
-        titleText.enabled = toogle;
+        foreach (var button in buttons)
+        {
+            button.gameObject.SetActive(toggle);
+        }
     }
 }
