@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1b3f0449580fa44b4c083ffaf3f838, type: 3}
-  m_Name: Hell ya
+  m_Name: Centarus A - Spicy Jet Fuel
   m_EditorClassIdentifier: 
-  itemName: Hell ya
-  image: {fileID: 21300000, guid: b0cbe0420ca5b7747b376c9731a2177f, type: 3}
-  ID: 2
+  itemName: Centarus A - Spicy Jet fuel
+  image: {fileID: 21300000, guid: 8d3353380b809a347a76d18f74ce6982, type: 3}
+  ID: 3
