@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -14,12 +13,23 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private TMP_Text titleText;
+    [SerializeField] private GameObject pauseMenu;
 
     private Button[] buttons;
+    private InputManager playerInputManager;
 
     private void Awake()
     {
-        buttons = menuButtons.GetComponentsInChildren<Button>();
+        if(menuButtons != null)
+        {
+            buttons = menuButtons.GetComponentsInChildren<Button>();
+        }
+
+    }
+
+    private void OnEnable()
+    {
+        playerInputManager = FindObjectOfType<InputManager>();
     }
 
     public void StartGame()
@@ -30,22 +40,53 @@ public class MainMenuManager : MonoBehaviour
     public void EnterSettings()
     {
         settingsPanel.SetActive(true);
-        titleText.enabled = false;
-        ToggleButtons(false);
+        if(titleText != null)
+        {
+            titleText.enabled = false;
+            ToggleButtons(false);
+        }
+        else if(pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
     }
 
     public void ExitSettings()
     {
-        //TODO:Fix buttons not going back to correct place
-
         settingsPanel.SetActive(false);
-        titleText.enabled = true;
-        ToggleButtons(true);
+        if(titleText != null)
+        {
+            titleText.enabled = true;
+            ToggleButtons(true);
+        }
+        else if(pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+        }
+    }
+
+    public void Pause()
+    {
+        this.gameObject.SetActive(true);
+        playerInputManager.DisableMovement(pauseCamera:true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        playerInputManager.EnableMovement();
+        this.gameObject.SetActive(false);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void ToggleButtons(bool toggle)

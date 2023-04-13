@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
 
     Vector2 horizontalInput;
     Vector2 mouseInput;
+    MainMenuManager menuManager;
 
     bool isInteracting;
 
@@ -26,6 +27,11 @@ public class InputManager : MonoBehaviour
     {
         playerControls = new PlayerControls();
         movementActions = playerControls.Movement;
+        menuManager = FindObjectOfType<MainMenuManager>();
+        if(menuManager != null)
+        {
+            menuManager.gameObject.SetActive(false);
+        }
     }
 
 
@@ -39,7 +45,11 @@ public class InputManager : MonoBehaviour
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
         movementActions.Interact.performed += ctx => isInteracting = true;
-        movementActions.Interact.canceled += ctx => isInteracting = false;   
+        movementActions.Interact.canceled += ctx => isInteracting = false;
+
+        movementActions.Pause.performed += ctx => menuManager.Pause();
+        movementActions.Pause.performed += ctx => DisableMovement(true);
+
     }
 
     private void Update()
