@@ -8,14 +8,18 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
-        if(backgroundAudio == null)
+        if(backgroundAudio != null)
         {
-            Debug.LogError("Missing background Audio, please add appropriate audiosource to Settings script in the Settings Panel game object");
+            volumeSlider.value = backgroundAudio.volume;
         }
     }
+
     public void AdjustVolume()
     {
-        backgroundAudio.volume = volumeSlider.value;
+        if(backgroundAudio != null)
+        {
+            backgroundAudio.volume = volumeSlider.value;
+        }
     }
     
 }
