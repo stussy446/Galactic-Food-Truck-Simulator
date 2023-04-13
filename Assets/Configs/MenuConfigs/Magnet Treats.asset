@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1b3f0449580fa44b4c083ffaf3f838, type: 3}
-  m_Name: Burger
+  m_Name: Magnet Treats
   m_EditorClassIdentifier: 
-  itemName: HoloBurger
-  image: {fileID: 21300000, guid: b0cbe0420ca5b7747b376c9731a2177f, type: 3}
-  ID: 1
+  itemName: Magnet Treats
+  image: {fileID: 21300000, guid: 1c55955e56ecec74ab7312fc9107b69a, type: 3}
+  ID: 6
