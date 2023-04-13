@@ -86,6 +86,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        if (Time.timeScale < 0.1f)
+        {
+            Time.timeScale = 1f;
+        }
         SceneManager.LoadScene(0);
     }
 

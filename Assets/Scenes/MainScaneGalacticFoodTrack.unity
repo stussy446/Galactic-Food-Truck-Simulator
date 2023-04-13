@@ -5526,25 +5526,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 936012100}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1857582936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857582933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a1d90c8dc5e9fc48b77c6ee79b41c1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuButtons: {fileID: 0}
-  startGameButton: {fileID: 0}
-  settingsButton: {fileID: 0}
-  quitGameButton: {fileID: 0}
-  settingsPanel: {fileID: 1857582933}
-  titleText: {fileID: 0}
-  pauseMenu: {fileID: 0}
 --- !u!1 &1861503868
 GameObject:
   m_ObjectHideFlags: 0
