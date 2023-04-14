@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -15,6 +16,15 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private GameObject pauseMenu;
 
+    [Header("Scene transition image")]
+    [SerializeField] private Image transitionImage;
+
+    [Header("Scene transition speed")]
+    [SerializeField] private float alphaIncreaseRate = 1f;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip transitionAudio;
+
     private Button[] buttons;
     private InputManager playerInputManager;
 
@@ -25,6 +35,10 @@ public class MainMenuManager : MonoBehaviour
             buttons = menuButtons.GetComponentsInChildren<Button>();
         }
 
+        if(transitionImage != null)
+        {
+            transitionImage.gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -95,9 +109,66 @@ public class MainMenuManager : MonoBehaviour
 
     private void ToggleButtons(bool toggle)
     {
-        foreach (var button in buttons)
+        if(buttons != null)
         {
-            button.gameObject.SetActive(toggle);
+            foreach (var button in buttons)
+            {
+                button.gameObject.SetActive(toggle);
+            }
+        }
+    }
+
+    public void LoadNextScene()
+    {
+        if(transitionImage != null)
+        {
+            transitionImage.gameObject.SetActive(true);
+        }
+
+        ToggleButtons(false);
+
+        if(audioSource != null)
+        {
+            audioSource.clip = transitionAudio;
+            audioSource.loop = false;
+            audioSource.Play();
+        }
+
+        StartCoroutine(FadeOut());
+    }
+
+
+    private IEnumerator FadeOut()
+    {
+        while (transitionImage.color.a < 1)
+        {
+            Color currentColor = transitionImage.color;
+            currentColor.a += alphaIncreaseRate;
+            transitionImage.color = currentColor;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        StartCoroutine(LoadNextSceneCoroutine());
+    }
+
+    private IEnumerator LoadNextSceneCoroutine()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneIndex);
         }
     }
 }
+
