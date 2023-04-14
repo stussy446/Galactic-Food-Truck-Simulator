@@ -24,6 +24,7 @@ public class TutorialStateManager : MonoBehaviour
     public TutorialEnd tutorialEnd = new TutorialEnd();
 
     public AudioSource source;
+    public MainMenuManager mainMenuManager;
     public List<AudioClip> tutorialAudios = new List<AudioClip>();
     private AudioClip clipToPlay;
     private int clipIndex = 0;
@@ -69,7 +70,11 @@ public class TutorialStateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            SceneManager.LoadScene(2);
+            mainMenuManager.gameObject.SetActive(true);
+            SwitchStates(tutorialEnd);
+            // TEMPORARY muting audiosource until leo adds exit tutorial VO
+            source.volume = 0;
+            mainMenuManager.LoadNextScene();
         }
     }
 }
