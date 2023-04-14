@@ -27,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
 
     private Button[] buttons;
     private InputManager playerInputManager;
+    private Transform customer;
 
     private void Awake()
     {
@@ -134,6 +135,11 @@ public class MainMenuManager : MonoBehaviour
             audioSource.Play();
         }
 
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            customer = GameObject.FindGameObjectWithTag("Intro Customer").transform;
+        }
+
         StartCoroutine(FadeOut());
     }
 
@@ -145,6 +151,17 @@ public class MainMenuManager : MonoBehaviour
             Color currentColor = transitionImage.color;
             currentColor.a += alphaIncreaseRate;
             transitionImage.color = currentColor;
+
+            if(titleText != null)
+            {
+                //titleText.transform.Rotate(0f, 0f, 1.5f);
+                titleText.transform.position += new Vector3(0f, 1.5f, 0f);
+            }
+
+            if(customer != null && customer.position.y < 0f)
+            {
+                customer.Translate(Vector3.up * Time.deltaTime * 2.5f);
+            }
 
             yield return new WaitForEndOfFrame();
         }
