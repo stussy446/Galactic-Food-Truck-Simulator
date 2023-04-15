@@ -25,6 +25,8 @@ public class SaveUniverseButton : MonoBehaviour
     private Vector3 notPressed;
     private Vector3 pressed;
 
+    private float timePressed = 0f;
+
     private void OnMouseDown()
     {
         ActionList.OnButtonPressed?.Invoke(ActionType.ButtonPressed);
@@ -37,7 +39,9 @@ public class SaveUniverseButton : MonoBehaviour
 
     private void OnMouseUp()
     {
+        ActionList.OnButtonReleased(timePressed);
         buttonBeingClicked = false;
+        timePressed = 0f;
     }
 
     void Start()
@@ -71,6 +75,7 @@ public class SaveUniverseButton : MonoBehaviour
         // if the button is being pressed, increase slider value if it hasn't reached max value
         if (dangerLevel < maxDangerLevel)
         {
+            timePressed += Time.deltaTime;
             dangerLevel += increaseSliderFactor * Time.deltaTime;
             SetDangerLevel(dangerLevel);
         }      

@@ -40,7 +40,7 @@ public class Stomping : MonoBehaviour
         {
             yield return null;
         }
-
+        ActionList.OnBugKilled();
         Destroy(gameObject);
     }
 }
