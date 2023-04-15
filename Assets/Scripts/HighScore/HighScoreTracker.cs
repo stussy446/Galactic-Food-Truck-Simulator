@@ -21,7 +21,7 @@ public class HighScoreTracker : MonoBehaviour
     private void OnEnable()
     {
         ActionList.OnButtonReleased += AddButtonPress;
-        ActionList.OnCustomerReceivedFood += AddCustomerServed;
+        ActionList.OnCustomerLeft += AddCustomerServed;
         ActionList.OnBugKilled += AddBugsKilled;
     }
 
@@ -46,7 +46,7 @@ public class HighScoreTracker : MonoBehaviour
 
     private void ScoreUpdate()
     {
-        totalScore = (int)((bugsKilled + customersServed + buttonPressed + buttonPressTime) * scoreMultiplier);
+        totalScore = (int)((bugsKilled + customersServed + buttonPressed + (buttonPressTime/5f)) * scoreMultiplier);
         scoreBoard.text = "SCORE: " + totalScore.ToString();
     }
 
@@ -55,7 +55,7 @@ public class HighScoreTracker : MonoBehaviour
     private void OnDisable()
     {
         ActionList.OnButtonReleased -= AddButtonPress;
-        ActionList.OnCustomerReceivedFood -= AddCustomerServed;
+        ActionList.OnCustomerLeft -= AddCustomerServed;
         ActionList.OnBugKilled -= AddBugsKilled;
     }
 }
