@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// Class responsible for initializing and switching between all concrete states.
@@ -55,6 +56,9 @@ public class StateManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         // Runs the Update Function on each specific state
         currentState.UpdateState(this);
     }
@@ -76,7 +80,7 @@ public class StateManager : MonoBehaviour
 
     public void EnableHighScoreMenu()
     {
-        lostMenu.SetActive(false);
+        ToggleLostMenu(false, textToShow);
         highScoreManager.EnableScoreboard();
     }
 

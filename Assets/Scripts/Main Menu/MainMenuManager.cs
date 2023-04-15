@@ -84,12 +84,14 @@ public class MainMenuManager : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         playerInputManager.DisableMovement(pauseCamera:true);
+        GameManager.instance.gamePaused = true;
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
+        GameManager.instance.gamePaused = false;
         playerInputManager.EnableMovement();
         this.gameObject.SetActive(false);
     }

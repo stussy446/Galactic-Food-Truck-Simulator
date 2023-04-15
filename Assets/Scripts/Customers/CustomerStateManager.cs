@@ -35,6 +35,9 @@ public  class CustomerStateManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         currentCustomerState.UpdateState(this);
     }
 

@@ -55,6 +55,9 @@ public class SaveUniverseButton : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         // if the button is not being clicked, decrease slider value
         if (!buttonBeingClicked)
         {

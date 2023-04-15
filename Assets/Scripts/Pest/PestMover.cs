@@ -21,6 +21,9 @@ public class PestMover : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         // Go to random position
         MoveToPosition(moveToPos);
 

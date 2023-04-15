@@ -17,6 +17,9 @@ public class BugSpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         SpawnBug();
     }
 
