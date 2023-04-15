@@ -50,7 +50,15 @@ public class HighScoreTracker : MonoBehaviour
         scoreBoard.text = "SCORE: " + totalScore.ToString();
     }
 
+    public void RemoveScore()
+    {
+        gameObject.SetActive(false);
+    }
 
+    public int GetTotalScore()
+    {
+        return totalScore;
+    }
 
     private void OnDisable()
     {

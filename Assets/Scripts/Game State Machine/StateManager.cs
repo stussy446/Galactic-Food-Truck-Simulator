@@ -28,6 +28,9 @@ public class StateManager : MonoBehaviour
     public TMP_Text loseToExplosionText;
     public TMP_Text loseToStressText;
 
+    //High score objects reference
+    [SerializeField] private HighScoreManager highScoreManager;
+
     // Initialize every concrete state
     public ReceivingOrderState receivingOrderState = new ReceivingOrderState();
     public FreeRoamingState freeRoamingState = new FreeRoamingState();
@@ -70,4 +73,11 @@ public class StateManager : MonoBehaviour
         lostMenu.SetActive(toggle);
         textToShow.gameObject.SetActive(toggle);
     }
+
+    public void EnableHighScoreMenu()
+    {
+        lostMenu.SetActive(false);
+        highScoreManager.EnableScoreboard();
+    }
+
 }

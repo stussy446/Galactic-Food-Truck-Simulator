@@ -10,26 +10,47 @@ public class HighScoreManager : MonoBehaviour
     [SerializeField] private List<TMP_Text> topTen;
     [SerializeField] private GameObject highScoreWindow;
     [SerializeField] private TMP_Text nameInput;
+    [SerializeField] private HighScoreTracker highScoreTracker;
+
     private List<string> highScoreList;
     private string fillerLine = "BLANK";
     private int thresholdScore;
     private string newHighScoreEntry;
 
-    private int currentScore = 99854;
+    private int currentScore;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    public void EnableScoreboard()
+    {
+        currentScore = highScoreTracker.GetTotalScore();
+        highScoreTracker.RemoveScore();
+        gameObject.SetActive(true);
         highScoreWindow.SetActive(false);
         GetHighScores(10);
         PopulateList();
-        EnterNewHighScore();
+
+        if (currentScore > thresholdScore)
+        {
+            EnterNewHighScore();
+        }
     }
 
     public void GetHighScores(int limit)
     {
         highScoreList = SqliteScript.GetScoreTable(limit);
+
+        if (highScoreList.Count < 10)
+        {
+            thresholdScore = 0;
+            return;
+        }
+
         string[] scoreLine = highScoreList[highScoreList.Count - 1].Split(',');
         thresholdScore = Int32.Parse(scoreLine[1]);
     }
