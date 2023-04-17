@@ -42,5 +42,4 @@ public class FulfillingOrderState : StateAbstract
             ExitState(manager);
         }
     }
-
 }
