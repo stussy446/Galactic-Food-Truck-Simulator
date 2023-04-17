@@ -8,11 +8,19 @@ public class FreeRoamingState : StateAbstract
     private const string CAN_INTERACT = "CanInteract";
 
     private StateAbstract goToState;
+    private TranslatorFunction translator;
+
 
     public override void EnterState(StateManager manager)
     {   
         // Add listeners to actions that allow user to leave this state
         AddRelevantListeners();
+
+        // Find the translator in the scene
+        translator = MonoBehaviour.FindObjectOfType<TranslatorFunction>();
+
+        // Set the translator dial to interactable by disabling the translator's collider
+        translator.gameObject.GetComponent<Collider>().enabled = true;
 
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();

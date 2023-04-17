@@ -39,6 +39,9 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Enable();
 
+        // Resets movement to zero when user interacts with objects
+        horizontalInput = Vector2.zero;
+
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
 
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
