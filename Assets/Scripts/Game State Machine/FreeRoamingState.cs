@@ -17,6 +17,9 @@ public class FreeRoamingState : StateAbstract
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
 
+        // Sets replicator menu to original view
+        MenuManager.Instance.ActivateMenu(MenuType.Start);
+
         Debug.Log("Free Roaming");
     }
 
