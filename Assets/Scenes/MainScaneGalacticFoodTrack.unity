@@ -2579,12 +2579,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1036637061, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1036637061, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1036637062, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 999799877009965887, guid: cafaca0543f6a094fa47c070d5e9392a,
         type: 3}
       propertyPath: slider
