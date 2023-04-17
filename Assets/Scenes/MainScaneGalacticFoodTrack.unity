@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00080953416, g: 0.0041618776, b: 0.020063909, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2563,7 +2563,13 @@ PrefabInstance:
       propertyPath: interactableLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8171158241278059064, guid: cafaca0543f6a094fa47c070d5e9392a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8171158241278059064, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cafaca0543f6a094fa47c070d5e9392a, type: 3}
 --- !u!1 &1085016900
 GameObject:
@@ -6569,7 +6575,7 @@ PrefabInstance:
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
       propertyPath: customerData.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6098663045538322888, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
@@ -6593,7 +6599,7 @@ PrefabInstance:
         type: 3}
       propertyPath: customerData.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: a9243cfefb0c8ec4bbc4383939056a39,
+      objectReference: {fileID: 11400000, guid: 23af5a1c38c74664dac68408c1618a5f,
         type: 2}
     - target: {fileID: 7707311008097060836, guid: 98023a7e8ca40a3438c7f2ce656e3534,
         type: 3}
