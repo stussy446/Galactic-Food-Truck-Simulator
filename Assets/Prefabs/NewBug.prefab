@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5610345562135514760}
   - component: {fileID: 8498330865756714269}
-  - component: {fileID: 4601129682541279291}
   - component: {fileID: 2885536575134287963}
   - component: {fileID: -2694172145806305241}
   m_Layer: 0
@@ -48,22 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7b29d53254ac4499b2371b19cd7455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4601129682541279291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8130082142673240107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b301aeae264a34ea2fb77e35d6a0ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeMagnitude: 7.87
-  shakeRoughness: 4
-  shakeFadeInTime: 0
-  shakeFadeOutTime: 1
 --- !u!82 &2885536575134287963
 AudioSource:
   m_ObjectHideFlags: 0
