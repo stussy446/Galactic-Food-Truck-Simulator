@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
     bool isInteracting;
 
-    public bool IsInteracting { get { return isInteracting; } } 
+    public bool IsInteracting { set { isInteracting = value; } get { return isInteracting; } } 
 
     private void Awake()
     {

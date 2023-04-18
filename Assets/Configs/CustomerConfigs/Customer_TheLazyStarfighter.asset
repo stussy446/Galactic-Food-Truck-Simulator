@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
   m_Name: Customer_TheLazyStarfighter
   m_EditorClassIdentifier: 
-  orderId: 7
+  orderId: 8
   modelPrefab: {fileID: 6426463480085800351, guid: a5e8ec44aa787cb41b05de576cfa6580,
     type: 3}
-  orderAudio: {fileID: 0}
+  orderAudio: {fileID: 8300000, guid: 1acf8106c5f83b34ab909c1e3fac7330, type: 3}
   thankyouAudio: {fileID: 0}
-  language: 4
+  language: 1

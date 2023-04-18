@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Game State for when user is simply walking around the environment.
@@ -61,6 +62,7 @@ public class FreeRoamingState : StateAbstract
         if (manager.playerInputManager.IsInteracting)
         {
             interactable.Interact();
+            manager.playerInputManager.IsInteracting = false;
         }
     }
 
