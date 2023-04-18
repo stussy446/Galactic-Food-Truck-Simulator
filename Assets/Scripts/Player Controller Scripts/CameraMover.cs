@@ -120,7 +120,7 @@ public class CameraMover : MonoBehaviour
     private void ToggleCursorMode()
     {
         // TODO: refactor to new input system 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             UnlockCursor();
         }

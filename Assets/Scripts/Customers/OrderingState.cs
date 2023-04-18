@@ -11,6 +11,7 @@ public class OrderingState : CustomerBaseState
 
     private CustomerStateManager cusState;
     private BoxOpener boxOpener;
+    private CustomerLight customerLight;
     
 
 
@@ -19,6 +20,7 @@ public class OrderingState : CustomerBaseState
         ActionList.OnDoneReplicatingFood += ToCustomerExitState;
         ActionList.OnCustomerOrdered += OnCustomerInteract;
         boxOpener = MonoBehaviour.FindObjectOfType<BoxOpener>();
+        customerLight = MonoBehaviour.FindObjectOfType<CustomerLight>(includeInactive:true);
 
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
@@ -29,7 +31,7 @@ public class OrderingState : CustomerBaseState
 
         alienCustomer.transform.position = customerPos;
         boxOpener.CloseBox();
-        customerState.customerAlert.gameObject.SetActive(true);
+        customerLight.gameObject.SetActive(true);
 
         Debug.Log("OrderingState");
 
@@ -40,36 +42,11 @@ public class OrderingState : CustomerBaseState
     public override void UpdateState(CustomerStateManager customerState)
     {
         alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, orderPos, customerSpeed * Time.deltaTime);
-
-       /* if (alienCustomer.transform.position == orderPos && audioSource.enabled && !audioSource.isPlaying)
-        {
-            //TODO: connect voice clip
-            //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
-            TranslateActions.OnReceiveOrder(customerOrderVO.language, customerOrderVO.orderId);
-            //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
-            customerOrderVO.PlayOrderAudio(audioSource);
-            Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
-            customerState.VOCoroutine();
-        }*/
-
-        //if (Input.GetKeyDown(KeyCode.O))
-        //{
-        //    ExitState(customerState);
-        //}
-        //else
-        //{
-        //TODO: connect wrong order voice clip
-        //send player back to Replicator
-        //}
-
     }
 
     public void OnCustomerInteract(ActionType actionType)
     {
-        //TODO: connect voice clip
-        //voiceOverManager.PlayAudioClip(ActionType.CustomerArrived);
         TranslateActions.OnReceiveOrder(customerOrderVO.language, customerOrderVO.orderId);
-        //----------------FOR TESTING SCRIPTABLE OBJECT-------------------//
         customerOrderVO.PlayOrderAudio(audioSource);
         Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
         cusState.customer.VOCoroutine();
@@ -85,7 +62,7 @@ public class OrderingState : CustomerBaseState
     {
         ActionList.OnDoneReplicatingFood -= ToCustomerExitState;
         ActionList.OnCustomerOrdered -= OnCustomerInteract;
-        customerState.customerAlert.gameObject.SetActive(false);
+        customerLight.gameObject.SetActive(false);
         boxOpener.OpenBox();
         customerState.SwitchState(customerState.customerExitState);
 

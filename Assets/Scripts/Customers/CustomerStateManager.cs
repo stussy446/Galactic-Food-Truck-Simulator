@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public  class CustomerStateManager : MonoBehaviour
-{
-   /// <summary>
-   /// Controls Customer State Machine
-   /// </summary> 
-   /// 
-
+{ 
     public static CustomerStateManager instance;
-
-    public Customer customer;
+    [HideInInspector] public Customer customer;
 
     [Header("Customer States")]
     public CustomerBaseState currentCustomerState;
@@ -27,9 +21,6 @@ public  class CustomerStateManager : MonoBehaviour
     [SerializeField]
     public GameObject customerExitLocation;
 
-    [Header("Customer Dependencies")]
-    public Light customerAlert;
-
     void Start()
     {
         if(instance == null)
@@ -44,6 +35,9 @@ public  class CustomerStateManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         currentCustomerState.UpdateState(this);
     }
 
@@ -57,6 +51,4 @@ public  class CustomerStateManager : MonoBehaviour
     {
         SwitchState(orderingState);
     }
-
-
 }

@@ -2,28 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// I think we can refactor stuff out of the CustomerStateManager into this customer script
-// so that we arent having that script do too much. Basically anything that doesnt 
-// have to do with the State logic could come in here
 public class Customer : MonoBehaviour
 {
     public List<CustomerScriptableObject> customerData;
 
     private AudioSource customerAudioSource;
+    private int orderID;
+    private GameObject model;
+    private AudioClip orderAudio;
+    private AudioClip thankyouAudio;
+    private int language;
+    private CustomerScriptableObject currentCustomerSO;
 
     [Header("Customer Setup Configs")]
-    [SerializeField] private int orderID;
-    [SerializeField] private GameObject model;
-    [SerializeField] private AudioClip orderAudio;
-    [SerializeField] private AudioClip thankyouAudio;
-    [SerializeField] private int language;
-    [SerializeField] private CustomerScriptableObject currentCustomerSO;
     [SerializeField] private float customerSpeed = 5f;
-    [SerializeField] private float customerCountdownStartTime = 5f;
 
     [Header("Customer base prefab")]
     [SerializeField] private GameObject customerPrefab;
 
+    #region public fields
     public AudioClip OrderAudio { get { return orderAudio; } }
 
     public int OrderID { get { return orderID; }  }
@@ -31,8 +28,7 @@ public class Customer : MonoBehaviour
     public GameObject CustomerPrefab { get { return customerPrefab; } }
 
     public float CustomerSpeed { get { return customerSpeed; } }
-    public float CustomerCountdownStartTime { get { return customerCountdownStartTime; } }
-
+    #endregion
 
     private void Awake()
     {
@@ -64,19 +60,26 @@ public class Customer : MonoBehaviour
         return customer;
     }
 
+    /// <summary>
+    /// Returns the current customer Scriptable Object
+    /// </summary>
+    /// <returns>CustomerScriptableObject</returns>
     public CustomerScriptableObject GetCurrentCustomer()
     {
         return currentCustomerSO;
     }
 
     /// <summary>
-    /// Destroys the prefab of the customer
+    /// Destroys the active model of the customer
     /// </summary>
     public void DestroyModel()
     {
         Destroy(model);
     }
 
+    /// <summary>
+    /// Plays order audio and sets the current customer's model to active
+    /// </summary>
     public void OnCustomerEnter()
     {
         customerAudioSource.clip = orderAudio;
@@ -84,6 +87,15 @@ public class Customer : MonoBehaviour
         model.SetActive(true);
     }
 
+    /// <summary>
+    /// deactivates the currently active model on the customer 
+    /// </summary>
+    public void OnCharacterExit()
+    {
+        model.SetActive(false);
+    }
+
+    #region VO methods
     public void VOCoroutine()
     {
         StartCoroutine(PlayCustomerVo());
@@ -93,9 +105,5 @@ public class Customer : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
     }
-
-    public void OnCharacterExit()
-    {
-        model.SetActive(false);
-    }
+    #endregion
 }

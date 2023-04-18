@@ -43,9 +43,10 @@ public class VOManager : MonoBehaviour
             int index = UnityEngine.Random.Range(1, SqliteScript.GetSize("LineID", type.ToString()));
             string filePath = dataPath + SqliteScript.GetLine("FileName", type.ToString(), "LineID", index);
             AudioClip audioClip = Resources.Load<AudioClip>(filePath);
-            source.clip = audioClip;
+            
             if (!source.isPlaying)
             {
+                source.clip = audioClip;
                 source.Play();
             }
         }
