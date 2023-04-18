@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TutorialStateManager : MonoBehaviour
 {
@@ -22,7 +24,10 @@ public class TutorialStateManager : MonoBehaviour
     public TutorialEnd tutorialEnd = new TutorialEnd();
 
     public AudioSource source;
+    public MainMenuManager mainMenuManager;
     public List<AudioClip> tutorialAudios = new List<AudioClip>();
+    private AudioClip clipToPlay;
+    private int clipIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,9 @@ public class TutorialStateManager : MonoBehaviour
         }
 
         currentState = tutorialMovement;
+        clipToPlay = tutorialAudios[clipIndex];
+        source.clip = clipToPlay;
+        source.Play();
         currentState.EnterState(this);
     }
 
@@ -40,11 +48,33 @@ public class TutorialStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+        CheckToSkipTutorial();
     }
 
     public void SwitchStates(TutorialAbstract newState)
     {
         currentState = newState;
         currentState.EnterState(this);
+        NextAudioClip();
+        source.Play();
+    }
+
+    public void NextAudioClip()
+    {
+        clipIndex++;
+        clipToPlay = tutorialAudios[clipIndex];
+        source.clip = clipToPlay;
+    }
+
+    private void CheckToSkipTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            mainMenuManager.gameObject.SetActive(true);
+            SwitchStates(tutorialEnd);
+            // TEMPORARY muting audiosource until leo adds exit tutorial VO
+            source.volume = 0;
+            mainMenuManager.LoadNextScene();
+        }
     }
 }

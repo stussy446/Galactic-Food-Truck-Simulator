@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
 
+    public bool gamePaused;
+
     // Start is called before the first frame update
     void Start()
     {
+        gamePaused = false;
         if (instance == null)
         {
             instance = this;

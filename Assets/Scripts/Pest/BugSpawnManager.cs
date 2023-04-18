@@ -7,31 +7,48 @@ public class BugSpawnManager : MonoBehaviour
     [SerializeField] private GameObject bugPrefab;
 
     private float spawnTimer;
+    private float minTimer = 17f;
+    private float maxTimer = 19f;
 
     // Start is called before the first frame update
     void Start()
     {
-        ResetSpawnTimer();
+        ResetSpawnTimer(minTimer, maxTimer);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SpawnBug();
+        if (GameManager.instance.gamePaused == true)
+            return;
+
+        GetSpawnTimer();
     }
 
     private void SpawnBug()
     {
+        Instantiate(bugPrefab, new RandomMovePosition().position, bugPrefab.transform.rotation);
+    }
+
+    private void ResetSpawnTimer(float min, float max)
+    {
+        spawnTimer = Random.Range(min, max);
+    }
+
+    /// <summary>
+    /// Decreases the time a bug will spawn by 5%
+    /// </summary>
+    /// <returns></returns>
+    private float GetSpawnTimer()
+    {
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0)
         {
-            Instantiate(bugPrefab, new RandomMovePosition().position, Quaternion.identity);
-            ResetSpawnTimer();
+            SpawnBug();
+            minTimer *= 0.95f;
+            maxTimer *= 0.95f;
+            ResetSpawnTimer(minTimer, maxTimer);
         }
-    }
-
-    private void ResetSpawnTimer()
-    {
-        spawnTimer = Random.Range(15f, 24f);
+        return spawnTimer;
     }
 }

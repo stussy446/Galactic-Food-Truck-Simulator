@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EZCameraShake;
+//using EZCameraShake;
 
 public class Stomping : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class Stomping : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PLAYER_TAG))
         {
-            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
+//            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
             StartCoroutine(Squish());
         }
     }
@@ -40,7 +40,7 @@ public class Stomping : MonoBehaviour
         {
             yield return null;
         }
-
+        ActionList.OnBugKilled();
         Destroy(gameObject);
     }
 }

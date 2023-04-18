@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1b3f0449580fa44b4c083ffaf3f838, type: 3}
-  m_Name: Evil Leo
+  m_Name: Centarus A - Spicy Jet Fuel
   m_EditorClassIdentifier: 
-  itemName: Evil Leo
-  image: {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
+  itemName: Centarus A - Spicy Jet fuel
+  image: {fileID: 21300000, guid: 8d3353380b809a347a76d18f74ce6982, type: 3}
   ID: 3

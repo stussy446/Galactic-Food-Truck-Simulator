@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7328f312-d7fa-40fe-af9e-8558866b03c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5186c36c-c923-487c-8074-d0a9bfdd7d76"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af263490-9406-4d9a-8ad5-a69b4fdb9e2d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -219,6 +250,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Movement_MouseX = m_Movement.FindAction("MouseX", throwIfNotFound: true);
         m_Movement_MouseY = m_Movement.FindAction("MouseY", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
+        m_Movement_Pause = m_Movement.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +314,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_MouseX;
     private readonly InputAction m_Movement_MouseY;
     private readonly InputAction m_Movement_Interact;
+    private readonly InputAction m_Movement_Pause;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -290,6 +323,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @MouseX => m_Wrapper.m_Movement_MouseX;
         public InputAction @MouseY => m_Wrapper.m_Movement_MouseY;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
+        public InputAction @Pause => m_Wrapper.m_Movement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -311,6 +345,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
+                @Pause.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +364,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -337,5 +377,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMouseX(InputAction.CallbackContext context);
         void OnMouseY(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

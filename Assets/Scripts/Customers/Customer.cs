@@ -16,7 +16,6 @@ public class Customer : MonoBehaviour
 
     [Header("Customer Setup Configs")]
     [SerializeField] private float customerSpeed = 5f;
-    [SerializeField] private float customerCountdownStartTime = 5f;
 
     [Header("Customer base prefab")]
     [SerializeField] private GameObject customerPrefab;
@@ -29,7 +28,6 @@ public class Customer : MonoBehaviour
     public GameObject CustomerPrefab { get { return customerPrefab; } }
 
     public float CustomerSpeed { get { return customerSpeed; } }
-    public float CustomerCountdownStartTime { get { return customerCountdownStartTime; } }
     #endregion
 
     private void Awake()

@@ -17,15 +17,21 @@ public class InputManager : MonoBehaviour
 
     Vector2 horizontalInput;
     Vector2 mouseInput;
+    MainMenuManager menuManager;
 
     bool isInteracting;
 
-    public bool IsInteracting { get { return isInteracting; } } 
+    public bool IsInteracting { set { isInteracting = value; } get { return isInteracting; } } 
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         movementActions = playerControls.Movement;
+        menuManager = FindObjectOfType<MainMenuManager>();
+        if(menuManager != null)
+        {
+            menuManager.gameObject.SetActive(false);
+        }
     }
 
 
@@ -33,13 +39,20 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Enable();
 
+        // Resets movement to zero when user interacts with objects
+        horizontalInput = Vector2.zero;
+
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
 
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
         movementActions.Interact.performed += ctx => isInteracting = true;
-        movementActions.Interact.canceled += ctx => isInteracting = false;   
+        movementActions.Interact.canceled += ctx => isInteracting = false;
+
+        movementActions.Pause.performed += ctx => menuManager.Pause();
+        movementActions.Pause.performed += ctx => DisableMovement(true);
+
     }
 
     private void Update()
