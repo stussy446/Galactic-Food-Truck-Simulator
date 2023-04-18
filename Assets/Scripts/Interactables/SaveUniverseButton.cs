@@ -17,7 +17,7 @@ public class SaveUniverseButton : MonoBehaviour
     // Set how fast slilder lowers and how fast it increases
     private float dropSliderFactor = 1.25f;
     private float increaseSliderFactor = 8f;
-    private float difficultyTimer = Random.Range(25f, 30f);
+    private float difficultyTimer;
 
     // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
@@ -49,7 +49,7 @@ public class SaveUniverseButton : MonoBehaviour
     {
         // Sets max value of the slider
         slider.maxValue = maxDangerLevel;
-
+        difficultyTimer = Random.Range(25f, 30f);
         // Sets current danger level to max
         dangerLevel = maxDangerLevel;
     }
