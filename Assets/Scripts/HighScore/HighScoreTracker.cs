@@ -13,6 +13,9 @@ public class HighScoreTracker : MonoBehaviour
     private float buttonPressTime = 0f;
 
     [SerializeField] private int scoreMultiplier = 1000;
+    [SerializeField] private float buttonMultiplier = -0.1f;
+    [SerializeField] private float bugMultiplier = 0.5f;
+    [SerializeField] private float timeMultiplier = 0.2f;
     [SerializeField] private TMP_Text scoreBoard;
 
     private int totalScore;
@@ -46,7 +49,7 @@ public class HighScoreTracker : MonoBehaviour
 
     private void ScoreUpdate()
     {
-        totalScore = (int)((bugsKilled + customersServed + buttonPressed + (buttonPressTime/5f)) * scoreMultiplier);
+        totalScore = (int)(((bugsKilled*bugMultiplier) + customersServed + (buttonPressed*buttonMultiplier) + (buttonPressTime*timeMultiplier)) * scoreMultiplier);
         scoreBoard.text = "SCORE: " + totalScore.ToString();
     }
 

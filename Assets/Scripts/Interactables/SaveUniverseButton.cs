@@ -17,6 +17,7 @@ public class SaveUniverseButton : MonoBehaviour
     // Set how fast slilder lowers and how fast it increases
     private float dropSliderFactor = 1.25f;
     private float increaseSliderFactor = 8f;
+    private float difficultyTimer;
 
     // Checks to see if button is being pressed
     private bool buttonBeingClicked = false;
@@ -48,7 +49,7 @@ public class SaveUniverseButton : MonoBehaviour
     {
         // Sets max value of the slider
         slider.maxValue = maxDangerLevel;
-
+        difficultyTimer = Random.Range(25f, 30f);
         // Sets current danger level to max
         dangerLevel = maxDangerLevel;
     }
@@ -61,7 +62,7 @@ public class SaveUniverseButton : MonoBehaviour
         // if the button is not being clicked, decrease slider value
         if (!buttonBeingClicked)
         {
-            dangerLevel -= dropSliderFactor * Time.deltaTime;
+            dangerLevel -= GetDropSliderFactor() * Time.deltaTime;
             SetDangerLevel(dangerLevel);
             if (dangerLevel < 20 && dangerLevel > 19.8f)
             {
@@ -91,6 +92,21 @@ public class SaveUniverseButton : MonoBehaviour
     private void SetDangerLevel(float level)
     {
         slider.value = level;
+    }
+
+    /// <summary>
+    /// Increases button slider speed by 5% after a certain period of time
+    /// </summary>
+    /// <returns></returns>
+    private float GetDropSliderFactor()
+    {
+        difficultyTimer -= Time.deltaTime;
+        if (difficultyTimer <= 0)
+        {
+            dropSliderFactor *= 1.05f;
+            difficultyTimer = Random.Range(25f, 30f);
+        }
+        return dropSliderFactor;
     }
 
 }
