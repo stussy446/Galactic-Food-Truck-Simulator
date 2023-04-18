@@ -12,6 +12,10 @@ public class StressController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (GameManager.instance.gamePaused == true)
+            return;
+
         PestMover[] pestMovers = FindObjectsOfType<PestMover>();
         if (pestMovers.Length == 0 && stressLevel > 0)
         {
