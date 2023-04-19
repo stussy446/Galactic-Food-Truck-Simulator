@@ -19,7 +19,7 @@ public class TranslateButton : MonoBehaviour
     {
         {"Who decided English would be Galactic common?", "Why don't you go and ask the AI overlord?" },
         {"Hey man, looking a bit on tilt over there.", "Shut up and do your job." },
-        {"Oh, I hope We get to translate some Klingon today.", "Every time you speak, makes me feel like today is a good day to die." },
+        {"Oh, I hope we get to translate some Klingon today.", "Every time you speak, makes me feel like today is a good day to die." },
         {"Aren't you worried one of them critters might crawl into your exposed panel?", "ASSUMING DIRECT CONTROL." },
         {"I am fluent in over 6 million forms of communication.", "Pipe down before we get sued by the mouse." },
         {"Doesn't that massive space battle next to us make you nervous?", "I hope a stray bullet hits your screen."},
