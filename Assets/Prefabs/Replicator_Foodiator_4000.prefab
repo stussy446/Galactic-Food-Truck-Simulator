@@ -6798,7 +6798,7 @@ MonoBehaviour:
   itemButton: {fileID: 7271900988642012945}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &6527100491663769120
 AudioSource:
   m_ObjectHideFlags: 0
