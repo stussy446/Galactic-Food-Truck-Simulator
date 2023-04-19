@@ -7,18 +7,11 @@ public class Stomping : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player";
 
-    private AudioSource audioSource;
-
     [Header("Bug Camera Shake Impact Configs")]
     [SerializeField] float shakeMagnitude;
     [SerializeField] float shakeRoughness;
     [SerializeField] float shakeFadeInTime;
     [SerializeField] float shakeFadeOutTime;
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     /// <summary>
     /// Destroys the bug when in contact with the player
@@ -28,19 +21,26 @@ public class Stomping : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PLAYER_TAG))
         {
-//            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
-            StartCoroutine(Squish());
+            //            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
+            ActionList.OnBugKilled?.Invoke();
         }
     }
 
-    private IEnumerator Squish()
+    /// <summary>
+    /// Destroys the bug
+    /// </summary>
+    private void Squish()
     {
-        audioSource.Play();
-        while (audioSource.isPlaying)
-        {
-            yield return null;
-        }
-        ActionList.OnBugKilled();
         Destroy(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        ActionList.OnBugKilled += Squish;
+    }
+
+    private void OnDisable()
+    {
+        ActionList.OnBugKilled -= Squish;
     }
 }

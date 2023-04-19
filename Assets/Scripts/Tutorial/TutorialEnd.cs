@@ -19,7 +19,7 @@ public class TutorialEnd : TutorialAbstract
     {
         if (!manager.source.isPlaying) 
         {
-            SceneManager.LoadScene(2);
+            manager.LoadGame();
         }
     }
 }
