@@ -6,6 +6,8 @@ public class BugSpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject bugPrefab;
 
+    private AudioSource source;
+
     private float spawnTimer;
     private float minTimer = 20f;
     private float maxTimer = 25f;
@@ -14,6 +16,7 @@ public class BugSpawnManager : MonoBehaviour
     void Start()
     {
         ResetSpawnTimer(minTimer, maxTimer);
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,5 +53,20 @@ public class BugSpawnManager : MonoBehaviour
             ResetSpawnTimer(minTimer, maxTimer);
         }
         return spawnTimer;
+    }
+
+    private void PlaySquishSound()
+    {
+        source.Play();
+    }
+
+    private void OnEnable()
+    {
+        ActionList.OnBugKilled += PlaySquishSound;
+    }
+
+    private void OnDisable()
+    {
+        ActionList.OnBugKilled -= PlaySquishSound;
     }
 }
