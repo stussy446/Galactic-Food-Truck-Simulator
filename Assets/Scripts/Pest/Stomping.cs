@@ -28,19 +28,33 @@ public class Stomping : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PLAYER_TAG))
         {
-//            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
-            StartCoroutine(Squish());
+            //            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
+            ActionList.OnBugKilled?.Invoke();
         }
     }
 
-    private IEnumerator Squish()
+    private IEnumerator SquishCoroutine()
     {
         audioSource.Play();
         while (audioSource.isPlaying)
         {
             yield return null;
         }
-        ActionList.OnBugKilled();
         Destroy(gameObject);
+    }
+
+    private void Squish()
+    {
+        StartCoroutine(SquishCoroutine());
+    }
+
+    private void OnEnable()
+    {
+        ActionList.OnBugKilled += Squish;
+    }
+
+    private void OnDisable()
+    {
+        ActionList.OnBugKilled -= Squish;
     }
 }
