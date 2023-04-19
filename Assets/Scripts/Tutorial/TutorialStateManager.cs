@@ -73,8 +73,13 @@ public class TutorialStateManager : MonoBehaviour
             mainMenuManager.gameObject.SetActive(true);
             SwitchStates(tutorialEnd);
             // TEMPORARY muting audiosource until leo adds exit tutorial VO
-            source.volume = 0;
-            mainMenuManager.LoadNextScene();
+            LoadGame();
         }
+    }
+
+    public void LoadGame()
+    {
+        source.volume = 0;
+        mainMenuManager.LoadNextScene();
     }
 }
