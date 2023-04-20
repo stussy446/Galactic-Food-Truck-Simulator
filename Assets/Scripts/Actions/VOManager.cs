@@ -46,14 +46,21 @@ public class VOManager : MonoBehaviour
             
             if (!source.isPlaying)
             {
-                source.clip = audioClip;
-                source.Play();
+                StartCoroutine(PlayClip(audioClip));
             }
         }
         else
         {
             Debug.LogError("There are no audio clips to play");
         }
+    }
+
+    private IEnumerator PlayClip(AudioClip audio)
+    {
+        source.clip = audio;
+        source.Play();
+        yield return new WaitUntil(() => !source.isPlaying);
+        Resources.UnloadAsset(audio);
     }
 
     /// <summary>
