@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: -1}
-  rotateSpeed: 10
+  rotateSpeed: 30
 --- !u!4 &6656883368394075868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5f4c8f7b660478469b2b9ba9e496136,
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 1}
-  rotateSpeed: 10
+  rotateSpeed: 30
