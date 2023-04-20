@@ -8,7 +8,11 @@ public class TranslatorFunction : MonoBehaviour
 {
 
         [SerializeField] private TranslateButton translatorUI;
+        [SerializeField] private AudioSource translatorSpeaker;
+        private AudioClip[] orderclips;
+        [SerializeField] AudioClip defaultClip;
         private int lineID, languageID;
+        
 
         private int languageIndex = 1;
 
@@ -33,6 +37,23 @@ public class TranslatorFunction : MonoBehaviour
 
             translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
 
+            translatorSpeaker.Stop();
+            if(languageIndex == 1)
+            {
+                translatorSpeaker.clip = orderclips[0];
+                
+            }
+            else if (languageIndex == 4)
+            {
+                translatorSpeaker.clip = orderclips[1];
+
+            }
+            else
+            {
+                translatorSpeaker.clip = defaultClip;
+            }
+            translatorSpeaker.Play();
+
 
 
         }
@@ -45,7 +66,11 @@ public class TranslatorFunction : MonoBehaviour
             languageIndex = lang;
             translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
             translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
-
+            orderclips = Resources.LoadAll<AudioClip>($"TranslateLines/order{lineID}");
+            foreach (var clip in orderclips)
+            {
+                Debug.Log(clip.name);
+            }
             TranslateActions.OnNewOrder(this);
         }
 
