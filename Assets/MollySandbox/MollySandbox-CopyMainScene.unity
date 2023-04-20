@@ -3276,16 +3276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment_Blockout_v3
       objectReference: {fileID: 0}
-    - target: {fileID: 7475214907653275847, guid: f1abb9fa3ee721d44b8a93a8137cb302,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988534127092261138, guid: f1abb9fa3ee721d44b8a93a8137cb302,
-        type: 3}
-      propertyPath: m_StaticShadowCaster
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1abb9fa3ee721d44b8a93a8137cb302, type: 3}
 --- !u!4 &1455207549 stripped
