@@ -10072,6 +10072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translatorUI: {fileID: 0}
+  translatorSpeaker: {fileID: 0}
+  defaultClip: {fileID: 0}
 --- !u!65 &2279382582073673619
 BoxCollider:
   m_ObjectHideFlags: 0
