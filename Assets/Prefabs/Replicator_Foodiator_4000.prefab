@@ -4578,8 +4578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0062942505, y: -0.05819702}
+  m_SizeDelta: {x: 0.012594223, y: 0.11639309}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3144876003040716545
 CanvasRenderer:
@@ -4609,8 +4609,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9daa64755612cf4468a75d8bb7f8d99e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6323,6 +6323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7459077746647915799}
   - component: {fileID: 1712443444895085268}
+  - component: {fileID: 3442377541928352330}
   m_Layer: 6
   m_Name: Replicator_Foodiator_4000
   m_TagString: Untagged
@@ -6372,6 +6373,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionType: 3
   interactionPosition: {x: 0, y: 0, z: 0}
+--- !u!65 &3442377541928352330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838558153897150381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5943718, y: 2.6306071, z: 4.4061575}
+  m_Center: {x: 0.97836494, y: 2.8807395, z: -0.61600685}
 --- !u!1 &8135996676223301832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,7 +6812,7 @@ MonoBehaviour:
   itemButton: {fileID: 7271900988642012945}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &6527100491663769120
 AudioSource:
   m_ObjectHideFlags: 0

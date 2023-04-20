@@ -14,6 +14,12 @@ public class CustomerScriptableObject : ScriptableObject
 
     public void PlayOrderAudio(AudioSource audioSource)
     {
+        if(orderAudio == null)
+        {
+            Debug.LogError($"the provided orderAudio clip is null for customer with id {orderId}, please make sure the audioclip is correctly assigned to the customer");
+            return;
+        }
+
         audioSource.PlayOneShot(orderAudio);
 
     }

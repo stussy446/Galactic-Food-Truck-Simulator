@@ -31,24 +31,8 @@ public class CameraMover : MonoBehaviour
 
     private void Awake()
     {
-        RemoveExtraCameras();
         cam = Camera.main;
         LockCursor();
-    }
-
-    /// <summary>
-    /// Removes default main camera from scene to ensure the players fps camera is the one used
-    /// </summary>
-    private void RemoveExtraCameras()
-    {
-        Camera[] cameras = FindObjectsOfType<Camera>();
-        foreach (Camera camera in cameras)
-        {
-            if (camera.GetComponentInParent<PlayerMovement>() == null)
-            {
-                Destroy(camera.gameObject);
-            }
-        }
     }
 
     private void Update()
@@ -136,7 +120,7 @@ public class CameraMover : MonoBehaviour
     private void ToggleCursorMode()
     {
         // TODO: refactor to new input system 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             UnlockCursor();
         }

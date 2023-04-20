@@ -17,15 +17,21 @@ public class InputManager : MonoBehaviour
 
     Vector2 horizontalInput;
     Vector2 mouseInput;
+    MainMenuManager menuManager;
 
     bool isInteracting;
 
-    public bool IsInteracting { get { return isInteracting; } } 
+    public bool IsInteracting { set { isInteracting = value; } get { return isInteracting; } } 
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         movementActions = playerControls.Movement;
+        menuManager = FindObjectOfType<MainMenuManager>();
+        if(menuManager != null)
+        {
+            menuManager.gameObject.SetActive(false);
+        }
     }
 
 
@@ -33,13 +39,20 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Enable();
 
+        // Resets movement to zero when user interacts with objects
+        horizontalInput = Vector2.zero;
+
         movementActions.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
 
         movementActions.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movementActions.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
         movementActions.Interact.performed += ctx => isInteracting = true;
-        movementActions.Interact.canceled += ctx => isInteracting = false;   
+        movementActions.Interact.canceled += ctx => isInteracting = false;
+
+        movementActions.Pause.performed += ctx => menuManager.Pause();
+        movementActions.Pause.performed += ctx => DisableMovement(true);
+
     }
 
     private void Update()
@@ -55,21 +68,38 @@ public class InputManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Replicator 
+    /// </summary>
     public void GoToReplicatingPosition()
     {
         StartCoroutine(GoToPosition(transform.position, replicatorTransform.position, transform.forward, replicatorTransform.forward));
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Translator 
+    /// </summary>
     public void GoToTranslatorPosition()
     {
         StartCoroutine(GoToPosition(transform.position, translatorTransform.position, transform.forward, translatorTransform.forward));
     }
 
+    /// <summary>
+    /// moves player to appropriate position when interacting with the Save The Universe Button
+    /// </summary>
     public void GoToButtonPosition()
     {
         StartCoroutine(GoToPosition(transform.position, buttonTransform.position, transform.forward, buttonTransform.forward));
     }
 
+    /// <summary>
+    /// Moves object from a starting position and rotation to an ending position and rotation using Lerp
+    /// </summary>
+    /// <param name="startPos">Vector3 starting position of object</param>
+    /// <param name="endPos">Vector3 ending position of object</param>
+    /// <param name="startForward">Vector3 starting forward rotation of object</param>
+    /// <param name="endForward">Vector3 ending forward rotation of object</param>
+    /// <returns>IEnumerator</returns>
     private IEnumerator GoToPosition(Vector3 startPos, Vector3 endPos, Vector3 startForward, Vector3 endForward)
     {
         float difference = 0;
@@ -86,15 +116,21 @@ public class InputManager : MonoBehaviour
 
     }
 
-    public void DisableMovement()
+    /// <summary>
+    /// Disables camera and player movement for the player while interacting with UI in the world
+    /// </summary>
+    public void DisableMovement(bool pauseCamera)
     {
         playerMovement.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         reticle.SetActive(false);
-        cameraMover.IsPaused = true;
+        cameraMover.IsPaused = pauseCamera;
         this.enabled = false;
     }
 
+    /// <summary>
+    /// Reenables camera and player movement after done interacting with UI in the world
+    /// </summary>
     public void EnableMovement()
     {
         playerMovement.enabled = true;

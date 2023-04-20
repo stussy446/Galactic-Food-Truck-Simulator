@@ -43,16 +43,24 @@ public class VOManager : MonoBehaviour
             int index = UnityEngine.Random.Range(1, SqliteScript.GetSize("LineID", type.ToString()));
             string filePath = dataPath + SqliteScript.GetLine("FileName", type.ToString(), "LineID", index);
             AudioClip audioClip = Resources.Load<AudioClip>(filePath);
-            source.clip = audioClip;
+            
             if (!source.isPlaying)
             {
-                source.Play();
+                StartCoroutine(PlayClip(audioClip));
             }
         }
         else
         {
             Debug.LogError("There are no audio clips to play");
         }
+    }
+
+    private IEnumerator PlayClip(AudioClip audio)
+    {
+        source.clip = audio;
+        source.Play();
+        yield return new WaitUntil(() => !source.isPlaying);
+        Resources.UnloadAsset(audio);
     }
 
     /// <summary>
