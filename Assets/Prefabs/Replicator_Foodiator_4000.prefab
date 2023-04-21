@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5706609855135841644}
   - component: {fileID: 5411581728950888756}
   - component: {fileID: 7167088075259800510}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   itemButton: {fileID: 7803785859914961481}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &193650321002447807
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1068480151928163159}
   - component: {fileID: 8753640301706219763}
   - component: {fileID: 7803785859914961481}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 5063208986375719782}
   - component: {fileID: 6394772200983176467}
   - component: {fileID: 8361960826084598861}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397366893582374222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -6.5}
   m_LocalScale: {x: 0.54, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,8 +253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 2.62, y: 44}
+  m_SizeDelta: {x: 268.79, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6394772200983176467
 CanvasRenderer:
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu
+  m_text: Replicator-4000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -293,8 +293,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279703327
-  m_fontColor: {r: 0.122641504, g: 0.08966714, b: 0.08966714, a: 1}
+    rgba: 4279900697
+  m_fontColor: {r: 0.09838911, g: 0.101472534, b: 0.103773594, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -311,13 +311,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.3
-  m_fontSizeBase: 26.3
+  m_fontSize: 32.43
+  m_fontSizeBase: 32.43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 7700341611940301391}
   - component: {fileID: 3033021162894769645}
   - component: {fileID: 1159006653709099030}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Start Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,17 +504,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Begin Repl
+  m_text: Replicate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279505944
-  m_fontColor: {r: 0.09433961, g: 0.07876467, b: 0.07876467, a: 1}
+    rgba: 4294773750
+  m_fontColor: {r: 0.9659512, g: 0.042052314, b: 0.990566, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 4013696704814357246}
   - component: {fileID: 686661564456464156}
   - component: {fileID: 959337842705280195}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ MonoBehaviour:
   itemButton: {fileID: 3320651796380894422}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &959337842705280195
 AudioSource:
   m_ObjectHideFlags: 0
@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 7992744554997249924}
   - component: {fileID: 6014278653552930462}
   - component: {fileID: 3751575028509881549}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959913336655122718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00011, y: 0.00046, z: 0.00088}
+  m_LocalPosition: {x: 0, y: -0, z: 0.00163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,13 +930,13 @@ Light:
   m_GameObject: {fileID: 959913336655122718}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8977236, g: 0.4575472, b: 1, a: 1}
-  m_Intensity: 66.26
-  m_Range: 1.9905097
+  m_Intensity: 8.3
+  m_Range: 2.8378906
   m_SpotAngle: 160.62753
-  m_InnerSpotAngle: 21.80208
+  m_InnerSpotAngle: 160.62753
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 8569243770763760396}
   - component: {fileID: 569602882112543708}
   - component: {fileID: 4444856123404188562}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 228687115992057063}
   - component: {fileID: 6248476534123013543}
   - component: {fileID: 1582191469575392011}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,12 +1216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88f5f317abcb7c45ba0926bc51e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
+  config: {fileID: 11400000, guid: 250742ecbcbde5747ac2debb5e0e727f, type: 2}
   itemText: {fileID: 2601555570231993799}
   itemButton: {fileID: 8056861521670498147}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &1582191469575392011
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 1038643359341203414}
   - component: {fileID: 6792254168867091933}
   - component: {fileID: 2435406826855239947}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   itemButton: {fileID: 9116437960341827536}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &1455068617442040823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 6245456097420727482}
   - component: {fileID: 2547348658484156867}
   - component: {fileID: 8076552759938555341}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,7 +1679,7 @@ MonoBehaviour:
   itemButton: {fileID: 2704359023444151555}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &2268497834945497672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 722546476855216960}
   - component: {fileID: 762477354669595436}
   - component: {fileID: 8496342139662708712}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1772,12 +1772,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88f5f317abcb7c45ba0926bc51e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 97c87f7d5425d7a4b9a192b11885c463, type: 2}
+  config: {fileID: 11400000, guid: 7a8949a5daa1ac74595e6d27c2cc7996, type: 2}
   itemText: {fileID: 8078011720503921216}
   itemButton: {fileID: 2947733090789426022}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &8496342139662708712
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1885,7 +1885,7 @@ GameObject:
   - component: {fileID: 4157851688769567400}
   - component: {fileID: 8335546476886786366}
   - component: {fileID: 5714917643398156138}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2020,7 +2020,7 @@ GameObject:
   - component: {fileID: 5979127577827217384}
   - component: {fileID: 1113924747039582839}
   - component: {fileID: 6210671576419054725}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2156,7 +2156,7 @@ GameObject:
   - component: {fileID: 4889253446579253965}
   - component: {fileID: 7535601552485682713}
   - component: {fileID: 6625766833310618109}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2240,7 +2240,7 @@ MonoBehaviour:
   itemButton: {fileID: 2948195788586158657}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &2644989465559320350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2253,7 @@ GameObject:
   - component: {fileID: 5624398938248193888}
   - component: {fileID: 3416940587464201657}
   - component: {fileID: 8056861521670498147}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2374,7 +2374,7 @@ GameObject:
   - component: {fileID: 6680187578166136337}
   - component: {fileID: 8652122275418198546}
   - component: {fileID: 2385877788331537473}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2458,7 +2458,7 @@ MonoBehaviour:
   itemButton: {fileID: 8343456211364788576}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &3078074188068867393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2470,7 @@ GameObject:
   - component: {fileID: 4314668280783424169}
   - component: {fileID: 7006922212069933315}
   - component: {fileID: 1647064929001993251}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2605,7 +2605,7 @@ GameObject:
   - component: {fileID: 9144733926196733033}
   - component: {fileID: 1696464796984047910}
   - component: {fileID: 2601555570231993799}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2824,7 +2824,7 @@ GameObject:
   - component: {fileID: 4785654690953602891}
   - component: {fileID: 5783190586565221959}
   - component: {fileID: 3935860091984990337}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 6993571885649314880}
   - component: {fileID: 7848963298119563228}
   - component: {fileID: 2820479393042161904}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3127,7 +3127,7 @@ MonoBehaviour:
   itemButton: {fileID: 8955733093324791977}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9607843, g: 0.05882353, b: 0.05882353, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!1 &4018883457753911393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3139,7 @@ GameObject:
   - component: {fileID: 8083578386700968559}
   - component: {fileID: 6161547380556380923}
   - component: {fileID: 106690868089591261}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3275,7 +3275,7 @@ GameObject:
   - component: {fileID: 6155440206270922294}
   - component: {fileID: 3227439024130967636}
   - component: {fileID: 7381540976363785310}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3396,7 +3396,7 @@ GameObject:
   - component: {fileID: 1975729880562644099}
   - component: {fileID: 5415814207815621384}
   - component: {fileID: 2948195788586158657}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3528,14 +3528,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4413079631437318478}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.18, y: 0.48031068, z: 0.29}
+  m_LocalRotation: {x: -0, y: -0.24517927, z: -0, w: 0.9694778}
+  m_LocalPosition: {x: 3.73, y: 2.38, z: 0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7459077746647915799}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1 &4577499399466464187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3549,7 @@ GameObject:
   - component: {fileID: 6728303665977687362}
   - component: {fileID: 6952518947702272170}
   - component: {fileID: 4281846454164697707}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 8 Item Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3672,7 +3672,7 @@ GameObject:
   - component: {fileID: 834984922877976885}
   - component: {fileID: 5320022176452360253}
   - component: {fileID: 1961886330492255232}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3751,12 +3751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88f5f317abcb7c45ba0926bc51e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
+  config: {fileID: 11400000, guid: 633db81d9431fb944a033116674c68db, type: 2}
   itemText: {fileID: 6210671576419054725}
   itemButton: {fileID: 4444856123404188562}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &1961886330492255232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3864,7 +3864,7 @@ GameObject:
   - component: {fileID: 6416749142093180546}
   - component: {fileID: 4675810157424414586}
   - component: {fileID: 3583730553018936056}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4089,7 +4089,7 @@ GameObject:
   - component: {fileID: 2879521008328821398}
   - component: {fileID: 2432338993413677432}
   - component: {fileID: 8955733093324791977}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4293,7 +4293,7 @@ GameObject:
   - component: {fileID: 9072198853927544732}
   - component: {fileID: 970434700258726786}
   - component: {fileID: 2947733090789426022}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4413,7 +4413,7 @@ GameObject:
   - component: {fileID: 1301564203348660799}
   - component: {fileID: 5644457479480461371}
   - component: {fileID: 1447230728847362041}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4549,7 +4549,7 @@ GameObject:
   - component: {fileID: 3144876003040716545}
   - component: {fileID: 1297539971719797744}
   - component: {fileID: 5031442555054849420}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Menu Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4643,7 +4643,7 @@ GameObject:
   - component: {fileID: 1926768148751003719}
   - component: {fileID: 2806000077085278713}
   - component: {fileID: 8837636939444635107}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 7250452018625405083}
   - component: {fileID: 2427595806835253318}
   - component: {fileID: 3320651796380894422}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 604194880275294651}
   - component: {fileID: 5166299638600755387}
   - component: {fileID: 3906898144593069732}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 2189300728265661781}
   - component: {fileID: 3253570225143818290}
   - component: {fileID: 2595483303030083927}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5100,12 +5100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88f5f317abcb7c45ba0926bc51e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: cf152f98f45bc3b4cab8b567a5280e6d, type: 2}
+  config: {fileID: 11400000, guid: 1d759f8b988937a4db62056b635c7604, type: 2}
   itemText: {fileID: 5714917643398156138}
   itemButton: {fileID: 8837636939444635107}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.25
 --- !u!82 &2595483303030083927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5213,6 +5213,7 @@ GameObject:
   - component: {fileID: 6318945729329644768}
   - component: {fileID: 6364594105246789648}
   - component: {fileID: 1342866140205787391}
+  - component: {fileID: 385846083}
   m_Layer: 0
   m_Name: Rep_Console_Panel
   m_TagString: Untagged
@@ -5293,6 +5294,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &385846083
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966573782168920383}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00d9b9e65c05bd84194e963f9a11e3d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6174808588327313185
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,7 +5325,7 @@ GameObject:
   - component: {fileID: 11616583287478805}
   - component: {fileID: 5740232928615860076}
   - component: {fileID: 3813578109838566319}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5441,7 +5462,7 @@ GameObject:
   - component: {fileID: 729260641873239635}
   - component: {fileID: 3592016143116126127}
   - component: {fileID: 7012181557624351238}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 4 Item Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5759,7 +5780,7 @@ GameObject:
   - component: {fileID: 4625985208360918601}
   - component: {fileID: 7860356697274676662}
   - component: {fileID: 8820211530782983348}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 2 Item Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5875,7 +5896,7 @@ GameObject:
   - component: {fileID: 7413367696902958427}
   - component: {fileID: 3374921055353650187}
   - component: {fileID: 8343456211364788576}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5997,7 +6018,7 @@ GameObject:
   - component: {fileID: 2995329770738054538}
   - component: {fileID: 1453319894926223878}
   - component: {fileID: 2961482549194400523}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6076,12 +6097,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88f5f317abcb7c45ba0926bc51e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 547aa3d6476d4744d9c6707326563615, type: 2}
+  config: {fileID: 11400000, guid: 31e351b899d035b4ea02a5ef7b516a75, type: 2}
   itemText: {fileID: 106690868089591261}
   itemButton: {fileID: 7381540976363785310}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &2961482549194400523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6189,7 +6210,7 @@ GameObject:
   - component: {fileID: 6014140209462203377}
   - component: {fileID: 7849772661980525955}
   - component: {fileID: 855427768488767828}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6397,7 +6418,7 @@ GameObject:
   - component: {fileID: 5250121164150905453}
   - component: {fileID: 6794151186556802488}
   - component: {fileID: 8078011720503921216}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6534,7 +6555,7 @@ GameObject:
   - component: {fileID: 8301345232018713207}
   - component: {fileID: 7761952733998118270}
   - component: {fileID: 7555326493976299401}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6618,7 +6639,7 @@ MonoBehaviour:
   itemButton: {fileID: 3751575028509881549}
   originalBackgroundColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   incorrectBackgroundColor: {r: 0.9622642, g: 0.05900679, b: 0.05900679, a: 0.5882353}
-  incorrectDelay: 2
+  incorrectDelay: 0.5
 --- !u!82 &7555326493976299401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6728,7 +6749,7 @@ GameObject:
   - component: {fileID: 7611661317031350799}
   - component: {fileID: 2807187923869863044}
   - component: {fileID: 6527100491663769120}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuItem (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6921,7 +6942,7 @@ GameObject:
   - component: {fileID: 6489194852789516981}
   - component: {fileID: 3430724168273759812}
   - component: {fileID: 7271900988642012945}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7041,7 +7062,7 @@ GameObject:
   - component: {fileID: 3046829333996288815}
   - component: {fileID: 1741296502020493029}
   - component: {fileID: 3868599937289293183}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7177,7 +7198,7 @@ GameObject:
   - component: {fileID: 1240408030791002047}
   - component: {fileID: 7563917039971043580}
   - component: {fileID: 5974786162194467494}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Start Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7269,7 +7290,7 @@ GameObject:
   - component: {fileID: 1156073857980846218}
   - component: {fileID: 2926480707352421100}
   - component: {fileID: 8258675702455152402}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ReplicatorUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7284,7 +7305,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8635648132618400232}
   m_LocalRotation: {x: -0, y: -0.2499559, z: -0, w: 0.96825725}
-  m_LocalPosition: {x: 0, y: 0, z: 1.773}
+  m_LocalPosition: {x: 0, y: 0, z: 1.89}
   m_LocalScale: {x: 0.011774847, y: 0.0020853367, z: 0.0026099917}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7294,7 +7315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -28.95, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.58, y: 3.781}
+  m_AnchoredPosition: {x: 2.79, y: 3.27}
   m_SizeDelta: {x: 243.1, y: 622.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &714620046909752449
@@ -7381,7 +7402,7 @@ GameObject:
   - component: {fileID: 4427197744514135642}
   - component: {fileID: 6035874784758136501}
   - component: {fileID: 2301547380634879652}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7517,7 +7538,7 @@ GameObject:
   - component: {fileID: 7915185797322587896}
   - component: {fileID: 1450344722742570411}
   - component: {fileID: 9116437960341827536}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7638,7 +7659,7 @@ GameObject:
   - component: {fileID: 7058831890408015927}
   - component: {fileID: 3476130687758736180}
   - component: {fileID: 2704359023444151555}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Item Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7759,7 +7780,8 @@ GameObject:
   - component: {fileID: 6424746302973196726}
   - component: {fileID: 2832142651923937763}
   - component: {fileID: 204711472091052826}
-  m_Layer: 5
+  - component: {fileID: 826801971}
+  m_Layer: 6
   m_Name: Start Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7838,6 +7860,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 33.567524, y: 99.23496, z: 1}
   m_Center: {x: -0.08257373, y: 0.6823063, z: 0}
+--- !u!114 &826801971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053771957900978816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59485c4bb470a8e45a8b6e4a53bc9cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionType: 3
+  interactionPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &4232163729606440686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7900,35 +7936,180 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9434125
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.046387818
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.015475085
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.32799634
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4.438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.429
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032483704798226399, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -38.475
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02174
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00906
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00662
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9543399
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.27164084
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.11853941
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.037351068
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.825
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 14.029
+      objectReference: {fileID: 0}
+    - target: {fileID: -5886039901531513481, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.465
+      objectReference: {fileID: 0}
     - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99270236
+      value: 0.95094997
       objectReference: {fileID: 0}
     - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.1424262
       objectReference: {fileID: 0}
     - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000011175872
+      value: -0.012452046
       objectReference: {fileID: 0}
     - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.120590635
+      value: 0.27432466
+      objectReference: {fileID: 0}
+    - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 16.124
+      objectReference: {fileID: 0}
+    - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: -4856898568712389312, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -13.852
+      value: 32.643
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b7e8aa7de2f259b49893a242120b2052,
         type: 3}
       propertyPath: m_Name
       value: Replicator_Hologram_Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00229
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00465
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00004
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9929345
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.113453805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.033391997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.009712217
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 12.983
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -4.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637515703890112850, guid: b7e8aa7de2f259b49893a242120b2052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e8aa7de2f259b49893a242120b2052, type: 3}
