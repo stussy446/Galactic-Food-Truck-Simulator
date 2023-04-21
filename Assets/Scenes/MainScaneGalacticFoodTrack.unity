@@ -711,6 +711,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3267939955560778697, guid: 28810538a32ccbd49a18491f05b69781,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.099
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28810538a32ccbd49a18491f05b69781, type: 3}
 --- !u!1 &332443841
@@ -10796,7 +10801,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2279382582073673617}
   - component: {fileID: 2279382582073673618}
-  - component: {fileID: 2279382582073673645}
   - component: {fileID: 2279382582073673644}
   - component: {fileID: 2279382582073673619}
   m_Layer: 6
@@ -10869,18 +10873,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionType: 7
   interactionPosition: {x: 0, y: 0, z: 0}
---- !u!114 &2279382582073673645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2279382582073673616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e53338d0d05b8a4a9fa8134bbd37ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2279382582078687816
 MeshRenderer:
   m_ObjectHideFlags: 0
