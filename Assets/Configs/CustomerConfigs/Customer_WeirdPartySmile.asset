@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
   m_Name: Customer_WeirdPartySmile
   m_EditorClassIdentifier: 
-  orderId: 2
+  orderId: 7
   modelPrefab: {fileID: 8630237419540924719, guid: 5afafc44e5ef04a4c85661a9032578a2,
     type: 3}
-  orderAudio: {fileID: 0}
+  orderAudio: {fileID: 8300000, guid: b7fed0e2f758ab2478f163a40362fbda, type: 3}
   thankyouAudio: {fileID: 0}
   language: 4

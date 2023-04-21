@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     float startingY;
     Vector2 playerMovement;
+    MeshRenderer mRenderer;
 
     private void Start()
     {
         startingY = transform.position.y;
+        mRenderer = GetComponent<MeshRenderer>();
+        mRenderer.enabled = false;
     }
 
     private void Update()
