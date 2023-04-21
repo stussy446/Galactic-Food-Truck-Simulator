@@ -15,6 +15,6 @@ MonoBehaviour:
   orderId: 2
   modelPrefab: {fileID: 6868371943849355605, guid: 22973c02f87677749bd271ee9f44c054,
     type: 3}
-  orderAudio: {fileID: 0}
+  orderAudio: {fileID: 8300000, guid: ae4a98d23bfa9fd4da66e11776869234, type: 3}
   thankyouAudio: {fileID: 0}
   language: 3
