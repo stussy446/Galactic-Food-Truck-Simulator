@@ -17,4 +17,4 @@ MonoBehaviour:
     type: 3}
   orderAudio: {fileID: 8300000, guid: 02badabfb2140434fb3878c5dd670a65, type: 3}
   thankyouAudio: {fileID: 0}
-  language: 5
+  language: 6
