@@ -11,6 +11,7 @@ public class HighScoreTracker : MonoBehaviour
     private int customersServed = 0;
     private int buttonPressed = 0;
     private float buttonPressTime = 0f;
+    private int wrongOrder = 0;
 
     [SerializeField] private int scoreMultiplier = 1000;
     [SerializeField] private float buttonMultiplier = -0.1f;
@@ -26,6 +27,13 @@ public class HighScoreTracker : MonoBehaviour
         ActionList.OnButtonReleased += AddButtonPress;
         ActionList.OnCustomerLeft += AddCustomerServed;
         ActionList.OnBugKilled += AddBugsKilled;
+        ActionList.OnWrongReplicatorChoice += AddWrongOrderPress;
+    }
+
+    private void AddWrongOrderPress()
+    {
+        wrongOrder++;
+        ScoreUpdate();
     }
 
     private void AddCustomerServed(ActionType action)
@@ -49,7 +57,7 @@ public class HighScoreTracker : MonoBehaviour
 
     private void ScoreUpdate()
     {
-        totalScore = (int)(((bugsKilled*bugMultiplier) + customersServed + (buttonPressed*buttonMultiplier) + (buttonPressTime*timeMultiplier)) * scoreMultiplier);
+        totalScore = (int)(((bugsKilled*bugMultiplier) + customersServed + (wrongOrder+buttonPressed*buttonMultiplier) + (buttonPressTime*timeMultiplier)) * scoreMultiplier);
         scoreBoard.text = "SCORE: " + totalScore.ToString();
     }
 
@@ -68,5 +76,6 @@ public class HighScoreTracker : MonoBehaviour
         ActionList.OnButtonReleased -= AddButtonPress;
         ActionList.OnCustomerLeft -= AddCustomerServed;
         ActionList.OnBugKilled -= AddBugsKilled;
+        ActionList.OnWrongReplicatorChoice -= AddWrongOrderPress;
     }
 }
