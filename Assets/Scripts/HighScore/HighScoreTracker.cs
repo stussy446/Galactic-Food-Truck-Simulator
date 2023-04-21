@@ -57,7 +57,7 @@ public class HighScoreTracker : MonoBehaviour
 
     private void ScoreUpdate()
     {
-        totalScore = (int)(((bugsKilled*bugMultiplier) + customersServed + (wrongOrder+buttonPressed*buttonMultiplier) + (buttonPressTime*timeMultiplier)) * scoreMultiplier);
+        totalScore = (int)(((bugsKilled*bugMultiplier) + customersServed + ((wrongOrder+buttonPressed)*buttonMultiplier) + (buttonPressTime*timeMultiplier)) * scoreMultiplier);
         scoreBoard.text = "SCORE: " + totalScore.ToString();
     }
 
