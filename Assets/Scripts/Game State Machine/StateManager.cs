@@ -13,6 +13,7 @@ public class StateManager : MonoBehaviour
 {
     // Interact UI Element
     public GameObject interactFeedback;
+    public GameObject exitInteractFeedback;
 
     // Singleton
     public static StateManager instance;

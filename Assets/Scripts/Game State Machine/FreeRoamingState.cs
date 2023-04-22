@@ -26,6 +26,9 @@ public class FreeRoamingState : StateAbstract
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
 
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(false);
+
         // Sets replicator menu to original view
         if (MenuManager.Instance != null)
         {
@@ -48,6 +51,11 @@ public class FreeRoamingState : StateAbstract
 
         // Turn off the interact UI element
         ToggleInteractFeedback(false);
+
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(true);
+
+        
 
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);
