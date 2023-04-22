@@ -33,7 +33,7 @@ public class OrderManager : MonoBehaviour
         }
         else
         {
-            ActionList.OnWrongReplicatorChoice();
+            ActionList.OnWrongReplicatorChoice?.Invoke();
             menuItem.ShowIncorrectChoice();
             if (!audioSource.isPlaying)
             {

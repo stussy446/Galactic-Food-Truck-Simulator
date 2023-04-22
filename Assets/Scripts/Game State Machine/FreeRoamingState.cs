@@ -27,7 +27,10 @@ public class FreeRoamingState : StateAbstract
         manager.playerInputManager.EnableMovement();
 
         // Sets replicator menu to original view
-        MenuManager.Instance.ActivateMenu(MenuType.Start);
+        if (MenuManager.Instance != null)
+        {
+            MenuManager.Instance.ActivateMenu(MenuType.Start);
+        }
 
         Debug.Log("Free Roaming");
     }
