@@ -13,6 +13,7 @@ public class TutorialReplicatorInteraction : TutorialAbstract
 
         Debug.Log("We are here");
         manager.replicator.gameObject.SetActive(true);
+
         // VO Explaining the replicator
 
     }
@@ -22,7 +23,6 @@ public class TutorialReplicatorInteraction : TutorialAbstract
         ActionList.OnDoneReplicatingFood -= PlayerGaveCorrectOrder;
 
         manager.replicator.gameObject.SetActive(false);
-
 
         manager.SwitchStates(manager.tutorialButton);
     }
