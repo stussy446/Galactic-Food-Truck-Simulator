@@ -7,7 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] float movementSpeed = 11f;
 
+    float startingY;
     Vector2 playerMovement;
+    MeshRenderer mRenderer;
+
+    private void Start()
+    {
+        startingY = transform.position.y;
+        mRenderer = GetComponent<MeshRenderer>();
+        mRenderer.enabled = false;
+    }
 
     private void Update()
     {
@@ -41,7 +50,12 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {   
         Vector3 horizontalVelocity = CalculateHorizontalVelocity();
-        characterController.Move(horizontalVelocity * Time.deltaTime);
+
+        // Creates Gravity
+        float yVel = transform.position.y > startingY ? -4f : 0;
+        Vector3 finalVelocity = new Vector3(horizontalVelocity.x, yVel, horizontalVelocity.z);
+
+        characterController.Move(finalVelocity * Time.deltaTime);
     }
 
 }

@@ -27,7 +27,10 @@ public class FreeRoamingState : StateAbstract
         manager.playerInputManager.EnableMovement();
 
         // Sets replicator menu to original view
-        MenuManager.Instance.ActivateMenu(MenuType.Start);
+        if (MenuManager.Instance != null)
+        {
+            MenuManager.Instance.ActivateMenu(MenuType.Start);
+        }
 
         Debug.Log("Free Roaming");
     }
@@ -84,9 +87,6 @@ public class FreeRoamingState : StateAbstract
             case ActionType.EnteredFoodReplicator:
                 goToState = StateManager.instance.fulfillingOrderState;
                 break;
-            case ActionType.CustomerArrived:
-                goToState = StateManager.instance.receivingOrderState;
-                break;
         }
 
         // Exit Free romaing state to the state that was passed in by the action
@@ -130,7 +130,6 @@ public class FreeRoamingState : StateAbstract
         ActionList.OnEnteredButtonPressing += SwitchStateListener;
         ActionList.OnEnteredTranslator += SwitchStateListener;
         ActionList.OnEnteredFoodReplicator += SwitchStateListener;
-        ActionList.OnCustomerArrived += SwitchStateListener;
     }
 
     private void RemoveRelevantListeners()
@@ -138,6 +137,5 @@ public class FreeRoamingState : StateAbstract
         ActionList.OnEnteredButtonPressing -= SwitchStateListener;
         ActionList.OnEnteredTranslator -= SwitchStateListener;
         ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
-        ActionList.OnCustomerArrived -= SwitchStateListener;
     }
 }

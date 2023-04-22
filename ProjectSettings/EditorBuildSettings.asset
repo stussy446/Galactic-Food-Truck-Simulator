@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: ac7a25ecebcedfd4b8b9e901e9a3f16b
   - enabled: 1
     path: Assets/Scenes/Tutorial Scene.unity
-    guid: 22a8bc177b45e9142aaeb483492e3567
+    guid: f084ceb0a987b8e4f98bd699d8ea7fb2
   - enabled: 1
     path: Assets/Scenes/MainScaneGalacticFoodTrack.unity
     guid: b15f2774fe6e5f24f814e33770b5f238

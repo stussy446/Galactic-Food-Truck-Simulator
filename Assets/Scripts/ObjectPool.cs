@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable] public class PoolItem 
+{
+
+    public int poolSize = 20;
+
+    public GameObject objectToPool;
+
+}
+
+
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private List<GameObject> poolable;
+    [SerializeField] private List<PoolItem> poolObjects;
 
-    [SerializeField] private int poolSize = 20;
 
-    [SerializeField] private GameObject objectToPool;
 
     public static ObjectPool SharedInstance;
 
@@ -20,26 +29,28 @@ public class ObjectPool : MonoBehaviour
     void Start()
     {
         poolable = new List<GameObject>();
-        GameObject tmp;
-        
-        for(int i = 0; i < poolSize; i++)
+        foreach (PoolItem item in poolObjects)
         {
-            tmp = Instantiate(objectToPool);
-            tmp.SetActive(false);
-            poolable.Add(tmp);
+            for (int i = 0; i < item.poolSize; i++)
+            {
+                GameObject tmp = Instantiate(item.objectToPool);
+                tmp.SetActive(false);
+                poolable.Add(tmp);
+            }
         }
        
     }
 
-    public GameObject GetObject()
+    public GameObject GetObject(string objectname)
     {
-        for(int i = 0; i < poolSize; i++)
+        for(int i = 0; i < poolable.Count; i++)
         {
-            if (!poolable[i].activeInHierarchy)
+            if (!poolable[i].activeInHierarchy && poolable[i].tag == objectname)
             {
                 return poolable[i];
             }
         }
+
         return null;
     }
 

@@ -1,24 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using EZCameraShake;
 
 public class Stomping : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player";
-
-    private AudioSource audioSource;
-
-    [Header("Bug Camera Shake Impact Configs")]
-    [SerializeField] float shakeMagnitude;
-    [SerializeField] float shakeRoughness;
-    [SerializeField] float shakeFadeInTime;
-    [SerializeField] float shakeFadeOutTime;
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     /// <summary>
     /// Destroys the bug when in contact with the player
@@ -28,19 +14,23 @@ public class Stomping : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PLAYER_TAG))
         {
-//            CameraShaker.Instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeFadeInTime, shakeFadeOutTime);
-            StartCoroutine(Squish());
+            Squish();
         }
     }
 
-    private IEnumerator Squish()
+    /// <summary>
+    /// Destroys the bug
+    /// </summary>
+    private void Squish()
     {
-        audioSource.Play();
-        while (audioSource.isPlaying)
+        GameObject blood = ObjectPool.SharedInstance.GetObject("Blood");
+        if(blood != null)
         {
-            yield return null;
+            blood.transform.position = gameObject.transform.position;
+            blood.SetActive(true);
         }
-        ActionList.OnBugKilled();
-        Destroy(gameObject);
+        ActionList.OnBugKilled?.Invoke();
+        gameObject.SetActive(false);
     }
+
 }

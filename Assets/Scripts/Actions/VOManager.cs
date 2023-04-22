@@ -21,13 +21,7 @@ public class VOManager : MonoBehaviour
         ActionList.OnPlayerCloseToLosing += PlayAudioClip;
         ActionList.OnEnteredFoodReplicator += PlayAudioClip;
         ActionList.OnDoneReplicatingFood += PlayAudioClip;
-        ActionList.OnCustomerReceivedFood += PlayAudioClip;
-        ActionList.OnTriedInteractingWithInactiveButton += PlayAudioClip;
-        ActionList.OnEnteredTranslator += PlayAudioClip;
-        ActionList.OnExitedTranslator += PlayAudioClip;
         ActionList.OnCustomerArrived += PlayAudioClip;
-        ActionList.OnCustomerOrdered += PlayAudioClip;
-        ActionList.OnCustomerLeft += PlayAudioClip;
 
     }
 
@@ -46,14 +40,21 @@ public class VOManager : MonoBehaviour
             
             if (!source.isPlaying)
             {
-                source.clip = audioClip;
-                source.Play();
+                StartCoroutine(PlayClip(audioClip));
             }
         }
         else
         {
             Debug.LogError("There are no audio clips to play");
         }
+    }
+
+    private IEnumerator PlayClip(AudioClip audio)
+    {
+        source.clip = audio;
+        source.Play();
+        yield return new WaitUntil(() => !source.isPlaying);
+        Resources.UnloadAsset(audio);
     }
 
     /// <summary>
@@ -67,11 +68,6 @@ public class VOManager : MonoBehaviour
         ActionList.OnEnteredFoodReplicator -= PlayAudioClip;
         ActionList.OnDoneReplicatingFood -= PlayAudioClip;
         ActionList.OnCustomerReceivedFood -= PlayAudioClip;
-        ActionList.OnTriedInteractingWithInactiveButton -= PlayAudioClip;
-        ActionList.OnEnteredTranslator -= PlayAudioClip;
-        ActionList.OnExitedTranslator -= PlayAudioClip;
         ActionList.OnCustomerArrived -= PlayAudioClip;
-        ActionList.OnCustomerOrdered -= PlayAudioClip;
-        ActionList.OnCustomerLeft -= PlayAudioClip;
     }
 }

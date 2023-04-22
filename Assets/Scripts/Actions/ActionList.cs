@@ -23,5 +23,6 @@ public static class ActionList
     
     public static Action OnBugKilled;
     public static Action<float> OnButtonReleased;
+    public static Action OnWrongReplicatorChoice;
 
 }
