@@ -5,6 +5,7 @@ using UnityEngine;
 public class CustomerLight : MonoBehaviour
 {
     public Light warningLight;
+    private float speed = -1000f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class CustomerLight : MonoBehaviour
         // Check to see if warning light has been activated
         if (gameObject.activeInHierarchy)
         {
-            transform.Rotate(5, 0, 0);
+            transform.Rotate(Time.deltaTime * speed, 0, 0);
         }
     }
 }

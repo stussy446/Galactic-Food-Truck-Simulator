@@ -53,7 +53,7 @@ public class Spaceship1 : MonoBehaviour
 
     void FireExplosion()
     {
-        GameObject explosion = ObjectPool.SharedInstance.GetObject();
+        GameObject explosion = ObjectPool.SharedInstance.GetObject("explosion");
         if (explosion != null)
         {
             explosion.transform.position = transform.position + lookDirection.normalized;

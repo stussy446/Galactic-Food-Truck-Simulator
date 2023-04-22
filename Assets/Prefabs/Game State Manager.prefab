@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637bee981d4baaa46a3e9ea99fd468c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactFeedback: {fileID: 0}
+  exitInteractFeedback: {fileID: 0}
+  playerInputManager: {fileID: 0}
+  lostMenu: {fileID: 0}
+  textToShow: {fileID: 0}
+  loseToExplosionText: {fileID: 0}
+  loseToStressText: {fileID: 0}
+  highScoreManager: {fileID: 0}

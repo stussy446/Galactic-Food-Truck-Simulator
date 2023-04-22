@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3263084184572532775}
   - component: {fileID: 6819625131063517590}
   - component: {fileID: 2416541580379691878}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DialParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435133309452184995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Egaugnal siht
+  m_text: Translator is ready
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.3727511, y: 0.009187161, z: 0.3509854, w: 0.103942335}
+  m_margin: {x: 1.2941817, y: -0.060558803, z: 0.40731895, w: 0.14897516}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -326,7 +326,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435133309605952374}
   m_LocalRotation: {x: -0, y: -0, z: -0.1345678, w: 0.9909044}
-  m_LocalPosition: {x: 0, y: 0, z: -0.045}
+  m_LocalPosition: {x: 0, y: 0, z: 0.057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This language
+  m_text: ...or is it?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.5218746, y: 0.23260452, z: 1.5515549, w: 0.18674895}
+  m_margin: {x: 0.47781628, y: 0.20592962, z: 1.4837399, w: 0.16053373}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1435133309637136360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TranslatorTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,8 +459,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435133309637136363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53326446, y: 0, z: -3.87}
-  m_LocalScale: {x: 1.8367348, y: 1.8367349, z: 1.8367349}
+  m_LocalPosition: {x: 0.8600006, y: 1.2, z: -0.87500006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1435133310530506902}
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 621364065648021340}
   - component: {fileID: 4061963840768509464}
   - component: {fileID: 9163889810741367789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Translatomatic9000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ Transform:
   m_GameObject: {fileID: 1435133310530506889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1435133309015165878}
@@ -516,7 +516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11ff6a2fbb6c4b4dbf2ac08b7f4926d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translatorUI: {fileID: 5578411266223172878}
+  translatorUI: {fileID: 6819625131063517590}
+  translatorSpeaker: {fileID: 1281095862}
+  defaultClip: {fileID: 8300000, guid: c75f90248fde9c7478c685c0264a72cf, type: 3}
 --- !u!114 &4061963840768509464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,8 +544,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.14818, y: 1.6591372, z: 1.0119977}
-  m_Center: {x: 0.889843, y: 1.9862516, z: 0.54288554}
+  m_Size: {x: 3.14818, y: 1.6591372, z: 0.44512767}
+  m_Center: {x: 0.889843, y: 1.9862516, z: 0.8263207}
 --- !u!1 &2309955031032938621
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +558,7 @@ GameObject:
   - component: {fileID: 4997277043951374208}
   - component: {fileID: 806001948437414986}
   - component: {fileID: 8833494820125275105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,10 +706,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8116613859084990610, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8041008892882856745, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7383025942622861891, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7034275042784125572, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4153317027444488892, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -4153317027444488892, guid: 7aaa6fe7494eeac4b8a55cec16773518,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2932998491564163895, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2874414884616388389, guid: 7aaa6fe7494eeac4b8a55cec16773518,
         type: 3}
@@ -719,10 +761,70 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.966
       objectReference: {fileID: 0}
+    - target: {fileID: -1017495347971833006, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1007707730766371765, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -906410430831301591, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -652496452124618355, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a413f698320dd3a4f91b7f853cef0778, type: 2}
+    - target: {fileID: -155378704213611164, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7aaa6fe7494eeac4b8a55cec16773518,
         type: 3}
       propertyPath: m_Name
       value: translator
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285388513342279288, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642488528869058126, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800250516343163423, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791580429547739752, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761325435585344851, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914173764048766335, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa6fe7494eeac4b8a55cec16773518, type: 3}
@@ -761,6 +863,117 @@ MonoBehaviour:
   inputText: {fileID: 1435133309452184993}
   outputText: {fileID: 1435133309605952372}
   dialAngle: {x: 0, y: 0, z: 0}
+--- !u!1 &5185382121427692183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7034275042784125572, guid: 7aaa6fe7494eeac4b8a55cec16773518,
+    type: 3}
+  m_PrefabInstance: {fileID: 6455647895834015723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1281095862
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185382121427692183}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 200
+  DopplerLevel: 1
+  MinDistance: 1.0569453
+  MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6387377
+      value: 0.84610474
+      inSlope: -0.74878854
+      outSlope: -0.74878854
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.29441983
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &6781762378549841920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7aaa6fe7494eeac4b8a55cec16773518,

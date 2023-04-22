@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: cd70084c39d064e45949569ceeec8fc6
+    path: Assets/Scenes/Intro.unity
+    guid: ac7a25ecebcedfd4b8b9e901e9a3f16b
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Scene.unity
+    guid: f084ceb0a987b8e4f98bd699d8ea7fb2
   - enabled: 1
     path: Assets/Scenes/MainScaneGalacticFoodTrack.unity
     guid: b15f2774fe6e5f24f814e33770b5f238

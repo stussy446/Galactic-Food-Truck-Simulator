@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
+  m_Name: Customer_FunkySphere
+  m_EditorClassIdentifier: 
+  orderId: 2
+  modelPrefab: {fileID: 6868371943849355605, guid: 22973c02f87677749bd271ee9f44c054,
+    type: 3}
+  orderAudio: {fileID: 8300000, guid: 8369d4016680b834bb11efb6926533df, type: 3}
+  thankyouAudio: {fileID: 0}
+  language: 3

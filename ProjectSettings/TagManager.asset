@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ordering Location
+  - Current Customer
+  - Exit Location
+  - Pest
+  - Intro Customer
+  - explosion
+  - Blood
   layers:
   - Default
   - TransparentFX
@@ -13,7 +19,7 @@ TagManager:
   - Water
   - UI
   - CanInteract
-  - 
+  - PestLayer
   - 
   - 
   - 

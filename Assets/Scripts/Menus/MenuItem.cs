@@ -5,7 +5,10 @@ using System.Collections;
 
 public class MenuItem : MonoBehaviour
 {
+    [Header("Object Configs")]
     [SerializeField] MenuItemConfig config;
+
+    [Header("UI Configs")]
     [SerializeField] TMP_Text itemText;
     [SerializeField] Button itemButton;
     [SerializeField] Color originalBackgroundColor;
@@ -70,12 +73,19 @@ public class MenuItem : MonoBehaviour
         orderManager.ReceiveOrderItems(this);
     }
 
+    /// <summary>
+    /// Temporarily turns background color of item to incorrect color if player makes wrong choice 
+    /// </summary>
     public void ShowIncorrectChoice()
     {
         backgroundImage.color = incorrectBackgroundColor;
         StartCoroutine(ShowOriginalColor());
     }
 
+    /// <summary>
+    /// Delays for a configurable amount of seconds and then returns the background color to its original color
+    /// </summary>
+    /// <returns>Ienumerator yielding for a configurable amount of seconds</returns>
     public IEnumerator ShowOriginalColor()
     {
         yield return new WaitForSeconds(incorrectDelay);

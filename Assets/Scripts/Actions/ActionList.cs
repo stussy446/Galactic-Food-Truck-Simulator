@@ -20,5 +20,9 @@ public static class ActionList
     public static Action<ActionType> OnCustomerArrived;
     public static Action<ActionType> OnCustomerOrdered;
     public static Action<ActionType> OnCustomerLeft;
+    
+    public static Action OnBugKilled;
+    public static Action<float> OnButtonReleased;
+    public static Action OnWrongReplicatorChoice;
 
 }

@@ -9,26 +9,22 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private GameObject lostMenu;
     [SerializeField] private TMP_Text lostGameMessage;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
 
+    public bool gamePaused;
+
     // Start is called before the first frame update
     void Start()
     {
+        gamePaused = false;
         if (instance == null)
         {
             instance = this;
         } 
         RemoveListenersFromLostMenu();
         AddListenersToLostMenu();
-        ToggleLostMenu(false);
-    }
-
-    public void ToggleLostMenu(bool toggle)
-    {
-        lostMenu.SetActive(toggle);
     }
 
     public void AddListenersToLostMenu()
