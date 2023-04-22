@@ -26,8 +26,14 @@ public class FreeRoamingState : StateAbstract
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
 
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(false);
+
         // Sets replicator menu to original view
-        MenuManager.Instance.ActivateMenu(MenuType.Start);
+        if (MenuManager.Instance != null)
+        {
+            MenuManager.Instance.ActivateMenu(MenuType.Start);
+        }
 
         Debug.Log("Free Roaming");
     }
@@ -45,6 +51,11 @@ public class FreeRoamingState : StateAbstract
 
         // Turn off the interact UI element
         ToggleInteractFeedback(false);
+
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(true);
+
+        
 
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);
@@ -83,9 +94,6 @@ public class FreeRoamingState : StateAbstract
                 break;
             case ActionType.EnteredFoodReplicator:
                 goToState = StateManager.instance.fulfillingOrderState;
-                break;
-            case ActionType.CustomerArrived:
-                goToState = StateManager.instance.receivingOrderState;
                 break;
         }
 
@@ -130,7 +138,6 @@ public class FreeRoamingState : StateAbstract
         ActionList.OnEnteredButtonPressing += SwitchStateListener;
         ActionList.OnEnteredTranslator += SwitchStateListener;
         ActionList.OnEnteredFoodReplicator += SwitchStateListener;
-        ActionList.OnCustomerArrived += SwitchStateListener;
     }
 
     private void RemoveRelevantListeners()
@@ -138,6 +145,5 @@ public class FreeRoamingState : StateAbstract
         ActionList.OnEnteredButtonPressing -= SwitchStateListener;
         ActionList.OnEnteredTranslator -= SwitchStateListener;
         ActionList.OnEnteredFoodReplicator -= SwitchStateListener;
-        ActionList.OnCustomerArrived -= SwitchStateListener;
     }
 }

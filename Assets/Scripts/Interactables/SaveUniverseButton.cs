@@ -40,7 +40,7 @@ public class SaveUniverseButton : MonoBehaviour
 
     private void OnMouseUp()
     {
-        ActionList.OnButtonReleased(timePressed);
+        ActionList.OnButtonReleased?.Invoke(timePressed);
         buttonBeingClicked = false;
         timePressed = 0f;
     }

@@ -14,7 +14,7 @@ public class TutorialButtonInteraction : TutorialAbstract
         ActionList.OnButtonPressed += PlayerPressedButton;
 
         manager.button.layer = LayerMask.NameToLayer(CAN_INTERACT);
-        manager.button.GetComponent<SaveUniverseButton>().enabled = true;
+        manager.button.GetComponentInChildren<SaveUniverseButton>().enabled = true;
         timer = 2f;
         // VO Explaining the button
 
@@ -22,7 +22,7 @@ public class TutorialButtonInteraction : TutorialAbstract
 
     public override void ExitState(TutorialStateManager manager)
     {
-        ActionList.OnButtonPressed += PlayerPressedButton;
+        ActionList.OnButtonPressed -= PlayerPressedButton;
 
         manager.button.layer = LayerMask.NameToLayer(DEFAULT);
         manager.SwitchStates(manager.tutorialEnd);

@@ -13,6 +13,7 @@ public class StateManager : MonoBehaviour
 {
     // Interact UI Element
     public GameObject interactFeedback;
+    public GameObject exitInteractFeedback;
 
     // Singleton
     public static StateManager instance;
@@ -56,7 +57,7 @@ public class StateManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.gamePaused == true)
+        if (GameManager.instance.gamePaused)
             return;
 
         // Runs the Update Function on each specific state

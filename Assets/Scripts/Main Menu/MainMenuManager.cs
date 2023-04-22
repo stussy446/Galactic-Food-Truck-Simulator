@@ -173,7 +173,7 @@ public class MainMenuManager : MonoBehaviour
 
     private IEnumerator LoadNextSceneCoroutine()
     {
-        while (audioSource.isPlaying)
+        while (transitionImage.color.a < 1)
         {
             yield return null;
         }

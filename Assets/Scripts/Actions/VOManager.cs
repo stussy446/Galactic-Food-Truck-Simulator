@@ -21,13 +21,7 @@ public class VOManager : MonoBehaviour
         ActionList.OnPlayerCloseToLosing += PlayAudioClip;
         ActionList.OnEnteredFoodReplicator += PlayAudioClip;
         ActionList.OnDoneReplicatingFood += PlayAudioClip;
-        ActionList.OnCustomerReceivedFood += PlayAudioClip;
-        ActionList.OnTriedInteractingWithInactiveButton += PlayAudioClip;
-        ActionList.OnEnteredTranslator += PlayAudioClip;
-        ActionList.OnExitedTranslator += PlayAudioClip;
         ActionList.OnCustomerArrived += PlayAudioClip;
-        ActionList.OnCustomerOrdered += PlayAudioClip;
-        ActionList.OnCustomerLeft += PlayAudioClip;
 
     }
 
@@ -74,11 +68,6 @@ public class VOManager : MonoBehaviour
         ActionList.OnEnteredFoodReplicator -= PlayAudioClip;
         ActionList.OnDoneReplicatingFood -= PlayAudioClip;
         ActionList.OnCustomerReceivedFood -= PlayAudioClip;
-        ActionList.OnTriedInteractingWithInactiveButton -= PlayAudioClip;
-        ActionList.OnEnteredTranslator -= PlayAudioClip;
-        ActionList.OnExitedTranslator -= PlayAudioClip;
         ActionList.OnCustomerArrived -= PlayAudioClip;
-        ActionList.OnCustomerOrdered -= PlayAudioClip;
-        ActionList.OnCustomerLeft -= PlayAudioClip;
     }
 }

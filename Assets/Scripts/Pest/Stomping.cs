@@ -14,7 +14,7 @@ public class Stomping : MonoBehaviour
     {
         if (other.gameObject.CompareTag(PLAYER_TAG))
         {
-            ActionList.OnBugKilled?.Invoke();
+            Squish();
         }
     }
 
@@ -23,16 +23,14 @@ public class Stomping : MonoBehaviour
     /// </summary>
     private void Squish()
     {
-        Destroy(gameObject);
+        GameObject blood = ObjectPool.SharedInstance.GetObject("Blood");
+        if(blood != null)
+        {
+            blood.transform.position = gameObject.transform.position;
+            blood.SetActive(true);
+        }
+        ActionList.OnBugKilled?.Invoke();
+        gameObject.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        ActionList.OnBugKilled += Squish;
-    }
-
-    private void OnDisable()
-    {
-        ActionList.OnBugKilled -= Squish;
-    }
 }

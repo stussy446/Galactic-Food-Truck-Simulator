@@ -33,6 +33,8 @@ public class OrderingState : CustomerBaseState
         boxOpener.CloseBox();
         customerLight.gameObject.SetActive(true);
 
+        ActionList.OnCustomerArrived?.Invoke(ActionType.CustomerArrived);
+
         Debug.Log("OrderingState");
 
         cusState = customerState;

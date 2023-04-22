@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BugSpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bugPrefab;
+    //[SerializeField] private GameObject bugPrefab;
 
     private AudioSource source;
 
@@ -30,7 +30,13 @@ public class BugSpawnManager : MonoBehaviour
 
     private void SpawnBug()
     {
-        Instantiate(bugPrefab, new RandomMovePosition().position, bugPrefab.transform.rotation);
+        GameObject bug = ObjectPool.SharedInstance.GetObject("Pest");
+        if (bug != null)
+        {
+            bug.transform.position = new RandomMovePosition().position;
+            bug.SetActive(true);
+        }
+        //Instantiate(bugPrefab, new RandomMovePosition().position, bugPrefab.transform.rotation);
     }
 
     private void ResetSpawnTimer(float min, float max)
