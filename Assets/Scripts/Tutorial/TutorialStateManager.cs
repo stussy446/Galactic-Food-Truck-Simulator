@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -89,7 +90,7 @@ public class TutorialStateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            mainMenuManager.gameObject.SetActive(true);
+            
             SwitchStates(tutorialEnd);
             // TEMPORARY muting audiosource until leo adds exit tutorial VO
             LoadGame();
@@ -98,6 +99,7 @@ public class TutorialStateManager : MonoBehaviour
 
     public void LoadGame()
     {
+        mainMenuManager.gameObject.SetActive(true);
         source.volume = 0;
         mainMenuManager.LoadNextScene();
     }

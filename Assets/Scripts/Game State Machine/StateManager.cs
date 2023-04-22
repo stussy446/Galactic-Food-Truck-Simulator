@@ -56,7 +56,7 @@ public class StateManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.gamePaused == true)
+        if (GameManager.instance.gamePaused)
             return;
 
         // Runs the Update Function on each specific state
