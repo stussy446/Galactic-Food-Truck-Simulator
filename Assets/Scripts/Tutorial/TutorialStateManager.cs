@@ -90,9 +90,7 @@ public class TutorialStateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            
             SwitchStates(tutorialEnd);
-            // TEMPORARY muting audiosource until leo adds exit tutorial VO
             LoadGame();
         }
     }
@@ -100,7 +98,8 @@ public class TutorialStateManager : MonoBehaviour
     public void LoadGame()
     {
         mainMenuManager.gameObject.SetActive(true);
-        source.volume = 0;
+        source.Stop();
+        subtitleText.gameObject.SetActive(false);
         mainMenuManager.LoadNextScene();
     }
 }
