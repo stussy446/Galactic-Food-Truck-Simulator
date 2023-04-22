@@ -55,6 +55,8 @@ public class FreeRoamingState : StateAbstract
         // Set exit interaction feedback
         manager.exitInteractFeedback.SetActive(true);
 
+        
+
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);
     }
