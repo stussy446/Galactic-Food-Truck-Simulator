@@ -94,6 +94,5 @@ public class TranslatorFunction : MonoBehaviour
         return languageID;
     }
 
-
 }
 

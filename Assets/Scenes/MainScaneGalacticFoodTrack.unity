@@ -464,6 +464,54 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: MinDistance
+      value: 1.0569453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.6387377
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.84610474
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.74878854
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.74878854
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.29441983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281095862, guid: a64ca22c28c70984b935088e546a562a, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 621364065648021340, guid: a64ca22c28c70984b935088e546a562a,
         type: 3}
       propertyPath: defaultClip
@@ -689,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 3267939955560778697, guid: 28810538a32ccbd49a18491f05b69781,
         type: 3}
       propertyPath: m_Volume
-      value: 0.099
+      value: 0.021
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28810538a32ccbd49a18491f05b69781, type: 3}
