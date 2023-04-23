@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Class responsible for initializing and switching between all concrete states.
@@ -41,7 +36,7 @@ public class StateManager : MonoBehaviour
     public PressingButtonState pressingButtonState = new PressingButtonState();
     public LostGameState lostGameState = new LostGameState();
 
-    void Start()
+    private void Start()
     {
         if (instance == null)
         {
@@ -55,7 +50,7 @@ public class StateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    void Update()
+    private void Update()
     {
         if (GameManager.instance.gamePaused)
             return;
@@ -73,12 +68,20 @@ public class StateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
+    /// <summary>
+    /// Activates the lost game menu
+    /// </summary>
+    /// <param name="toggle">bool</param>
+    /// <param name="textToShow">TMP_Text</param>
     public void ToggleLostMenu(bool toggle, TMP_Text textToShow)
     {
         lostMenu.SetActive(toggle);
         textToShow.gameObject.SetActive(toggle);
     }
 
+    /// <summary>
+    /// Disables the lost game menu and enables the high scoreboard 
+    /// </summary>
     public void EnableHighScoreMenu()
     {
         ToggleLostMenu(false, textToShow);

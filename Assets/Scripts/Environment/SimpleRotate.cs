@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +6,6 @@ using UnityEngine;
 /// </summary>
 public class SimpleRotate: MonoBehaviour
 {
-
     [SerializeField]
     private Vector3 rotation;
 

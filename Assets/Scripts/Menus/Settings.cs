@@ -14,6 +14,9 @@ public class Settings : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adjusts the volume of the background music based on the current value of the volume slider
+    /// </summary>
     public void AdjustVolume()
     {
         if(backgroundAudio != null)

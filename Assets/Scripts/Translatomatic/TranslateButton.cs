@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -40,8 +39,10 @@ public class TranslateButton : MonoBehaviour
         originalRotation = transform.rotation;
     }
 
-    //rotate button and triggers action listend to by translator functions class
-    void OnMouseDown()
+    /// <summary>
+    /// rotate button and triggers action listend to by translator functions class
+    /// </summary>
+    private void OnMouseDown()
     {
         if(!buttonEnable)
         {
@@ -52,7 +53,10 @@ public class TranslateButton : MonoBehaviour
         TranslateActions.OnDialClicked();
     }
 
-    //Set initial rotation of dial and default visual output for a given order id
+    /// <summary>
+    /// Set initial rotation of dial and default visual output for a given order id
+    /// </summary>
+    /// <param name="translate"></param>
     private void SetDial(TranslatorFunction translate)
     {
         buttonEnable = true;
@@ -60,18 +64,28 @@ public class TranslateButton : MonoBehaviour
         transform.Rotate(dialAngle * translate.GetLanguageID());
     }
 
-    //Set the text of the translator input text box
+    /// <summary>
+    /// Set the text of the translator input text box
+    /// </summary>
+    /// <param name="textString">string</param>
     public void SetInputText(string textString)
     {
         inputText.text = textString;
     }
 
-    //Set the text of the translator output text box
+    /// <summary>
+    /// Set the text of the translator output text box
+    /// </summary>
+    /// <param name="textString">string</param>
     public void SetOutputText(string textString)
     {
         outputText.text = textString;
     }
 
+    /// <summary>
+    /// Resets the tranlsator's screen
+    /// </summary>
+    /// <param name="type"></param>
     private void ResetScreen(ActionType type)
     {
         if (translatorLines.Count <= 0)

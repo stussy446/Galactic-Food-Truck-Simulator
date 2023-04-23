@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
     [SerializeField] Transform translatorTransform;
     [SerializeField] Transform buttonTransform;
 
-
     PlayerControls playerControls;
     PlayerControls.MovementActions movementActions;
 
@@ -33,7 +32,6 @@ public class InputManager : MonoBehaviour
             menuManager.gameObject.SetActive(false);
         }
     }
-
 
     private void OnEnable()
     {

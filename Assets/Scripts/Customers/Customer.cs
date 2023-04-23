@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
+
+    /// <summary>
+    /// Base class for all customers
+    /// </summary>
     public List<CustomerScriptableObject> customerData;
 
     private AudioSource customerAudioSource;
