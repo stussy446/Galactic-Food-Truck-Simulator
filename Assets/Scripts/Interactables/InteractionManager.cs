@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour, IInteractable
 {
     public ActionType actionType;
     public Vector3 interactionPosition;
-
 
     /// <summary>
     /// Invokes action to switch state based on which object was interacted with

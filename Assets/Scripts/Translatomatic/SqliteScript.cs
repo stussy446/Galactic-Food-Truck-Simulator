@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
-using static UnityEngine.Rendering.DebugUI;
-
 
 public static class SqliteScript 
 {
@@ -13,8 +10,8 @@ public static class SqliteScript
 
 
     /// <summary>
-    ///     Returns the line of text from a specified table with a given lineID
-    ///     Function specific to Translator. Do not use for anything else
+    /// Returns the line of text from a specified table with a given lineID
+    /// Function specific to Translator. Do not use for anything else
     /// </summary>
     /// <param name="tableID"></param>
     /// <param name="lineID"></param>
