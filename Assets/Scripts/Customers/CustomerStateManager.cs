@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CustomerStateManager : MonoBehaviour
 { 
+    /// <summary>
+    /// Manages state changes for customer
+    /// </summary>
     public static CustomerStateManager instance;
     [HideInInspector] public Customer customer;
 

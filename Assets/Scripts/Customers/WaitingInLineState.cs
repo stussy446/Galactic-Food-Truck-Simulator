@@ -14,6 +14,7 @@ public class WaitingInLineState : CustomerBaseState
 
     public override void EnterState(CustomerStateManager customerState)
     {
+        // Wait interval between customers is randomized between 5 and 10 seconds
         customerCountdownStartTime = Random.Range(5f, 10f);
         startingTime = customerCountdownStartTime;
         alienCustomer = customerState.customer.CustomerPrefab;
@@ -29,6 +30,10 @@ public class WaitingInLineState : CustomerBaseState
         customerState.customer.OnCustomerEnter();
     }
 
+    /// <summary>
+    /// Starts countdown timer for customer arrival
+    /// </summary>
+    /// <param name="customerState"></param>
     public override void UpdateState(CustomerStateManager customerState)
     {
         currentTime = startingTime -= Time.deltaTime;
