@@ -98,6 +98,14 @@ public class TutorialStateManager : MonoBehaviour
     public void LoadGame()
     {
         mainMenuManager.gameObject.SetActive(true);
+        mainMenuManager.GetComponent<Image>().enabled = false;
+
+
+        foreach (Transform item in mainMenuManager.gameObject.transform)
+        {
+            item.gameObject.SetActive(false);
+        }
+    
         source.Stop();
         subtitleText.gameObject.SetActive(false);
         mainMenuManager.LoadNextScene();
