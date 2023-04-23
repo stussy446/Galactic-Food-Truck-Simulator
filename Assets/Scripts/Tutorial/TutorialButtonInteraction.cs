@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialButtonInteraction : TutorialAbstract
@@ -16,8 +14,6 @@ public class TutorialButtonInteraction : TutorialAbstract
         manager.button.layer = LayerMask.NameToLayer(CAN_INTERACT);
         manager.button.GetComponentInChildren<SaveUniverseButton>().enabled = true;
         timer = 2f;
-        // VO Explaining the button
-
     }
 
     public override void ExitState(TutorialStateManager manager)
@@ -26,7 +22,6 @@ public class TutorialButtonInteraction : TutorialAbstract
 
         manager.button.layer = LayerMask.NameToLayer(DEFAULT);
         manager.SwitchStates(manager.tutorialEnd);
-
     }
 
     public override void UpdateState(TutorialStateManager manager)

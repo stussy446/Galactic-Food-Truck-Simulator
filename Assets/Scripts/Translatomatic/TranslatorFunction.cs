@@ -1,19 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-
 
 public class TranslatorFunction : MonoBehaviour
 {
-
     [SerializeField] private TranslateButton translatorUI;
     [SerializeField] private AudioSource translatorSpeaker;
     private AudioClip[] orderclips;
     [SerializeField] AudioClip defaultClip;
     private int lineID, languageID;
-
 
     private int languageIndex = 1;
 
@@ -26,6 +19,10 @@ public class TranslatorFunction : MonoBehaviour
         ActionList.OnCustomerLeft += UnloadClips;
     }
 
+    /// <summary>
+    /// Unload all audio clips from the Resources folder
+    /// </summary>
+    /// <param name="action">ActionType</param>
     private void UnloadClips(ActionType action)
     {
         foreach (var obj in orderclips)
@@ -34,10 +31,11 @@ public class TranslatorFunction : MonoBehaviour
         }
     }
 
-    //Changes translator output by querying database for the equivalent line in different language
-    void RunTranslator()
+    /// <summary>
+    /// Changes translator output by querying database for the equivalent line in different language
+    /// </summary>
+    private void RunTranslator()
     {
-
         languageIndex++;
 
         if (languageIndex > SqliteScript.GetSize("LangID", "LangIndex"))
@@ -58,12 +56,13 @@ public class TranslatorFunction : MonoBehaviour
             translatorSpeaker.clip = orderclips[languageIndex - 1];
         }
         translatorSpeaker.Play();
-
-
-
     }
 
-    //Sets up translator by selecting the correct line from database as well as the starting language
+    /// <summary>
+    /// Sets up translator by selecting the correct line from database as well as the starting language
+    /// </summary>
+    /// <param name="lang">int</param>
+    /// <param name="line">int</param>
     public void OnOrderReceived(int lang, int line)
     {
         lineID = line;
@@ -88,7 +87,10 @@ public class TranslatorFunction : MonoBehaviour
         ActionList.OnCustomerLeft -= UnloadClips;
     }
 
-    //returns the language ID as an INT
+    /// <summary>
+    /// returns the language ID as an INT
+    /// </summary>
+    /// <returns>int</returns>
     public int GetLanguageID()
     {
         return languageID;
