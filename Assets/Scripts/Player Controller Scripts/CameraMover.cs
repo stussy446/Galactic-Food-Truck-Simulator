@@ -1,6 +1,4 @@
-using UnityEditor;
 using UnityEngine;
-
 public class CameraMover : MonoBehaviour
 {
     private const string CAN_INTERACT_LAYER = "CanInteract";

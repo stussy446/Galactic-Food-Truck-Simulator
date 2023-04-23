@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +7,7 @@ public class StressController : MonoBehaviour
 
     private float stressLevel;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
         if (GameManager.instance.gamePaused == true)
