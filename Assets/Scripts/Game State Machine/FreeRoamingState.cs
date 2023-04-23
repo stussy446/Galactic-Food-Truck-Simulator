@@ -33,8 +33,6 @@ public class FreeRoamingState : StateAbstract
         {
             MenuManager.Instance.ActivateMenu(MenuType.Start);
         }
-
-        Debug.Log("Free Roaming");
     }
 
     public override void ExitState(StateManager manager)

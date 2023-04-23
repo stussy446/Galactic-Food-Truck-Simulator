@@ -71,10 +71,6 @@ public class TranslatorFunction : MonoBehaviour
         translatorUI.SetInputText(SqliteScript.GetLine(languageID, lineID));
         translatorUI.SetOutputText(SqliteScript.GetLine(languageIndex, lineID));
         orderclips = Resources.LoadAll<AudioClip>($"TranslateLines/order{lineID}");
-        foreach (var clip in orderclips)
-        {
-            Debug.Log(clip.name);
-        }
         TranslateActions.OnNewOrder(this);
     }
 
