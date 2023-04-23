@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class CustomerExitState : CustomerBaseState
-
 {
     private GameObject alienCustomer;
     private Vector3 customerPos, exitPos;

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public  class CustomerStateManager : MonoBehaviour
+public class CustomerStateManager : MonoBehaviour
 { 
     public static CustomerStateManager instance;
     [HideInInspector] public Customer customer;
@@ -21,7 +19,7 @@ public  class CustomerStateManager : MonoBehaviour
     [SerializeField]
     public GameObject customerExitLocation;
 
-    void Start()
+    private void Start()
     {
         if(instance == null)
         {
@@ -33,7 +31,7 @@ public  class CustomerStateManager : MonoBehaviour
         currentCustomerState.EnterState(this);
     }
 
-    void Update()
+    private void Update()
     {
         if (GameManager.instance.gamePaused == true)
             return;

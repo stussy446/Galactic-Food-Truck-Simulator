@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class OrderingState : CustomerBaseState
 {
-    // VoiceOverManager voiceOverManager;
     private GameObject alienCustomer;
     private Vector3 customerPos, orderPos;
     private float customerSpeed;
@@ -12,8 +11,6 @@ public class OrderingState : CustomerBaseState
     private CustomerStateManager cusState;
     private BoxOpener boxOpener;
     private CustomerLight customerLight;
-    
-
 
     public override void EnterState(CustomerStateManager customerState)
     {
@@ -35,8 +32,6 @@ public class OrderingState : CustomerBaseState
 
         ActionList.OnCustomerArrived?.Invoke(ActionType.CustomerArrived);
 
-        Debug.Log("OrderingState");
-
         cusState = customerState;
 
     }
@@ -50,11 +45,10 @@ public class OrderingState : CustomerBaseState
     {
         TranslateActions.OnReceiveOrder(customerOrderVO.language, customerOrderVO.orderId);
         customerOrderVO.PlayOrderAudio(audioSource);
-        Debug.Log("JELLY ENTITY WISHES TO PARTAKE OF THIS ESTABLISHMENT'S FINEST EXPEDIANT MEAL.");
         cusState.customer.VOCoroutine();
     }
 
-    void ToCustomerExitState(ActionType actionType)
+    private void ToCustomerExitState(ActionType actionType)
     {
         ExitState(CustomerStateManager.instance);
     }
