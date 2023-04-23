@@ -12,7 +12,9 @@ public class PrimitiveObjects : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Makes the primitive object family bounce
+    /// </summary>
     void Start()
     {
         foreach(GameObject item in family)
