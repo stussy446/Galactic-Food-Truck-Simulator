@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerLight : MonoBehaviour
@@ -7,8 +5,7 @@ public class CustomerLight : MonoBehaviour
     public Light warningLight;
     private float speed = -1000f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         warningLight.gameObject.SetActive(false);
     }

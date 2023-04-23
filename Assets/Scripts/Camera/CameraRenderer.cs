@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -9,16 +7,13 @@ public class CameraRenderer : MonoBehaviour
     private float totalTime = 0f;
     private Camera choppyCam;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         choppyCam = GetComponent<Camera>();
         choppyCam.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         totalTime += Time.deltaTime;
 

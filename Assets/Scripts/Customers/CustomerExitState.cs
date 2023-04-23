@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class CustomerExitState : CustomerBaseState
-
 {
     private GameObject alienCustomer;
     private Vector3 customerPos, exitPos;
@@ -25,9 +24,6 @@ public class CustomerExitState : CustomerBaseState
 
     public override void UpdateState(CustomerStateManager customerState)
     {
-        Debug.Log("JELLY ENTITY IS PLEASED AND EXPRESSES GRATITUDE. FAREWELL.");
-
-
         if (alienCustomer.transform.position != exitPos)
         {
             alienCustomer.transform.position = Vector3.MoveTowards(alienCustomer.transform.position, exitPos, customerSpeed * Time.deltaTime);

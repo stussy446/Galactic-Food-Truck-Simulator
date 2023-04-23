@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class SaveUniverseButton : MonoBehaviour
@@ -45,7 +41,7 @@ public class SaveUniverseButton : MonoBehaviour
         timePressed = 0f;
     }
 
-    void Start()
+    private void Start()
     {
         // Sets max value of the slider
         slider.maxValue = maxDangerLevel;
@@ -54,7 +50,7 @@ public class SaveUniverseButton : MonoBehaviour
         dangerLevel = maxDangerLevel;
     }
 
-    void Update()
+    private void Update()
     {
         if (GameManager.instance.gamePaused == true)
             return;

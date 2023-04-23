@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spaceship2 : MonoBehaviour
@@ -25,7 +23,7 @@ public class Spaceship2 : MonoBehaviour
         fireRate = Random.Range(1f, 3f);
 
     }
-    void Start()
+    private void Start()
     {
         oldPosition = transform.position;
 
@@ -33,7 +31,7 @@ public class Spaceship2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var x = xAmplitude * Mathf.Cos(xspeed * Time.timeSinceLevelLoad);
         var y = yAmplitude * Mathf.Sin(yspeed * Time.timeSinceLevelLoad);
@@ -48,7 +46,10 @@ public class Spaceship2 : MonoBehaviour
 
     }
 
-    void FireExplosion()
+    /// <summary>
+    /// Gets an explosion object from the pool, enables the object and plays its particlesysten
+    /// </summary>
+    private void FireExplosion()
     {
         GameObject explosion = ObjectPool.SharedInstance.GetObject("explosion");
         if (explosion != null)
