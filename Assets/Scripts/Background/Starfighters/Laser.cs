@@ -1,25 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject explodey;
     private float boomTimer = 0.5f;
 
-    // Start is called before the first frame update
-    void OnEnable()
+    private void OnEnable()
     {
         Invoke("Boomboom", boomTimer);
     }
 
-    void Boomboom()
+    /// <summary>
+    /// sets the explosion as active and plays its associated particle system
+    /// </summary>
+    private void Boomboom()
     {
         explodey.SetActive(true);
         explodey.GetComponentInChildren<ParticleSystem>().Play();
     }
-
-
 }
