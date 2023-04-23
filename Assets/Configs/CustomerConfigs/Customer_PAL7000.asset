@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
-  m_Name: Customer_Primitive_Shape_Civilian
+  m_Name: Customer_PAL7000
   m_EditorClassIdentifier: 
-  orderId: 4
-  modelPrefab: {fileID: 718745138623880741, guid: 6478f307b136ce7498920cc86c65dc58,
+  orderId: 6
+  modelPrefab: {fileID: 2763376528148452320, guid: bc44591f312dcbc43b5184998bbcd316,
     type: 3}
-  orderAudio: {fileID: 8300000, guid: 1194c58419beb2845b76b3bb0e2924eb, type: 3}
+  orderAudio: {fileID: 8300000, guid: e78d2f397fda29c4e9c2afd0da1cc9d4, type: 3}
   thankyouAudio: {fileID: 0}
-  language: 2
+  language: 4
