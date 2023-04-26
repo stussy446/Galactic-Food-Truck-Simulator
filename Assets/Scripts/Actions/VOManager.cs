@@ -19,6 +19,7 @@ public class VOManager : MonoBehaviour
         ActionList.OnEnteredFoodReplicator += PlayAudioClip;
         ActionList.OnDoneReplicatingFood += PlayAudioClip;
         ActionList.OnCustomerArrived += PlayAudioClip;
+        ActionList.OnTooManyBugs += PlayAudioClip;
 
     }
 
@@ -66,5 +67,6 @@ public class VOManager : MonoBehaviour
         ActionList.OnDoneReplicatingFood -= PlayAudioClip;
         ActionList.OnCustomerReceivedFood -= PlayAudioClip;
         ActionList.OnCustomerArrived -= PlayAudioClip;
+        ActionList.OnTooManyBugs -= PlayAudioClip;
     }
 }

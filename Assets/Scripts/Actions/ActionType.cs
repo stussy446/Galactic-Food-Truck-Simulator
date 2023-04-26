@@ -11,5 +11,6 @@ public enum ActionType
     ExitedTranslator,
     CustomerArrived,
     CustomerOrdered,
-    CustomerLeft
+    CustomerLeft,
+    TooManyBugs
 }

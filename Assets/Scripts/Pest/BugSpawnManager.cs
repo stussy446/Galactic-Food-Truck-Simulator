@@ -7,6 +7,7 @@ public class BugSpawnManager : MonoBehaviour
     private float spawnTimer;
     private float minTimer = 20f;
     private float maxTimer = 25f;
+    private int activeBugs = 0;
 
     private void Start()
     {
@@ -28,8 +29,13 @@ public class BugSpawnManager : MonoBehaviour
         GameObject bug = ObjectPool.SharedInstance.GetObject("Pest");
         if (bug != null)
         {
+            activeBugs++;
             bug.transform.position = new RandomMovePosition().position;
             bug.SetActive(true);
+        }
+        if(activeBugs >= 3)
+        {
+            ActionList.OnTooManyBugs(ActionType.TooManyBugs);
         }
     }
     
@@ -62,6 +68,7 @@ public class BugSpawnManager : MonoBehaviour
 
     private void PlaySquishSound()
     {
+        activeBugs--;
         source.Play();
     }
 
