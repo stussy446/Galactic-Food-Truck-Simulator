@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))] 
 public class AudioData : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject VoiceController;
     public static AudioSource bossAIAudioSource;
 
     public static float[] audioSamples = new float[512];
@@ -17,7 +19,7 @@ public class AudioData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bossAIAudioSource = GetComponent<AudioSource>();
+        bossAIAudioSource = VoiceController.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
