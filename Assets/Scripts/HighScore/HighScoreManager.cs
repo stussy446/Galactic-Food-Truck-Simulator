@@ -72,6 +72,15 @@ public class HighScoreManager : MonoBehaviour
         }
     }
 
+    public void OnTextChange(string text)
+    {
+        if (text.EndsWith("\n"))
+        {
+            nameInput.text.Remove(nameInput.text.Length - 1);
+            OnConfirmClicked();
+        }
+    }
+
     /// <summary>
     /// Enables the high score window
     /// </summary>
