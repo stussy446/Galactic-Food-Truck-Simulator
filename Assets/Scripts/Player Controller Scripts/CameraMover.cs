@@ -1,6 +1,4 @@
-using UnityEditor;
 using UnityEngine;
-
 public class CameraMover : MonoBehaviour
 {
     private const string CAN_INTERACT_LAYER = "CanInteract";
@@ -122,11 +120,11 @@ public class CameraMover : MonoBehaviour
         // TODO: refactor to new input system 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            UnlockCursor();
+            LockCursor();
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1) && Cursor.lockState != CursorLockMode.Locked)
         {
-            LockCursor();
+            UnlockCursor();
         }
     }
 

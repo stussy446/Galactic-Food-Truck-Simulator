@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// Game State for when user is simply walking around the environment.
@@ -26,13 +25,14 @@ public class FreeRoamingState : StateAbstract
         // User regains ability to move around and isInteracting with the environment
         manager.playerInputManager.EnableMovement();
 
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(false);
+
         // Sets replicator menu to original view
         if (MenuManager.Instance != null)
         {
             MenuManager.Instance.ActivateMenu(MenuType.Start);
         }
-
-        Debug.Log("Free Roaming");
     }
 
     public override void ExitState(StateManager manager)
@@ -48,6 +48,11 @@ public class FreeRoamingState : StateAbstract
 
         // Turn off the interact UI element
         ToggleInteractFeedback(false);
+
+        // Set exit interaction feedback
+        manager.exitInteractFeedback.SetActive(true);
+
+        
 
         // Go to whichever state is set to goToState;
         manager.SwitchStates(goToState);

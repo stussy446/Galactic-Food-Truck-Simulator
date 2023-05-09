@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -14,12 +12,12 @@ public class PestMover : MonoBehaviour
     private float bugSpeed = 6;
 
     // Find new random position
-    void OnEnable()
+    private void OnEnable()
     {
         moveToPos = new RandomMovePosition().position;
     }
 
-    void Update()
+    private void Update()
     {
         if (GameManager.instance.gamePaused == true)
             return;

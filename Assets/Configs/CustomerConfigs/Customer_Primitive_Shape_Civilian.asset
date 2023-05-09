@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5883a169dcc373f42a095045bd1ebcfe, type: 3}
   m_Name: Customer_Primitive_Shape_Civilian
   m_EditorClassIdentifier: 
-  orderId: 1
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 70603062681a62f43ac50669d1bd386b, type: 2}
-  orderAudio: {fileID: 8300000, guid: c3488b86011f299468be96b3ff01db70, type: 3}
+  orderId: 4
+  modelPrefab: {fileID: 718745138623880741, guid: 6478f307b136ce7498920cc86c65dc58,
+    type: 3}
+  orderAudio: {fileID: 8300000, guid: 1194c58419beb2845b76b3bb0e2924eb, type: 3}
+  thankyouAudio: {fileID: 0}
   language: 2

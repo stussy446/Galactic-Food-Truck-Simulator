@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TutorialReplicatorInteraction : TutorialAbstract
 {
     private const string CAN_INTERACT = "CanInteract";
@@ -11,11 +7,7 @@ public class TutorialReplicatorInteraction : TutorialAbstract
     {
         ActionList.OnDoneReplicatingFood += PlayerGaveCorrectOrder;
 
-        Debug.Log("We are here");
         manager.replicator.gameObject.SetActive(true);
-
-        // VO Explaining the replicator
-
     }
 
     public override void ExitState(TutorialStateManager manager)
@@ -27,10 +19,7 @@ public class TutorialReplicatorInteraction : TutorialAbstract
         manager.SwitchStates(manager.tutorialButton);
     }
 
-    public override void UpdateState(TutorialStateManager manager)
-    {
-        
-    }
+    public override void UpdateState(TutorialStateManager manager) { }
 
     private void PlayerGaveCorrectOrder(ActionType type)
     {

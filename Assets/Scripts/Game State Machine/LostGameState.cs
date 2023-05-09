@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 
 public class LostGameState : StateAbstract
 {
@@ -11,19 +8,16 @@ public class LostGameState : StateAbstract
         GameManager.instance.gamePaused = true;
         manager.playerInputManager.DisableMovement(true);
         StateManager.instance.StartCoroutine(WaitforDeathMessage());
-        //        StateManager.instance.ToggleLostMenu(true, StateManager.instance.textToShow);
     }
 
-    public override void ExitState(StateManager manager)
-    {
-        
-    }
+    public override void ExitState(StateManager manager) { }
 
-    public override void UpdateState(StateManager manager)
-    {
-        
-    }
+    public override void UpdateState(StateManager manager) { }
 
+    /// <summary>
+    /// Shoes the Lost Game Menu for a set amount of time and then shows the high score
+    /// </summary>
+    /// <returns>enumerator</returns>
     public IEnumerator WaitforDeathMessage()
     {
         StateManager.instance.ToggleLostMenu(true, StateManager.instance.textToShow);

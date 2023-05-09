@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialStateManager : MonoBehaviour
@@ -35,8 +31,7 @@ public class TutorialStateManager : MonoBehaviour
     private string activeSubtitle;
     private int clipIndex = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (Instance == null)
         {
@@ -62,8 +57,7 @@ public class TutorialStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         currentState.UpdateState(this);
         CheckToSkipTutorial();
@@ -77,6 +71,9 @@ public class TutorialStateManager : MonoBehaviour
         source.Play();
     }
 
+    /// <summary>
+    /// Gets the next clip in the tutorial and sets it as the audiosource's clip
+    /// </summary>
     public void NextAudioClip()
     {
         clipIndex++;
@@ -86,21 +83,34 @@ public class TutorialStateManager : MonoBehaviour
         source.clip = activeClip;
     }
 
+    /// <summary>
+    /// Skips the tutorial if the user pressed T
+    /// </summary>
     private void CheckToSkipTutorial()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            
             SwitchStates(tutorialEnd);
-            // TEMPORARY muting audiosource until leo adds exit tutorial VO
             LoadGame();
         }
     }
 
+    /// <summary>
+    /// Loads into the main game
+    /// </summary>
     public void LoadGame()
     {
         mainMenuManager.gameObject.SetActive(true);
-        source.volume = 0;
+        mainMenuManager.GetComponent<Image>().enabled = false;
+
+
+        foreach (Transform item in mainMenuManager.gameObject.transform)
+        {
+            item.gameObject.SetActive(false);
+        }
+    
+        source.Stop();
+        subtitleText.gameObject.SetActive(false);
         mainMenuManager.LoadNextScene();
     }
 }
