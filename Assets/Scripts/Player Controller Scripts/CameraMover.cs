@@ -27,6 +27,18 @@ public class CameraMover : MonoBehaviour
         set { isPaused = value; } 
     }
 
+    public float SensitivityX
+    {
+        get { return sensitivityX; }
+        set { sensitivityX = value; }
+    }
+
+    public float SensitivityY
+    {
+        get { return sensitivityY; }
+        set { sensitivityY = value; }
+    }
+
     private void Awake()
     {
         cam = Camera.main;
