@@ -11,8 +11,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button startGameButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitGameButton;
+    [SerializeField] private Button creditsButton;
 
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject creditsPanel;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private GameObject pauseMenu;
 
@@ -39,6 +41,15 @@ public class MainMenuManager : MonoBehaviour
         if(transitionImage != null)
         {
             transitionImage.gameObject.SetActive(false);
+        }
+
+        if(creditsButton != null)
+        {
+            creditsButton.onClick.AddListener(() =>
+            {
+                settingsPanel.SetActive(false);
+                creditsPanel.SetActive(true);
+            });
         }
     }
 
@@ -77,6 +88,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void ExitSettings()
     {
+        creditsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         if(titleText != null)
         {
