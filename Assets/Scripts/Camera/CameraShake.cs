@@ -17,7 +17,7 @@ public class CameraShake : MonoBehaviour
     Vector3 originalPos;
     float startingShakeDuration;
 
-    void Awake()
+    private void Awake()
     {
         startingShakeDuration = shakeDuration;
 
@@ -27,7 +27,7 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         originalPos = camTransform.localPosition;
         ActionList.OnBugKilled += ShakeCamera;
@@ -43,6 +43,10 @@ public class CameraShake : MonoBehaviour
         StartCoroutine(Shake());
     }
 
+    /// <summary>
+    /// Shakes the camera at a configurable intensity for a configurable amount of time and then returns camera to original position
+    /// </summary>
+    /// <returns>enumerator</returns>
     private IEnumerator Shake()
     {
         while(shakeDuration > 0)

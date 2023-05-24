@@ -11,8 +11,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button startGameButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitGameButton;
+    [SerializeField] private Button creditsButton;
 
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject creditsPanel;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private GameObject pauseMenu;
 
@@ -40,6 +42,15 @@ public class MainMenuManager : MonoBehaviour
         {
             transitionImage.gameObject.SetActive(false);
         }
+
+        if(creditsButton != null)
+        {
+            creditsButton.onClick.AddListener(() =>
+            {
+                settingsPanel.SetActive(false);
+                creditsPanel.SetActive(true);
+            });
+        }
     }
 
     private void OnEnable()
@@ -47,11 +58,17 @@ public class MainMenuManager : MonoBehaviour
         playerInputManager = FindObjectOfType<InputManager>();
     }
 
+    /// <summary>
+    /// Loads the first playable scene of the game 
+    /// </summary>
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
+    /// <summary>
+    /// enables the settings panel and disables any title text/buttons or other pause menus that exist in the scene
+    /// </summary>
     public void EnterSettings()
     {
         settingsPanel.SetActive(true);
@@ -66,8 +83,12 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Disables the settings panel and enables any title text/buttons or other pause menus that exist in the scene
+    /// </summary>
     public void ExitSettings()
     {
+        creditsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         if(titleText != null)
         {
@@ -80,6 +101,9 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Pauses the game and disables player movement
+    /// </summary>
     public void Pause()
     {
         this.gameObject.SetActive(true);
@@ -88,6 +112,9 @@ public class MainMenuManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    /// <summary>
+    /// Resumes the game and enables player movement
+    /// </summary>
     public void Resume()
     {
         Time.timeScale = 1f;
@@ -96,11 +123,17 @@ public class MainMenuManager : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Quits the game if the game is being played in an build
+    /// </summary>
     public void QuitGame()
     {
         Application.Quit();
     }
 
+    /// <summary>
+    /// Quits out from the game back into the main menu
+    /// </summary>
     public void QuitToMenu()
     {
         if (Time.timeScale < 0.1f)
@@ -110,6 +143,10 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Toggles all buttons on and off based on the provided toggle boolean value
+    /// </summary>
+    /// <param name="toggle">bool</param>
     private void ToggleButtons(bool toggle)
     {
         if(buttons != null)
@@ -121,6 +158,9 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the next scene after finishing any scene transition behavior
+    /// </summary>
     public void LoadNextScene()
     {
         if(transitionImage != null)
@@ -145,7 +185,10 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-
+    /// <summary>
+    /// fades a scene to darkness at a configurable rate
+    /// </summary>
+    /// <returns>enumerator</returns>
     private IEnumerator FadeOut()
     {
         while (transitionImage.color.a < 1)
@@ -156,7 +199,6 @@ public class MainMenuManager : MonoBehaviour
 
             if(titleText != null)
             {
-                //titleText.transform.Rotate(0f, 0f, 1.5f);
                 titleText.transform.position += new Vector3(0f, 1.5f, 0f);
             }
 
@@ -171,6 +213,10 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(LoadNextSceneCoroutine());
     }
 
+    /// <summary>
+    /// Loads the next scene of the game, if it is the last scene in the game then loads the first scene
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LoadNextSceneCoroutine()
     {
         while (transitionImage.color.a < 1)

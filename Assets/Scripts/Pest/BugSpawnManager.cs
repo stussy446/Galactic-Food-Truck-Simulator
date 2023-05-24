@@ -1,26 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BugSpawnManager : MonoBehaviour
 {
-    //[SerializeField] private GameObject bugPrefab;
-
     private AudioSource source;
 
     private float spawnTimer;
     private float minTimer = 20f;
     private float maxTimer = 25f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ResetSpawnTimer(minTimer, maxTimer);
         source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (GameManager.instance.gamePaused == true)
             return;
@@ -36,9 +31,13 @@ public class BugSpawnManager : MonoBehaviour
             bug.transform.position = new RandomMovePosition().position;
             bug.SetActive(true);
         }
-        //Instantiate(bugPrefab, new RandomMovePosition().position, bugPrefab.transform.rotation);
     }
-
+    
+    /// <summary>
+    /// Resets the bug spawn timer based on a randomly generated time
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
     private void ResetSpawnTimer(float min, float max)
     {
         minTimer *= 0.95f;

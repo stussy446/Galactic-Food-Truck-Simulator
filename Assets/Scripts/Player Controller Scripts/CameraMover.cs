@@ -1,6 +1,4 @@
-using UnityEditor;
 using UnityEngine;
-
 public class CameraMover : MonoBehaviour
 {
     private const string CAN_INTERACT_LAYER = "CanInteract";
@@ -27,6 +25,18 @@ public class CameraMover : MonoBehaviour
     {
         get { return isPaused; }
         set { isPaused = value; } 
+    }
+
+    public float SensitivityX
+    {
+        get { return sensitivityX; }
+        set { sensitivityX = value; }
+    }
+
+    public float SensitivityY
+    {
+        get { return sensitivityY; }
+        set { sensitivityY = value; }
     }
 
     private void Awake()

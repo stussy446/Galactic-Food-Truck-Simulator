@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class HighScoreManager : MonoBehaviour
 {
-
     [SerializeField] private List<TMP_Text> topTen;
     [SerializeField] private GameObject highScoreWindow;
     [SerializeField] private TMP_Text nameInput;
@@ -15,17 +13,11 @@ public class HighScoreManager : MonoBehaviour
     private List<string> highScoreList;
     private string fillerLine = "BLANK";
     private int thresholdScore;
-    private string newHighScoreEntry;
-
     private int currentScore;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    /// <summary>
+    /// Enables the scoreboard with the appropriate list of high scores
+    /// </summary>
     public void EnableScoreboard()
     {
         currentScore = highScoreTracker.GetTotalScore();
@@ -41,6 +33,10 @@ public class HighScoreManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Get a list of a configurable amount of players with the highest scores 
+    /// </summary>
+    /// <param name="limit">int</param>
     public void GetHighScores(int limit)
     {
         highScoreList = SqliteScript.GetScoreTable(limit);
@@ -55,6 +51,9 @@ public class HighScoreManager : MonoBehaviour
         thresholdScore = Int32.Parse(scoreLine[1]);
     }
 
+    /// <summary>
+    /// populates the high score list
+    /// </summary>
     private void PopulateList()
     {
         string[] scoreLine;
@@ -73,11 +72,26 @@ public class HighScoreManager : MonoBehaviour
         }
     }
 
+    public void OnTextChange(string text)
+    {
+        if (text.EndsWith("\n"))
+        {
+            nameInput.text.Remove(nameInput.text.Length - 1);
+            OnConfirmClicked();
+        }
+    }
+
+    /// <summary>
+    /// Enables the high score window
+    /// </summary>
     private void EnterNewHighScore()
     {
         highScoreWindow.SetActive(true); 
     }
 
+    /// <summary>
+    /// Inserts new high score entry into the high score table
+    /// </summary>
     public void OnConfirmClicked()
     {
         string inputLine = "'" + nameInput.text + "','" + currentScore.ToString() + "'";

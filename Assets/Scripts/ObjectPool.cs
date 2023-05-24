@@ -51,6 +51,17 @@ public class ObjectPool : MonoBehaviour
             }
         }
 
+        foreach(PoolItem item in poolObjects)
+        {
+            if (item.objectToPool.tag == objectname)
+            {
+                GameObject temp = Instantiate(item.objectToPool);
+                temp.SetActive(false);
+                poolable.Add(temp);
+                return temp;
+            }
+        }
+
         return null;
     }
 

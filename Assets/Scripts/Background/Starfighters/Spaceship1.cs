@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spaceship1 : MonoBehaviour
@@ -9,12 +7,9 @@ public class Spaceship1 : MonoBehaviour
     [SerializeField] private float zAmplitude;
     [SerializeField] private float xspeed, yspeed, zspeed;
 
-
     private Vector3 lookDirection;
     private Vector3 oldPosition;
     private float fireRate;
- 
-
 
     private void Awake()
     {
@@ -25,18 +20,16 @@ public class Spaceship1 : MonoBehaviour
         yspeed = Random.Range(1f, 3f);
         zspeed = Random.Range(1f, 3f);
         fireRate = Random.Range(1f, 3f);
-
     }
 
-    void Start()
+    private void Start()
     {
         oldPosition = transform.position;
         
         InvokeRepeating("FireExplosion", fireRate, fireRate);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var x = xAmplitude * Mathf.Sin(xspeed* Time.timeSinceLevelLoad);
         var y = yAmplitude * Mathf.Cos(yspeed * Time.timeSinceLevelLoad);
@@ -48,10 +41,12 @@ public class Spaceship1 : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookDirection);
 
         oldPosition = transform.position;
-
     }
 
-    void FireExplosion()
+    /// <summary>
+    /// Gets an explosion object from the pool, enables the object and plays its particlesysten
+    /// </summary>
+    private void FireExplosion()
     {
         GameObject explosion = ObjectPool.SharedInstance.GetObject("explosion");
         if (explosion != null)

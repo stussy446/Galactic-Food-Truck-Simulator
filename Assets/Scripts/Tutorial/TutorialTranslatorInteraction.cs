@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialTranslatorInteraction : TutorialAbstract
@@ -9,7 +7,6 @@ public class TutorialTranslatorInteraction : TutorialAbstract
     public override void EnterState(TutorialStateManager manager)
     {
         manager.translator.layer = LayerMask.NameToLayer(CAN_INTERACT);
-        // Play VO explaining the translator
     }
 
     public override void ExitState(TutorialStateManager manager)

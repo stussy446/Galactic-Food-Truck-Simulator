@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// Game State for when user is simply walking around the environment.
@@ -34,8 +33,6 @@ public class FreeRoamingState : StateAbstract
         {
             MenuManager.Instance.ActivateMenu(MenuType.Start);
         }
-
-        Debug.Log("Free Roaming");
     }
 
     public override void ExitState(StateManager manager)
