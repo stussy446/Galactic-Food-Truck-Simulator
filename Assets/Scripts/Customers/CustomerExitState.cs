@@ -17,7 +17,7 @@ public class CustomerExitState : CustomerBaseState
        //Intializing variables from CustomerStateManager
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
-        exitPos = customerState.customerExitLocation.transform.position;
+        exitPos = customerState.CustomerExitLocation.transform.position;
         customerSpeed = customerState.customer.CustomerSpeed;
 
         alienCustomer.transform.position = customerPos;
@@ -38,7 +38,7 @@ public class CustomerExitState : CustomerBaseState
         if(alienCustomer.transform.position == exitPos)
         {
             ActionList.OnCustomerLeft(ActionType.CustomerLeft);
-            alienCustomer.transform.position = customerState.customerResetLocation.transform.position; 
+            alienCustomer.transform.position = customerState.CustomerResetLocation.transform.position; 
             customerState.customer.OnCharacterExit();
             ExitState(customerState);
         }
@@ -51,6 +51,7 @@ public class CustomerExitState : CustomerBaseState
     public override void ExitState(CustomerStateManager customerState)
     {
         customerState.customer.DestroyModel();
-        customerState.SwitchState(customerState.waitingInLineState);
+        customerState.SwitchState(customerState.WaitingInLineState);
     }
+
 }
