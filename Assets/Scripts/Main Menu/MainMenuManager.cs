@@ -140,6 +140,8 @@ public class MainMenuManager : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+        CustomerStateManager.instance.DestroyStates();
+        Destroy(CustomerStateManager.instance);
         SceneManager.LoadScene(0);
     }
 

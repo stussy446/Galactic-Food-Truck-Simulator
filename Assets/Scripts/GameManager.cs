@@ -41,11 +41,15 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        CustomerStateManager.instance.DestroyStates();
+        Destroy(CustomerStateManager.instance);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitGame()
     {
+        CustomerStateManager.instance.DestroyStates();
+        Destroy(CustomerStateManager.instance);
         SceneManager.LoadScene(0);
     }
 }

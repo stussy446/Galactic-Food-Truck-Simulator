@@ -20,7 +20,7 @@ public class WaitingInLineState : CustomerBaseState
         alienCustomer = customerState.customer.CustomerPrefab;
         currentTime = startingTime;
         customerPos = alienCustomer.transform.position;
-        customerSpawnPos = customerState.customerResetLocation.transform.position;
+        customerSpawnPos = customerState.CustomerResetLocation.transform.position;
         customerState.customer.SetUpCustomer(customerState.customer.GetRandomCustomer());
 
         if (customerPos != customerSpawnPos)
@@ -45,7 +45,7 @@ public class WaitingInLineState : CustomerBaseState
 
     public override void ExitState(CustomerStateManager customerState)
     {
-        customerState.SwitchState(customerState.orderingState);
+        customerState.SwitchState(customerState.OrderingState);
 
     }
 }

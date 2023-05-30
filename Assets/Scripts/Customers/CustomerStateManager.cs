@@ -9,26 +9,50 @@ public class CustomerStateManager : MonoBehaviour
     [HideInInspector] public Customer customer;
 
     [Header("Customer States")]
-    public CustomerBaseState currentCustomerState;
-    public  WaitingInLineState waitingInLineState = new WaitingInLineState();
-    public  OrderingState orderingState = new OrderingState();
-    public CustomerExitState customerExitState = new CustomerExitState();
+    private CustomerBaseState currentCustomerState;
+    private  WaitingInLineState waitingInLineState;
+    private  OrderingState orderingState;
+    private CustomerExitState customerExitState;
 
     [Header("Location GameObjects")]
     [SerializeField]
-    public GameObject customerResetLocation;
+    private GameObject customerResetLocation;
     [SerializeField]
-    public GameObject orderingLocation;
+    private GameObject orderingLocation;
     [SerializeField]
-    public GameObject customerExitLocation;
+    private GameObject customerExitLocation;
 
-    private void Start()
+    public GameObject OrderingLocation { get { return orderingLocation; } }
+    public CustomerExitState CustomerExitState { get { return customerExitState; } }
+
+    public GameObject CustomerExitLocation { get { return customerExitLocation; } }
+    public GameObject CustomerResetLocation { get { return customerResetLocation; } }
+
+    public WaitingInLineState WaitingInLineState { get { return waitingInLineState; } }
+
+    public OrderingState OrderingState { get { return orderingState; } }
+
+    private void Awake()
     {
-        if(instance == null)
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
         {
             instance = this;
         }
 
+        waitingInLineState = new WaitingInLineState();
+        orderingState = new OrderingState();
+        customerExitState = new CustomerExitState();
+
+    }
+
+
+    private void Start()
+    {
+        
         customer = GetComponent<Customer>();
         currentCustomerState = waitingInLineState;
         currentCustomerState.EnterState(this);
@@ -51,5 +75,14 @@ public class CustomerStateManager : MonoBehaviour
    void ToCustomerOrder(ActionType actionType)
     {
         SwitchState(orderingState);
+    }
+
+    public void DestroyStates()
+    {
+        waitingInLineState = null;
+        orderingState.Disable();
+        orderingState = null;
+        customerExitState = null;
+        currentCustomerState = null;
     }
 }

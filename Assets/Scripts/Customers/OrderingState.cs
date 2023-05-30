@@ -33,7 +33,7 @@ public class OrderingState : CustomerBaseState
 
         alienCustomer = customerState.customer.CustomerPrefab;
         customerPos = alienCustomer.transform.position;
-        orderPos = customerState.orderingLocation.transform.position;
+        orderPos = customerState.OrderingLocation.transform.position;
         customerSpeed = customerState.customer.CustomerSpeed;
         customerOrderVO = customerState.customer.GetCurrentCustomer();
         audioSource = customerState.customer.CustomerAudioSource;
@@ -85,8 +85,13 @@ public class OrderingState : CustomerBaseState
         ActionList.OnCustomerOrdered -= OnCustomerInteract;
         customerLight.gameObject.SetActive(false);
         boxOpener.OpenBox();
-        customerState.SwitchState(customerState.customerExitState);
+        customerState.SwitchState(customerState.CustomerExitState);
+    }
 
+    public void Disable()
+    {
+        ActionList.OnDoneReplicatingFood -= ToCustomerExitState;
+        ActionList.OnCustomerOrdered -= OnCustomerInteract;
     }
 }
 
